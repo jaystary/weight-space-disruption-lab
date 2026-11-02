@@ -70,4 +70,6 @@ Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/
 
 ## Mechanistic investigation
 
-[Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
+[Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. Both diagrams use a dark palette in SVG and PNG formats. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
+
+![Measured influence map](docs/influence-map.svg)

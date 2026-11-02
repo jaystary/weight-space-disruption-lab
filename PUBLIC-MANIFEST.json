@@ -13,7 +13,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "115acd26128a56271a88c0e9dd2cc9734a30931c596c4c30daec95bcc830561b"
+      "sha256": "5addb981f7029cfe52d24938efeb9e6e5b111041f6987050156a9abbedde1084"
     },
     {
       "path": "RESEARCH-LOG.md",
@@ -25,19 +25,19 @@
     },
     {
       "path": "docs/experiment-setup.png",
-      "sha256": "cb7ee63931165da92205666144b127ff9e8588105d2768ff646cfb690d26a631"
+      "sha256": "71d155ac85d012875a49f9b2b75290cdf94f7fe841906d1c5f8d75b0307fc0c3"
     },
     {
       "path": "docs/experiment-setup.svg",
-      "sha256": "e9ca0d5d3bb44c8101050eb4d07ce0731e3057a0719ecc5a6ac8fcb94c7550bd"
+      "sha256": "341200cc8a194584090e8ab2267e8698fef6f949fe1c0278e8b5fd7082832a5e"
     },
     {
       "path": "docs/influence-map.png",
-      "sha256": "602b7715aa9135a797b13562afda156b814ae46063ca1b888871ebbbfa006c78"
+      "sha256": "8e63559291fc3bdd1c689a054f3fb4b081ea86290b76d95d706e9fc532c8e910"
     },
     {
       "path": "docs/influence-map.svg",
-      "sha256": "560e90e11c96539ccb809d5dbad1f9db325e5a1ec5b813da385ebaa9d0dd5f1a"
+      "sha256": "6e5e2091e9fc6f8b0f12d249ea45f00022a266d3e6c6279a681f31d172da7007"
     },
     {
       "path": "prompts/mechanistic-researcher-v1.md",
@@ -149,7 +149,7 @@
     },
     {
       "path": "tools/render_influence_map.py",
-      "sha256": "fecdf117727dc6fc0eaade7188ffdae6d060e78030ae489569cbd7434c1950b6"
+      "sha256": "848bbd77d8832a36d1e87dd69d5aa8403a859990482571b455cec8ebd99c2c2a"
     },
     {
       "path": "tools/weight_space_lab/__init__.py",

@@ -15,13 +15,13 @@ assert trace['training_probe_examples']==8 and trace['forward_calls']==24
 parts=['''<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1240" viewBox="0 0 1600 1240" role="img" aria-labelledby="title desc">
 <title id="title">Measured influence map of sparse weight interventions</title>
 <desc id="desc">Two tested edit families target the last MLP. Strong contrast reinforcement repairs six validation errors but breaks twenty-one correct predictions. Best error-direction ablation repairs one and breaks none. Earlier layers are untested intervention sites. Training traces and validation outcomes are separate populations. A separate native gate probe repairs one training error and breaks two.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#687889"/></marker></defs>
-<style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#173047}.title{font-size:36px;font-weight:700}.h{font-size:24px;font-weight:700}.body{font-size:19px}.small{font-size:16px;fill:#536879}.tiny{font-size:14px;fill:#536879}.value{font-size:21px;font-weight:700}.label{font-size:14px;font-weight:700;letter-spacing:1.4px;fill:#536879}.edge{fill:none;stroke:#687889;stroke-width:2;marker-end:url(#arrow)}</style>
-<rect width="1600" height="1240" fill="#f6f8fb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8fa4bd"/></marker></defs>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#e7edf7}.title{font-size:36px;font-weight:700}.h{font-size:24px;font-weight:700}.body{font-size:19px}.small{font-size:16px;fill:#a7bbd1}.tiny{font-size:14px;fill:#a7bbd1}.value{font-size:21px;font-weight:700}.label{font-size:14px;font-weight:700;letter-spacing:1.4px;fill:#a7bbd1}.edge{fill:none;stroke:#8fa4bd;stroke-width:2;marker-end:url(#arrow)}</style>
+<rect width="1600" height="1240" fill="#0b1220"/>
 ''']
 def txt(x,y,s,cls='body',anchor='start',color=None):
     parts.append(f'<text x="{x}" y="{y}" class="{cls}" text-anchor="{anchor}"'+(f' style="fill:{color}"' if color else '')+'>'+escape(str(s))+'</text>')
-def rect(x,y,w,h,fill='#ffffff',stroke='#dce3eb'):
+def rect(x,y,w,h,fill='#111d2e',stroke='#304158'):
     parts.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="{fill}" stroke="{stroke}"/>')
 def edge(x1,y1,x2,y2):parts.append(f'<path class="edge" d="M{x1},{y1} L{x2},{y2}"/>')
 txt(48,60,'What moves what?', 'title')
@@ -32,7 +32,7 @@ nodes=[(48,155,150,'Input','Fixed text'),(239,155,215,'Layers 0–30','No edits 
        (495,155,252,'Layer 31 · MLP','96 columns / family'),(788,155,212,'Residual + norm','Activation trace'),
        (1041,155,213,'Fixed output head','Ten class logits'),(1295,155,257,'Decision','Repairs / regressions')]
 for x,y,w,title,sub in nodes:
-    rect(x,y,w,100,'#e5edf9' if x==495 else '#ffffff')
+    rect(x,y,w,100,'#1a3153' if x==495 else '#111d2e')
     txt(x+16,y+39,title,'body' if x in (788,1041) else 'h');txt(x+16,y+73,sub,'small')
 for left,right in zip(nodes,nodes[1:]):edge(left[0]+left[2]+5,205,right[0]-7,205)
 txt(48,285,'Solid arrows: computational path. Effects measured after the intervention; semantic roles still unresolved.','small')
@@ -46,21 +46,21 @@ for x,family,title,unit in [(48,'contrast','Class-contrast reinforcement','Stren
     rows=sorted([r for r in diag['candidates'] if r['name'].startswith(family+'-')],key=lambda r:float(r['name'].rsplit('-',1)[1]))
     for i,row in enumerate(rows):
         y=481+34*i;name=row['name'];value=metrics[name]
-        if name=='error-ablation-2':rect(x+12,y-23,704,31,'#e5f3eb','#e5f3eb')
+        if name=='error-ablation-2':rect(x+12,y-23,704,31,'#163b30','#163b30')
         for content,offset,color in [(name.rsplit('-',1)[1],22,None),(row['predictions_changed'],180,None),
-                (row['wrong_to_correct'],310,'#236c4d'),(row['correct_to_wrong'],440,'#a43a38'),
+                (row['wrong_to_correct'],310,'#8bd9b0'),(row['correct_to_wrong'],440,'#ff9f98'),
                 (f"{value['balanced_accuracy']*100:.2f}%",570,None)]:txt(x+offset,y,content,'body',color=color)
 txt(48,690,f"Validation: 80 groups. Baseline balanced accuracy {dev['baseline']['balanced_accuracy']*100:.2f}%. Changed includes wrong → different wrong.",'small')
 txt(48,730,'03   WHERE THE INTERNAL STATE MOVED','label')
 rect(48,750,1504,166)
 txt(70,781,'Separate training trace: eight fixed examples, final-token residual, mean relative L2 change','small')
 txt(540,815,'Earlier layers 0–30','small');txt(1240,815,'Final layer 31','small')
-for i,(arm,label,color) in enumerate([('best','Best edit','#3c8b6c'),('strong-contrast','Strong contrast','#c56659')]):
+for i,(arm,label,color) in enumerate([('best','Best edit','#65cba1'),('strong-contrast','Strong contrast','#ee897e')]):
     row=next(r for r in trace['layers'] if r['arm']==arm)
     values=row['mean_relative_l2_by_layer'];assert len(values)==32
     assert max(values[:-1])<1e-6
     y=836+i*40;txt(70,y+9,label,'body')
-    for j in range(31):rect(280+j*28,y-11,21,23,'#e0e6ed','#e0e6ed')
+    for j in range(31):rect(280+j*28,y-11,21,23,'#304158','#304158')
     rect(1170,y-11,45,23,color,color)
     txt(1240,y+9,f'{values[-1]*100:.3f}%','value')
     txt(1390,y+9,'state change','small')
