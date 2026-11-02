@@ -13,7 +13,7 @@
   <text x="48" y="99" class="subtitle">Cause classification from disruption text · current research setup · 2 November 2026</text>
   <rect x="350" y="145" width="1202" height="860" rx="24" fill="#edf3fb" stroke="#b4c8df" stroke-width="2"/>
   <text x="383" y="184" class="h">Remote worker</text>
-  <text x="493" y="182" class="small">Inference, feature fitting, bounded edits and scoring</text>
+  <text x="650" y="182" class="small">Inference, feature fitting, bounded edits and scoring</text>
 
   <rect x="48" y="145" width="265" height="290" rx="18" class="box"/>
   <text x="72" y="179" class="eyebrow">LOCAL WORKSPACE</text>

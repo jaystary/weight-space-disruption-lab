@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1240" viewBox="0 0 1600 1240" role="img" aria-labelledby="title desc">
+<title id="title">Measured influence map of sparse weight interventions</title>
+<desc id="desc">Two tested edit families target the last MLP. Strong contrast reinforcement repairs six validation errors but breaks twenty-one correct predictions. Best error-direction ablation repairs one and breaks none. Earlier layers are untested intervention sites. Training traces and validation outcomes are separate populations. A separate native gate probe repairs one training error and breaks two.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#687889"/></marker></defs>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#173047}.title{font-size:36px;font-weight:700}.h{font-size:24px;font-weight:700}.body{font-size:19px}.small{font-size:16px;fill:#536879}.tiny{font-size:14px;fill:#536879}.value{font-size:21px;font-weight:700}.label{font-size:14px;font-weight:700;letter-spacing:1.4px;fill:#536879}.edge{fill:none;stroke:#687889;stroke-width:2;marker-end:url(#arrow)}</style>
+<rect width="1600" height="1240" fill="#f6f8fb"/>
+
+<text x="48" y="60" class="title" text-anchor="start">What moves what?</text>
+<text x="48" y="96" class="body" text-anchor="start">Measured influence map · 4B checkpoint · ten direct edits · task-local evidence</text>
+<text x="1552" y="58" class="tiny" text-anchor="end">DEVELOPMENT / NOT INDEPENDENTLY QUALIFIED</text>
+<text x="48" y="132" class="label" text-anchor="start">01   THE PATH WE HAVE TESTED</text>
+<rect x="48" y="155" width="150" height="100" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="64" y="194" class="h" text-anchor="start">Input</text>
+<text x="64" y="228" class="small" text-anchor="start">Fixed text</text>
+<rect x="239" y="155" width="215" height="100" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="255" y="194" class="h" text-anchor="start">Layers 0–30</text>
+<text x="255" y="228" class="small" text-anchor="start">No edits here</text>
+<rect x="495" y="155" width="252" height="100" rx="10" fill="#e5edf9" stroke="#dce3eb"/>
+<text x="511" y="194" class="h" text-anchor="start">Layer 31 · MLP</text>
+<text x="511" y="228" class="small" text-anchor="start">96 columns / family</text>
+<rect x="788" y="155" width="212" height="100" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="804" y="194" class="body" text-anchor="start">Residual + norm</text>
+<text x="804" y="228" class="small" text-anchor="start">Activation trace</text>
+<rect x="1041" y="155" width="213" height="100" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="1057" y="194" class="body" text-anchor="start">Fixed output head</text>
+<text x="1057" y="228" class="small" text-anchor="start">Ten class logits</text>
+<rect x="1295" y="155" width="257" height="100" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="1311" y="194" class="h" text-anchor="start">Decision</text>
+<text x="1311" y="228" class="small" text-anchor="start">Repairs / regressions</text>
+<path class="edge" d="M203,205 L232,205"/>
+<path class="edge" d="M459,205 L488,205"/>
+<path class="edge" d="M752,205 L781,205"/>
+<path class="edge" d="M1005,205 L1034,205"/>
+<path class="edge" d="M1259,205 L1288,205"/>
+<text x="48" y="285" class="small" text-anchor="start">Solid arrows: computational path. Effects measured after the intervention; semantic roles still unresolved.</text>
+<text x="48" y="325" class="label" text-anchor="start">02   TWO KNOBS, DIFFERENT TRADEOFFS</text>
+<rect x="48" y="347" width="728" height="312" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="70" y="383" class="h" text-anchor="start">Class-contrast reinforcement</text>
+<text x="70" y="411" class="small" text-anchor="start">Strength = training median residual fraction</text>
+<text x="70" y="447" class="small" text-anchor="start">Strength</text>
+<text x="228" y="447" class="small" text-anchor="start">Changed</text>
+<text x="358" y="447" class="small" text-anchor="start">Repaired</text>
+<text x="488" y="447" class="small" text-anchor="start">Broken</text>
+<text x="618" y="447" class="small" text-anchor="start">Bal. acc.</text>
+<text x="70" y="481" class="body" text-anchor="start">0.01</text>
+<text x="228" y="481" class="body" text-anchor="start">4</text>
+<text x="358" y="481" class="body" text-anchor="start" style="fill:#236c4d">1</text>
+<text x="488" y="481" class="body" text-anchor="start" style="fill:#a43a38">2</text>
+<text x="618" y="481" class="body" text-anchor="start">40.25%</text>
+<text x="70" y="515" class="body" text-anchor="start">0.03</text>
+<text x="228" y="515" class="body" text-anchor="start">8</text>
+<text x="358" y="515" class="body" text-anchor="start" style="fill:#236c4d">1</text>
+<text x="488" y="515" class="body" text-anchor="start" style="fill:#a43a38">3</text>
+<text x="618" y="515" class="body" text-anchor="start">38.82%</text>
+<text x="70" y="549" class="body" text-anchor="start">0.1</text>
+<text x="228" y="549" class="body" text-anchor="start">21</text>
+<text x="358" y="549" class="body" text-anchor="start" style="fill:#236c4d">3</text>
+<text x="488" y="549" class="body" text-anchor="start" style="fill:#a43a38">6</text>
+<text x="618" y="549" class="body" text-anchor="start">37.22%</text>
+<text x="70" y="583" class="body" text-anchor="start">0.3</text>
+<text x="228" y="583" class="body" text-anchor="start">46</text>
+<text x="358" y="583" class="body" text-anchor="start" style="fill:#236c4d">6</text>
+<text x="488" y="583" class="body" text-anchor="start" style="fill:#a43a38">15</text>
+<text x="618" y="583" class="body" text-anchor="start">32.29%</text>
+<text x="70" y="617" class="body" text-anchor="start">1</text>
+<text x="228" y="617" class="body" text-anchor="start">62</text>
+<text x="358" y="617" class="body" text-anchor="start" style="fill:#236c4d">6</text>
+<text x="488" y="617" class="body" text-anchor="start" style="fill:#a43a38">21</text>
+<text x="618" y="617" class="body" text-anchor="start">33.86%</text>
+<rect x="824" y="347" width="728" height="312" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="846" y="383" class="h" text-anchor="start">Error-direction ablation</text>
+<text x="846" y="411" class="small" text-anchor="start">Strength = direction-removal multiplier</text>
+<text x="846" y="447" class="small" text-anchor="start">Strength</text>
+<text x="1004" y="447" class="small" text-anchor="start">Changed</text>
+<text x="1134" y="447" class="small" text-anchor="start">Repaired</text>
+<text x="1264" y="447" class="small" text-anchor="start">Broken</text>
+<text x="1394" y="447" class="small" text-anchor="start">Bal. acc.</text>
+<text x="846" y="481" class="body" text-anchor="start">0.1</text>
+<text x="1004" y="481" class="body" text-anchor="start">0</text>
+<text x="1134" y="481" class="body" text-anchor="start" style="fill:#236c4d">0</text>
+<text x="1264" y="481" class="body" text-anchor="start" style="fill:#a43a38">0</text>
+<text x="1394" y="481" class="body" text-anchor="start">45.25%</text>
+<text x="846" y="515" class="body" text-anchor="start">0.3</text>
+<text x="1004" y="515" class="body" text-anchor="start">1</text>
+<text x="1134" y="515" class="body" text-anchor="start" style="fill:#236c4d">0</text>
+<text x="1264" y="515" class="body" text-anchor="start" style="fill:#a43a38">0</text>
+<text x="1394" y="515" class="body" text-anchor="start">45.25%</text>
+<text x="846" y="549" class="body" text-anchor="start">0.5</text>
+<text x="1004" y="549" class="body" text-anchor="start">1</text>
+<text x="1134" y="549" class="body" text-anchor="start" style="fill:#236c4d">0</text>
+<text x="1264" y="549" class="body" text-anchor="start" style="fill:#a43a38">0</text>
+<text x="1394" y="549" class="body" text-anchor="start">45.25%</text>
+<text x="846" y="583" class="body" text-anchor="start">1</text>
+<text x="1004" y="583" class="body" text-anchor="start">0</text>
+<text x="1134" y="583" class="body" text-anchor="start" style="fill:#236c4d">0</text>
+<text x="1264" y="583" class="body" text-anchor="start" style="fill:#a43a38">0</text>
+<text x="1394" y="583" class="body" text-anchor="start">45.25%</text>
+<rect x="836" y="594" width="704" height="31" rx="10" fill="#e5f3eb" stroke="#e5f3eb"/>
+<text x="846" y="617" class="body" text-anchor="start">2</text>
+<text x="1004" y="617" class="body" text-anchor="start">1</text>
+<text x="1134" y="617" class="body" text-anchor="start" style="fill:#236c4d">1</text>
+<text x="1264" y="617" class="body" text-anchor="start" style="fill:#a43a38">0</text>
+<text x="1394" y="617" class="body" text-anchor="start">45.68%</text>
+<text x="48" y="690" class="small" text-anchor="start">Validation: 80 groups. Baseline balanced accuracy 45.25%. Changed includes wrong → different wrong.</text>
+<text x="48" y="730" class="label" text-anchor="start">03   WHERE THE INTERNAL STATE MOVED</text>
+<rect x="48" y="750" width="1504" height="166" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="70" y="781" class="small" text-anchor="start">Separate training trace: eight fixed examples, final-token residual, mean relative L2 change</text>
+<text x="540" y="815" class="small" text-anchor="start">Earlier layers 0–30</text>
+<text x="1240" y="815" class="small" text-anchor="start">Final layer 31</text>
+<text x="70" y="845" class="body" text-anchor="start">Best edit</text>
+<rect x="280" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="308" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="336" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="364" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="392" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="420" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="448" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="476" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="504" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="532" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="560" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="588" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="616" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="644" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="672" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="700" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="728" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="756" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="784" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="812" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="840" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="868" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="896" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="924" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="952" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="980" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1008" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1036" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1064" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1092" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1120" y="825" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1170" y="825" width="45" height="23" rx="10" fill="#3c8b6c" stroke="#3c8b6c"/>
+<text x="1240" y="845" class="value" text-anchor="start">0.606%</text>
+<text x="1390" y="845" class="small" text-anchor="start">state change</text>
+<text x="70" y="885" class="body" text-anchor="start">Strong contrast</text>
+<rect x="280" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="308" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="336" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="364" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="392" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="420" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="448" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="476" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="504" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="532" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="560" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="588" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="616" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="644" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="672" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="700" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="728" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="756" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="784" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="812" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="840" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="868" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="896" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="924" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="952" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="980" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1008" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1036" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1064" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1092" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1120" y="865" width="21" height="23" rx="10" fill="#e0e6ed" stroke="#e0e6ed"/>
+<rect x="1170" y="865" width="45" height="23" rx="10" fill="#c56659" stroke="#c56659"/>
+<text x="1240" y="885" class="value" text-anchor="start">98.713%</text>
+<text x="1390" y="885" class="small" text-anchor="start">state change</text>
+<text x="48" y="949" class="label" text-anchor="start">04   NEXT KNOBS TO INVESTIGATE — NOT YET PROVEN</text>
+<rect x="48" y="972" width="482" height="155" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="68" y="1010" class="h" text-anchor="start">Sign-aware selectivity</text>
+<text x="68" y="1045" class="body" text-anchor="start">Gate probe: 138 training examples.</text>
+<text x="68" y="1072" class="body" text-anchor="start">Remove −×−: 1 repair / 2 regressions.</text>
+<text x="68" y="1099" class="body" text-anchor="start">Find context-specific routes next.</text>
+<rect x="559" y="972" width="482" height="155" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="579" y="1010" class="h" text-anchor="start">Direction + selectivity</text>
+<text x="579" y="1045" class="body" text-anchor="start">Strong edit harms more than repairs.</text>
+<text x="579" y="1072" class="body" text-anchor="start">Match successes and failures.</text>
+<text x="579" y="1099" class="body" text-anchor="start">Test which inputs use the route.</text>
+<rect x="1070" y="972" width="482" height="155" rx="10" fill="#ffffff" stroke="#dce3eb"/>
+<text x="1090" y="1010" class="h" text-anchor="start">Location + readout</text>
+<text x="1090" y="1045" class="body" text-anchor="start">Earlier edit sites remain untested.</text>
+<text x="1090" y="1072" class="body" text-anchor="start">Trace where class margin changes.</text>
+<text x="1090" y="1099" class="body" text-anchor="start">Test mechanism before weight edit.</text>
+<text x="48" y="1162" class="small" text-anchor="start">A map of tested interventions, not a full circuit atlas. Final evaluation stays sealed; unrelated capabilities were not tested.</text>
+<text x="48" y="1195" class="tiny" text-anchor="start">Sources: aggregate candidate diagnostics + layer traces. Gate/value hypothesis inspired by Goodfire; see research log.</text>
+</svg>

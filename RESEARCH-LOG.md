@@ -56,3 +56,25 @@ Development evidence; coordinator-executed, not independently qualified. Labels 
 ## Lookup and continuation
 
 Read this log first, then the cited aggregate files and registrations. Append findings with evidence, interpretation, uncertainty and next action; never erase failed attempts. Freeze all selected models, classifiers and edits before opening the shared final set once. Current evidence does not establish reliable weight-space improvement or preservation of unrelated capabilities.
+
+### F07 — Native gate/value probe rejects blanket removal in the tested slice
+
+- Hypothesis: positive products from negative gate/value factors contribute harmful interference in previously selected final-MLP channels.
+- Registered probe: all 138 training records; union of 190 channels from two existing patches; 278 forwards including two synthetic baseline/sham checks. No weight changes, validation access or final access.
+- Evidence: double-negative factors account for 29.52% of selected channel/example pairs and 14.65% of absolute product mass. Removing only these products changed six training predictions: one wrong-to-correct, two correct-to-wrong. Median true-class margin change was zero; p10/p90 were -0.125/+0.125.
+- Guards passed: native product identity, unchanged sham logits and original training prediction replay.
+- Conclusion: this route influences outputs, but blanket removal did not improve this slice. Sign alone is not a harm label. No claim about other channels, token positions, tasks or generalization.
+- Source: `registrations/native-gates-01.json`, `reports/cause-02/native-gates-summary.json`.
+
+### F08 — Literature lead and prompt integration
+
+- Primary source: [Goodfire: Neural Networks Are Already Clean](https://already-clean.goodfire.com/), an informal essay and working hypothesis. Practical lead: inspect native components and split gate/value sign regimes rather than judging their product alone. Broad cleanliness claims remain unverified for this checkpoint. [Discussion](https://news.ycombinator.com/item?id=50105647) is context, not replication.
+- Harness now has `prompts/mechanistic-researcher-v1.md`, plus a renderer that requires its hash in the registration. The adaptive caller uses it only when explicitly pinned; historical registrations retain their historical prompt. No extra editor call was made.
+- Prompt requires falsifiable competing explanations, matched training examples, exact capability boundaries, reversible causal probes, separate repairs/regressions, evidence references and honest unknowns. It does not promise improvement or invent semantic neuron names.
+- Next registered loop can pin this prompt. Existing six-call limit and old failures remain intact.
+
+### F09 — Influence map scope
+
+- `docs/influence-map.svg` links actual final-layer interventions, measured state changes, class margins and validation outcomes. Ten candidate rows are drawn directly from aggregate files; internal traces use a separate eight-example training population.
+- Earlier layers remain untested intervention sites. A zero upstream change is expected for a final-layer edit, not proof those layers are irrelevant.
+- Next useful measurements: context-specific gate routes, matched success/failure traces and discriminating interventions. No full circuit atlas or universal improvement knob has been established.

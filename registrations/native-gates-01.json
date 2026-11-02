@@ -1,0 +1,23 @@
+{
+  "schema": "WSPNativeGateDiagnostic/1",
+  "scope": "Training-only mechanistic diagnostic; no weight edits, candidate selection, validation scoring or final access",
+  "question": "Do positive products from two negative factors in previously selected final-MLP channels materially affect category decisions?",
+  "selection": "All 138 frozen training records, existing order. Channel union from the already evaluated contrast-0.01 and error-ablation-2 patches; no new channel search.",
+  "arms": [
+    "unchanged forward",
+    "zero only selected final-token MLP products whose effective gate and value are both negative"
+  ],
+  "budget": "At most278 full forwards: 2 authored synthetic baseline/sham checks plus 2 per training example. Same total compute/storage budget and 2026-11-03T05:45Z deadline. No editor calls.",
+  "capture": "Final MLP effective gate, value and product separately at last token. Aggregate all four sign regimes, counts and absolute activation mass over selected channels, plus per-channel counts. Private row arrays and IDs remain remote.",
+  "statistics": "Paired training wrong-to-correct/correct-to-wrong counts, prediction changes and true-class margin delta p10/p50/p90; fraction of activation mass in each regime; no success threshold and no generalization claim.",
+  "guards": "Gate-times-value exactly reproduces BF16 down-projection input; sham preserves logits; frozen training and patch hashes; original training predictions agree at replay; hooks removed after every arm and on failure; no checkpoint writes.",
+  "failure": "One output generation, retain error and completed count, no automatic retry. Diagnosis may be null or harmful. Do not promote global double-negative ablation from this local probe.",
+  "inspiration": "https://already-clean.goodfire.com/ — working hypothesis, not evidence about this checkpoint",
+  "label": "development, coordinator-executed, not independently qualified; isolation_unverified",
+  "publication": {
+    "projection": "task-neutral; domain wording, labels and operating locations generalized",
+    "original_private_manifest_sha256": "472102339e1a20251f4976a57da4187899d666643277baed0d15bcf04dd9e297",
+    "bounds_unchanged": true,
+    "exact_private_reproduction_requires_original_manifest": true
+  }
+}

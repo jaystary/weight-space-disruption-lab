@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-11-02T23:06:36.971277+00:00",
-  "canonical_source_commit": "0642465535c86204592063e613a4c821aff42d79",
+  "created_at": "2026-11-02T23:19:30.310336+00:00",
+  "canonical_source_commit": "be70d2a2ca786a5d663bd15451edbf0747f03146",
   "projection": "task-neutral reference; original prompts and labels withheld",
   "files": [
     {
@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "64f4a12ba3b2e5f6fc00ff705472374acc8c925085b129f5bd8e0e6bdd77281e"
+      "sha256": "115acd26128a56271a88c0e9dd2cc9734a30931c596c4c30daec95bcc830561b"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "1f19d5b261b171ea419aa60ebe6aea0ccbd8e4b3028a784ae446e734241e69c9"
+      "sha256": "134fd4360149865cf8f9ff496735b9188384fa97a465dee6cf85cf6d07c90699"
     },
     {
       "path": "constraints.txt",
@@ -25,11 +25,23 @@
     },
     {
       "path": "docs/experiment-setup.png",
-      "sha256": "607419e1d450b1f28c9b9e583c58ad600aec8717d6ffd4f33f4097e654079a08"
+      "sha256": "cb7ee63931165da92205666144b127ff9e8588105d2768ff646cfb690d26a631"
     },
     {
       "path": "docs/experiment-setup.svg",
-      "sha256": "089f5d168d936ea55548d25ccc25a5e76b3882f33a97889270046fb0cfff57ec"
+      "sha256": "e9ca0d5d3bb44c8101050eb4d07ce0731e3057a0719ecc5a6ac8fcb94c7550bd"
+    },
+    {
+      "path": "docs/influence-map.png",
+      "sha256": "602b7715aa9135a797b13562afda156b814ae46063ca1b888871ebbbfa006c78"
+    },
+    {
+      "path": "docs/influence-map.svg",
+      "sha256": "560e90e11c96539ccb809d5dbad1f9db325e5a1ec5b813da385ebaa9d0dd5f1a"
+    },
+    {
+      "path": "prompts/mechanistic-researcher-v1.md",
+      "sha256": "8753fd3e078c284fedce6e96cf1feddc86dd11be1cab9df4f96ada904fac1029"
     },
     {
       "path": "registrations/cause-02-trace.json",
@@ -50,6 +62,10 @@
     {
       "path": "registrations/model-size-01.json",
       "sha256": "2cce060e15a54d4abdbcc12c8f607a0c89fe4e676f1756d86ad962bf8239b6f6"
+    },
+    {
+      "path": "registrations/native-gates-01.json",
+      "sha256": "3a7cde4fe269021a4e0abe17f469c68c5c16375d967e632566729e46e3a2f201"
     },
     {
       "path": "reports/cause-01/REPORT.md",
@@ -74,6 +90,10 @@
     {
       "path": "reports/cause-02/layer-summary.json",
       "sha256": "0dae5bc94375ccc3247b73203a908a5736cb133b06fc03c829915a7e4e47481b"
+    },
+    {
+      "path": "reports/cause-02/native-gates-summary.json",
+      "sha256": "d1382c2c2aa3ca5b5c281274f12d6f348eeb587703a80bf0dc6bd2db280a5337"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -116,8 +136,20 @@
       "sha256": "a0fd6a769b76889516d26056e3e68365cd0e8bc6abbed47da1c7345f9f61254e"
     },
     {
+      "path": "tests/test_native_gates.py",
+      "sha256": "5162f34ba980f9a912fdef6d000c60355b6fd9e4452646417d946f4f66821ad1"
+    },
+    {
+      "path": "tests/test_research_prompt.py",
+      "sha256": "c3244f232d7e63c0a100ac1815d66868ddc9c619202967a44a95df8e2c6e22bf"
+    },
+    {
       "path": "tests/test_trace_effects.py",
       "sha256": "98bb25bb4b0c9149856cff52927f126ba1b479b10d3c42dc025fb49e0b193aad"
+    },
+    {
+      "path": "tools/render_influence_map.py",
+      "sha256": "fecdf117727dc6fc0eaade7188ffdae6d060e78030ae489569cbd7434c1950b6"
     },
     {
       "path": "tools/weight_space_lab/__init__.py",
@@ -129,7 +161,7 @@
     },
     {
       "path": "tools/weight_space_lab/adaptive_activation.py",
-      "sha256": "fdb350271faf3e14cf8e84a333cb59f67435feecbc3f2a5e8fe3cb9607bdfd5d"
+      "sha256": "052db47c62fd0034ed329c8304eee309f2b94a2f1ee72086c950a8c85f18349c"
     },
     {
       "path": "tools/weight_space_lab/campaign.py",
@@ -172,6 +204,10 @@
       "sha256": "ba2ac427ae3685e238d60414bc888a712fa9f88010a93233e5aeb6cf4625d526"
     },
     {
+      "path": "tools/weight_space_lab/native_gates.py",
+      "sha256": "873e0ffaee2517eeb2505de89d5ec3d8980d049ad821667180aa4f25ec32985c"
+    },
+    {
       "path": "tools/weight_space_lab/prepare_classification.py",
       "sha256": "9bab76f171e5eef459f208f93c3807b22d36bedfd4f80c99e9d0e4bdf4eaf0ec"
     },
@@ -186,6 +222,10 @@
     {
       "path": "tools/weight_space_lab/requirements-gpu.txt",
       "sha256": "29f1d07fd17e53eadc22c1518b54fe19845b1a4b6d0606a948e0e22f9ccb575c"
+    },
+    {
+      "path": "tools/weight_space_lab/research_prompt.py",
+      "sha256": "4de63054251867ab436c1c3e0a8e02f33e4fbc9cf251fee271a55d1dff47e0bc"
     },
     {
       "path": "tools/weight_space_lab/runtime.example.json",
@@ -207,5 +247,10 @@
       "path": "tools/weight_space_lab/trace_effects.py",
       "sha256": "076891bda7a82a9af6aec66515ba2af8e30f526064e55f1122bd0474a17dd23e"
     }
-  ]
+  ],
+  "checks": {
+    "synthetic_tests_passed": 21,
+    "privacy_static_check": "passed",
+    "influence_map": "10 aggregate candidate rows; no new scores"
+  }
 }

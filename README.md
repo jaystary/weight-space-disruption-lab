@@ -67,3 +67,7 @@ Target inference, feature fitting, scoring and sandbox execution run on Remote w
 Modules live in `tools/weight_space_lab/`. Commands target `/workspace/weight-space-lab` on the remote experiment machine. Trial output paths are single-use: inspect registrations and receipts before execution. Run applicable tests remotely with `.venv/bin/python -m pytest -q tests`.
 
 Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming/). Its prominent language-model result repaired reasoning loops; that mechanism is not established for this classification task. This lab measures what transfers.
+
+## Mechanistic investigation
+
+[Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
