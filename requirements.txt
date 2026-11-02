@@ -1,0 +1,6 @@
+transformers==5.22.1
+accelerate==1.15.0
+safetensors==0.8.0
+numpy==2.5.4
+jsonschema==4.26.0
+pytest==9.2.0

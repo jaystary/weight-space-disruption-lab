@@ -1,0 +1,7 @@
+# Python 3.12; CUDA-enabled PyTorch wheel. No model is downloaded by installation.
+torch==2.15.0
+transformers==5.22.1
+accelerate==1.15.0
+safetensors==0.8.0
+numpy==2.5.3
+jsonschema==4.26.0

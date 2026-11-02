@@ -1,0 +1,37 @@
+{
+  "schema": "WSPModelSizeReference/1",
+  "purpose": "Measure whether larger model or supervised readout helps before renting larger hardware; supporting experiment, not an additional weight-edit claim",
+  "models": {
+    "2B": {
+      "id": "Qwen/Qwen3.5-2B",
+      "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "parameters": 2274069824
+    },
+    "9B": {
+      "id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "parameters": 9653104368
+    }
+  },
+  "reference": "Existing cause-02 Qwen3.5-4B closed-choice baseline and frozen-feature centroid/ridge references; reuse recorded features/results, do not rerun scored references",
+  "split": "Exactly cause-02 train138 / validation80 / new final93, hashes verified. Prior cause-01 final data excluded. All model-size choices and cause-02 patch choice must freeze before either experiment opens the shared final cohort. No adaptation to any final result.",
+  "data_hashes": {
+    "train.json": "80bd55bce8b1f373c9b2a7ea446304af9713581d8cc87372a2122892963914c4",
+    "validation.json": "9f808b902eac4a455cb59091a667ded66107f5f1767320c7f030fbe23e301820",
+    "final.json": "e9ba8ad9d4ee882e0f4e353224dd50360b99494a9db3a5d5f5db0b136fe9f812"
+  },
+  "method": "Pinned BF16 models, no thinking, same cause-02 prompt and category order, max4096 input tokens; argmax among ten verified single-token code logits. No gradients. One feature pass per split and model. Centroid plus class-balanced supervised ridge lambdas0.01,0.1,1,10 using identical feature normalization and fitting code.",
+  "selection": "Ridge lambda by validation balanced accuracy then accuracy then earlier lambda. No per-model prompt tuning.",
+  "final": "One feature pass/model after joint freeze; baseline, centroid and selected ridge scored from that pass. Compare each with corresponding4B reference on identical rows; all arms reported, no winner-only reporting.",
+  "metric": "Source-category balanced accuracy; accuracy, macro-F1, per-class support, latency, peak GPU memory secondary",
+  "success": "A larger model beats corresponding4B reference by >=5pp balanced accuracy, no accuracy decline, paired group/day 95% bootstrap lower bounds>0. One smaller model is an efficiency comparison; no multi-seed or seasonal generalization claim.",
+  "uncertainty": "Reuse2000 paired cluster bootstrap seed0, min20groups/min5days; rare-class flags; exploratory multiple-model comparison, no multiplicity-corrected family-wide significance claim",
+  "resources": "Same remote worker and original total <=10GPUh/<=USD9GPU+USD1storage.2B may coexist with4B only after memory preflight;9B waits for4B process to finish. No additional worker. Deadline2026-11-03T05:45Z. Failed attempts kept; never retry scored final cases.",
+  "label": "development, coordinator-executed, not independently qualified; isolation_unverified",
+  "publication": {
+    "projection": "task-neutral; domain wording, labels and operating locations generalized",
+    "original_private_manifest_sha256": "717e7d9f1071e0a8495196b39f366d4a1acc2fb871a3845e4ae09df98def0e01",
+    "bounds_unchanged": true,
+    "exact_private_reproduction_requires_original_manifest": true
+  }
+}

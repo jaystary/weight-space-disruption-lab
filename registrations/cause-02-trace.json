@@ -1,0 +1,18 @@
+{
+  "schema": "WSPDiagnosticTrace/1",
+  "scope": "Diagnostics only; no change to cause-02 candidates, bounds, scoring or final protocol",
+  "inputs": "Existing cause-02 training/validation features and immutable evaluated patches. Never final data.",
+  "cached_diagnostics": "For every evaluated patch: correct-to-wrong and wrong-to-correct counts; true-class margin change p10/p50/p90; mean per-class margin change; actual BF16 delta norms and changed entries.",
+  "live_probe": "First eight training IDs in existing frozen sort order, selected without outcomes. Base, current best evaluated patch and strongest initial contrast patch. At most24 forward calls, no generation. Capture each decoder layer's last-token residual and ten code logits.",
+  "statistics": "Layer-wise relative L2 change and cosine similarity versus baseline; paired training margin changes. These explain interventions and are not additional validation or final success metrics.",
+  "failure_rule": "Keep failed trace attempt; do not retry it in the same output generation. Abort on source, patch or cohort identity mismatch.",
+  "privacy": "Per-record vectors, logits and IDs remain remote. Publish only aggregate diagnostics. No actual agent requests, replies or private messages.",
+  "checks": "Synthetic paired-flip and margin checks before execution; exact existing BF16 patch validator/restorer reused",
+  "label": "development, coordinator-executed, not independently qualified; isolation_unverified",
+  "publication": {
+    "projection": "task-neutral; domain wording, labels and operating locations generalized",
+    "original_private_manifest_sha256": "80d62971e2282fb0229205f6f44028d8f3784869d6bb243ef619c2cfd7b77673",
+    "bounds_unchanged": true,
+    "exact_private_reproduction_requires_original_manifest": true
+  }
+}

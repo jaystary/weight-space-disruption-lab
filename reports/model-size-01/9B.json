@@ -1,0 +1,208 @@
+{
+  "baseline": {
+    "abstention_rate": 0.0,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.4884340297383775,
+    "macro_f1": 0.39569009606745453,
+    "n": 80,
+    "recall_by_category": {
+      "class_01": 0.16666666666666666,
+      "class_02": 0.5,
+      "class_03": 0.5714285714285714,
+      "class_04": 1.0,
+      "class_05": 0.25,
+      "class_06": 0.782608695652174,
+      "class_07": 1.0,
+      "class_08": 0.36363636363636365,
+      "class_09": 0.0,
+      "class_10": 0.25
+    },
+    "schema_validity": 1.0,
+    "support": {
+      "class_01": 12,
+      "class_02": 2,
+      "class_03": 7,
+      "class_04": 2,
+      "class_05": 4,
+      "class_06": 23,
+      "class_07": 3,
+      "class_08": 22,
+      "class_09": 1,
+      "class_10": 4
+    }
+  },
+  "final_accessed": false,
+  "identity": {
+    "id": "Qwen/Qwen3.5-9B",
+    "parameters": 9653104368,
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+  },
+  "model": "9B",
+  "references": [
+    {
+      "abstention_rate": 0.0,
+      "accuracy": 0.625,
+      "balanced_accuracy": 0.5816487859966121,
+      "macro_f1": 0.5452190898532362,
+      "n": 80,
+      "name": "centroid",
+      "recall_by_category": {
+        "class_01": 0.75,
+        "class_02": 0.5,
+        "class_03": 0.5714285714285714,
+        "class_04": 1.0,
+        "class_05": 0.25,
+        "class_06": 0.6086956521739131,
+        "class_07": 1.0,
+        "class_08": 0.6363636363636364,
+        "class_09": 0.0,
+        "class_10": 0.5
+      },
+      "schema_validity": 1.0,
+      "support": {
+        "class_01": 12,
+        "class_02": 2,
+        "class_03": 7,
+        "class_04": 2,
+        "class_05": 4,
+        "class_06": 23,
+        "class_07": 3,
+        "class_08": 22,
+        "class_09": 1,
+        "class_10": 4
+      }
+    },
+    {
+      "abstention_rate": 0.0,
+      "accuracy": 0.725,
+      "balanced_accuracy": 0.6662667043101826,
+      "macro_f1": 0.5916036935773777,
+      "n": 80,
+      "name": "ridge-0.01",
+      "recall_by_category": {
+        "class_01": 0.8333333333333334,
+        "class_02": 1.0,
+        "class_03": 0.5714285714285714,
+        "class_04": 1.0,
+        "class_05": 0.0,
+        "class_06": 0.8260869565217391,
+        "class_07": 1.0,
+        "class_08": 0.6818181818181818,
+        "class_09": 0.0,
+        "class_10": 0.75
+      },
+      "schema_validity": 1.0,
+      "support": {
+        "class_01": 12,
+        "class_02": 2,
+        "class_03": 7,
+        "class_04": 2,
+        "class_05": 4,
+        "class_06": 23,
+        "class_07": 3,
+        "class_08": 22,
+        "class_09": 1,
+        "class_10": 4
+      }
+    },
+    {
+      "abstention_rate": 0.0,
+      "accuracy": 0.675,
+      "balanced_accuracy": 0.602827969132317,
+      "macro_f1": 0.5438071188071187,
+      "n": 80,
+      "name": "ridge-0.1",
+      "recall_by_category": {
+        "class_01": 0.8333333333333334,
+        "class_02": 0.5,
+        "class_03": 0.5714285714285714,
+        "class_04": 1.0,
+        "class_05": 0.0,
+        "class_06": 0.782608695652174,
+        "class_07": 1.0,
+        "class_08": 0.5909090909090909,
+        "class_09": 0.0,
+        "class_10": 0.75
+      },
+      "schema_validity": 1.0,
+      "support": {
+        "class_01": 12,
+        "class_02": 2,
+        "class_03": 7,
+        "class_04": 2,
+        "class_05": 4,
+        "class_06": 23,
+        "class_07": 3,
+        "class_08": 22,
+        "class_09": 1,
+        "class_10": 4
+      }
+    },
+    {
+      "abstention_rate": 0.0,
+      "accuracy": 0.6125,
+      "balanced_accuracy": 0.560436664784491,
+      "macro_f1": 0.48439980256381726,
+      "n": 80,
+      "name": "ridge-1",
+      "recall_by_category": {
+        "class_01": 0.8333333333333334,
+        "class_02": 0.5,
+        "class_03": 0.5714285714285714,
+        "class_04": 1.0,
+        "class_05": 0.0,
+        "class_06": 0.6086956521739131,
+        "class_07": 1.0,
+        "class_08": 0.5909090909090909,
+        "class_09": 0.0,
+        "class_10": 0.5
+      },
+      "schema_validity": 1.0,
+      "support": {
+        "class_01": 12,
+        "class_02": 2,
+        "class_03": 7,
+        "class_04": 2,
+        "class_05": 4,
+        "class_06": 23,
+        "class_07": 3,
+        "class_08": 22,
+        "class_09": 1,
+        "class_10": 4
+      }
+    },
+    {
+      "abstention_rate": 0.0,
+      "accuracy": 0.6125,
+      "balanced_accuracy": 0.5602390363259928,
+      "macro_f1": 0.47244809454111775,
+      "n": 80,
+      "name": "ridge-10",
+      "recall_by_category": {
+        "class_01": 0.8333333333333334,
+        "class_02": 0.5,
+        "class_03": 0.5714285714285714,
+        "class_04": 1.0,
+        "class_05": 0.0,
+        "class_06": 0.6521739130434783,
+        "class_07": 1.0,
+        "class_08": 0.5454545454545454,
+        "class_09": 0.0,
+        "class_10": 0.5
+      },
+      "schema_validity": 1.0,
+      "support": {
+        "class_01": 12,
+        "class_02": 2,
+        "class_03": 7,
+        "class_04": 2,
+        "class_05": 4,
+        "class_06": 23,
+        "class_07": 3,
+        "class_08": 22,
+        "class_09": 1,
+        "class_10": 4
+      }
+    }
+  ]
+}

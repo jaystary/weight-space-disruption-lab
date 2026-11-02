@@ -1,0 +1,345 @@
+{
+  "candidates": [
+    {
+      "correct_to_wrong": 2,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.125,
+        "class_02": -0.0625,
+        "class_03": -0.1071428582072258,
+        "class_04": 1.1875,
+        "class_05": 0.0,
+        "class_06": -0.054347824305295944,
+        "class_07": 0.0,
+        "class_08": 0.039772726595401764,
+        "class_09": 0.125,
+        "class_10": -0.09375
+      },
+      "n": 80,
+      "name": "contrast-0.01",
+      "predictions_changed": 4,
+      "true_class_margin_delta_quantiles": {
+        "p10": -0.125,
+        "p50": 0.0,
+        "p90": 0.125
+      },
+      "weights": [
+        {
+          "changed_entries": 243081,
+          "changed_subset_delta_rms": 0.004593019373714924,
+          "delta_l2": 2.26450252532959,
+          "maximum_absolute_delta": 0.07159423828125,
+          "relative_to_whole_tensor_l2": 0.052989378571510315,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 1
+    },
+    {
+      "correct_to_wrong": 3,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.3645833432674408,
+        "class_02": -0.1875,
+        "class_03": -0.3571428656578064,
+        "class_04": 3.75,
+        "class_05": -0.03125,
+        "class_06": -0.20108695328235626,
+        "class_07": -0.0416666679084301,
+        "class_08": 0.028409091755747795,
+        "class_09": 0.25,
+        "class_10": -0.21875
+      },
+      "n": 80,
+      "name": "contrast-0.03",
+      "predictions_changed": 8,
+      "true_class_margin_delta_quantiles": {
+        "p10": -0.375,
+        "p50": -0.125,
+        "p90": 0.38750000000000107
+      },
+      "weights": [
+        {
+          "changed_entries": 244874,
+          "changed_subset_delta_rms": 0.013728870078921318,
+          "delta_l2": 6.793697834014893,
+          "maximum_absolute_delta": 0.21514892578125,
+          "relative_to_whole_tensor_l2": 0.1589725911617279,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 1
+    },
+    {
+      "correct_to_wrong": 6,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.8645833134651184,
+        "class_02": -0.75,
+        "class_03": -1.3214285373687744,
+        "class_04": 12.125,
+        "class_05": -0.15625,
+        "class_06": -0.8152173757553101,
+        "class_07": -0.2916666567325592,
+        "class_08": -0.16477273404598236,
+        "class_09": 0.5,
+        "class_10": -0.6875
+      },
+      "n": 80,
+      "name": "contrast-0.1",
+      "predictions_changed": 21,
+      "true_class_margin_delta_quantiles": {
+        "p10": -1.2625,
+        "p50": -0.375,
+        "p90": 1.012500000000001
+      },
+      "weights": [
+        {
+          "changed_entries": 245488,
+          "changed_subset_delta_rms": 0.04570426419377327,
+          "delta_l2": 22.644996643066406,
+          "maximum_absolute_delta": 0.71905517578125,
+          "relative_to_whole_tensor_l2": 0.5298931002616882,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 3
+    },
+    {
+      "correct_to_wrong": 15,
+      "mean_margin_delta_by_class": {
+        "class_01": 1.2395833730697632,
+        "class_02": -2.125,
+        "class_03": -4.0,
+        "class_04": 29.6875,
+        "class_05": -0.65625,
+        "class_06": -2.7391304969787598,
+        "class_07": -1.6666666269302368,
+        "class_08": -1.3977272510528564,
+        "class_09": 0.75,
+        "class_10": -1.96875
+      },
+      "n": 80,
+      "name": "contrast-0.3",
+      "predictions_changed": 46,
+      "true_class_margin_delta_quantiles": {
+        "p10": -3.625,
+        "p50": -1.5,
+        "p90": 1.012500000000001
+      },
+      "weights": [
+        {
+          "changed_entries": 245662,
+          "changed_subset_delta_rms": 0.13706766068935394,
+          "delta_l2": 67.93666076660156,
+          "maximum_absolute_delta": 2.15655517578125,
+          "relative_to_whole_tensor_l2": 1.5897184610366821,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 6
+    },
+    {
+      "correct_to_wrong": 21,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.9583333134651184,
+        "class_02": -5.3125,
+        "class_03": -10.767857551574707,
+        "class_04": 56.90625,
+        "class_05": -1.84375,
+        "class_06": -7.445652008056641,
+        "class_07": -6.25,
+        "class_08": -5.5852274894714355,
+        "class_09": 1.375,
+        "class_10": -6.1875
+      },
+      "n": 80,
+      "name": "contrast-1",
+      "predictions_changed": 62,
+      "true_class_margin_delta_quantiles": {
+        "p10": -10.525,
+        "p50": -5.4375,
+        "p90": 1.0
+      },
+      "weights": [
+        {
+          "changed_entries": 245733,
+          "changed_subset_delta_rms": 0.4568306803703308,
+          "delta_l2": 226.45765686035156,
+          "maximum_absolute_delta": 7.17218017578125,
+          "relative_to_whole_tensor_l2": 5.2991108894348145,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 6
+    },
+    {
+      "correct_to_wrong": 0,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.0,
+        "class_02": 0.0,
+        "class_03": 0.0,
+        "class_04": 0.0,
+        "class_05": 0.0,
+        "class_06": 0.005434782709926367,
+        "class_07": 0.0,
+        "class_08": 0.0,
+        "class_09": 0.0,
+        "class_10": 0.0
+      },
+      "n": 80,
+      "name": "error-ablation-0.1",
+      "predictions_changed": 0,
+      "true_class_margin_delta_quantiles": {
+        "p10": 0.0,
+        "p50": 0.0,
+        "p90": 0.0
+      },
+      "weights": [
+        {
+          "changed_entries": 195173,
+          "changed_subset_delta_rms": 9.420325659448281e-05,
+          "delta_l2": 0.04161747917532921,
+          "maximum_absolute_delta": 0.00067138671875,
+          "relative_to_whole_tensor_l2": 0.0009738493827171624,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 0
+    },
+    {
+      "correct_to_wrong": 0,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.0,
+        "class_02": -0.0625,
+        "class_03": -0.01785714365541935,
+        "class_04": 0.0,
+        "class_05": -0.03125,
+        "class_06": 0.005434782709926367,
+        "class_07": 0.0,
+        "class_08": 0.005681818351149559,
+        "class_09": 0.0,
+        "class_10": 0.0
+      },
+      "n": 80,
+      "name": "error-ablation-0.3",
+      "predictions_changed": 1,
+      "true_class_margin_delta_quantiles": {
+        "p10": 0.0,
+        "p50": 0.0,
+        "p90": 0.0
+      },
+      "weights": [
+        {
+          "changed_entries": 228360,
+          "changed_subset_delta_rms": 0.0002572946541476995,
+          "delta_l2": 0.12295343726873398,
+          "maximum_absolute_delta": 0.00201416015625,
+          "relative_to_whole_tensor_l2": 0.0028771115466952324,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 0
+    },
+    {
+      "correct_to_wrong": 0,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.0,
+        "class_02": -0.0625,
+        "class_03": -0.01785714365541935,
+        "class_04": -0.0625,
+        "class_05": -0.03125,
+        "class_06": 0.021739130839705467,
+        "class_07": 0.0,
+        "class_08": 0.0,
+        "class_09": 0.0,
+        "class_10": 0.0
+      },
+      "n": 80,
+      "name": "error-ablation-0.5",
+      "predictions_changed": 1,
+      "true_class_margin_delta_quantiles": {
+        "p10": -0.012499999999999956,
+        "p50": 0.0,
+        "p90": 0.012500000000001066
+      },
+      "weights": [
+        {
+          "changed_entries": 235263,
+          "changed_subset_delta_rms": 0.0004218978574499488,
+          "delta_l2": 0.20463690161705017,
+          "maximum_absolute_delta": 0.003387451171875,
+          "relative_to_whole_tensor_l2": 0.004788505379110575,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 0
+    },
+    {
+      "correct_to_wrong": 0,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.010416666977107525,
+        "class_02": 0.0,
+        "class_03": -0.01785714365541935,
+        "class_04": 0.0,
+        "class_05": -0.0625,
+        "class_06": 0.027173912152647972,
+        "class_07": 0.0,
+        "class_08": -0.011363636702299118,
+        "class_09": 0.0,
+        "class_10": 0.0
+      },
+      "n": 80,
+      "name": "error-ablation-1",
+      "predictions_changed": 0,
+      "true_class_margin_delta_quantiles": {
+        "p10": -0.125,
+        "p50": 0.0,
+        "p90": 0.125
+      },
+      "weights": [
+        {
+          "changed_entries": 240492,
+          "changed_subset_delta_rms": 0.000834153441246599,
+          "delta_l2": 0.40906837582588196,
+          "maximum_absolute_delta": 0.0067596435546875,
+          "relative_to_whole_tensor_l2": 0.009572203271090984,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 0
+    },
+    {
+      "correct_to_wrong": 0,
+      "mean_margin_delta_by_class": {
+        "class_01": 0.010416666977107525,
+        "class_02": -0.0625,
+        "class_03": -0.0357142873108387,
+        "class_04": -0.0625,
+        "class_05": -0.0625,
+        "class_06": 0.03804347664117813,
+        "class_07": 0.0,
+        "class_08": -0.005681818351149559,
+        "class_09": 0.0,
+        "class_10": 0.0
+      },
+      "n": 80,
+      "name": "error-ablation-2",
+      "predictions_changed": 1,
+      "true_class_margin_delta_quantiles": {
+        "p10": -0.125,
+        "p50": 0.0,
+        "p90": 0.125
+      },
+      "weights": [
+        {
+          "changed_entries": 243053,
+          "changed_subset_delta_rms": 0.0016591647872701287,
+          "delta_l2": 0.8179737329483032,
+          "maximum_absolute_delta": 0.013519287109375,
+          "relative_to_whole_tensor_l2": 0.019140591844916344,
+          "tensor": "model.language_model.layers.31.mlp.down_proj.weight"
+        }
+      ],
+      "wrong_to_correct": 1
+    }
+  ],
+  "final_accessed": false
+}

@@ -1,0 +1,68 @@
+{
+  "categories": [
+    "class_01",
+    "class_02",
+    "class_03",
+    "class_04",
+    "class_05",
+    "class_06",
+    "class_07",
+    "class_08",
+    "class_09",
+    "class_10"
+  ],
+  "development_category_counts": {
+    "class_01": 28,
+    "class_02": 16,
+    "class_03": 18,
+    "class_04": 4,
+    "class_05": 12,
+    "class_06": 63,
+    "class_07": 8,
+    "class_08": 52,
+    "class_09": 3,
+    "class_10": 14
+  },
+  "final_category_counts": {
+    "class_01": 30,
+    "class_02": 12,
+    "class_03": 21,
+    "class_04": 5,
+    "class_05": 10,
+    "class_06": 46,
+    "class_07": 7,
+    "class_08": 44,
+    "class_09": 1,
+    "class_10": 6
+  },
+  "final_days": 8,
+  "final_groups": 182,
+  "hashes": {
+    "categories.json": "0c2dca06bd21f32db0e5882a02790a26e420a5d820d31edeaceb9572456389b5",
+    "development-panel.json": "c7ee8728e672376ca4dc8e2ba2abe6fb5e3aed885f7cf1cec5bf5ebef8e79e39",
+    "development.json": "b2e31440a38b4a399653630d3c28e7688edc22ec606d558083ec5cdf0c6b2695",
+    "final.json": "450f484b18353290bdda789a8aae6a187336b76aade46782a8f7347f299c5273",
+    "registration.json": "5ffd9511116c6a5a5452653c465bb2b1c64b2f520c392ba10bdab878a3a60cbd"
+  },
+  "panel_category_counts": {
+    "class_01": 3,
+    "class_02": 2,
+    "class_03": 4,
+    "class_04": 2,
+    "class_05": 2,
+    "class_06": 5,
+    "class_07": 2,
+    "class_08": 6,
+    "class_09": 2,
+    "class_10": 4
+  },
+  "scored_development_panel": 32,
+  "selected_development": 218,
+  "source_category_conflict_components": 2,
+  "publication": {
+    "projection": "task-neutral; domain wording, labels and operating locations generalized",
+    "original_private_manifest_sha256": "2cef351b1a12e14d6cf5f34c230fdfeb302b019bee4234fbc5bd430852449308",
+    "bounds_unchanged": true,
+    "exact_private_reproduction_requires_original_manifest": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "WSPRuntime/1",
+  "checkpoint": "Qwen/Qwen3.5-4B",
+  "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "minimum_incidents": 20,
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 0,
+  "editor_model": "gpt-6-astra",
+  "editor_effort": "max",
+  "cpu_threads": 4,
+  "batch_size": 1,
+  "gpu_memory_fraction": 0.9,
+  "tensor_names": ["model.language_model.layers.0.mlp.down_proj.weight"],
+  "note": "Coordinator must confirm exact tensor names from pinned checkpoint metadata before freezing. Incident minimum is a proposed pilot rule, not an approved amendment."
+}

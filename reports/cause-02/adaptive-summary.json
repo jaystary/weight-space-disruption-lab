@@ -1,0 +1,53 @@
+{
+  "final_accessed": false,
+  "rounds": [
+    {
+      "changed_entries": null,
+      "changed_validation_predictions": null,
+      "error_type": null,
+      "metrics": null,
+      "round": 1,
+      "status": "diagnostic_only"
+    },
+    {
+      "changed_entries": null,
+      "changed_validation_predictions": null,
+      "error_type": "RuntimeError",
+      "metrics": null,
+      "round": 2,
+      "status": "failed_attempt"
+    },
+    {
+      "changed_entries": null,
+      "changed_validation_predictions": null,
+      "error_type": "RuntimeError",
+      "metrics": null,
+      "round": 3,
+      "status": "failed_attempt"
+    },
+    {
+      "changed_entries": null,
+      "changed_validation_predictions": null,
+      "error_type": "RuntimeError",
+      "metrics": null,
+      "round": 4,
+      "status": "failed_attempt"
+    },
+    {
+      "changed_entries": null,
+      "changed_validation_predictions": null,
+      "error_type": "RuntimeError",
+      "metrics": null,
+      "round": 5,
+      "status": "failed_attempt"
+    },
+    {
+      "changed_entries": null,
+      "changed_validation_predictions": null,
+      "error_type": "RuntimeError",
+      "metrics": null,
+      "round": 6,
+      "status": "failed_attempt"
+    }
+  ]
+}
