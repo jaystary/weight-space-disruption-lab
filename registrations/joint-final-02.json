@@ -1,0 +1,19 @@
+{
+  "schema": "WSPJointFinalProtocol/1",
+  "scope": "Execution protocol for previously registered cause-02 and model-size-01; no changed metrics, split, bounds or additional selection",
+  "selection": "Choose 4B internal edit by validation balanced accuracy, accuracy, then fewer changed entries, identity eligible. Choose ridge lambda separately per model by validation balanced accuracy, accuracy, then earlier registered lambda. Reuse saved fitted weights; do not refit.",
+  "freeze": "Before loading any final record, exclusively create and sync joint choices including selected patch/weight hashes, all model identities, prior registration hashes, cohort-freeze hash and executed source commit. No further development after this marker.",
+  "execution": "Sequential 2B,4B,9B; one final feature pass per model, plus one actual patched 4B pass. Unchanged/centroid/selected-ridge reuse the same model feature pass. Existing synthetic model checks precede scored calls. No scored-case retries. Stop on any failure and retain completed results.",
+  "inputs": "Exactly frozen final93 from cause-02, disjoint groups from train138 and validation80. Prior cause-01 final is never opened.",
+  "decision": "Preserve >=5pp balanced accuracy gain, no accuracy decline, paired group/day bootstrap 95% lower bounds>0. Apply to selected4B edit versus4B base and larger9B versus corresponding4B references. Smaller2B is descriptive. Report all arms and intervals; no multiplicity-adjusted or independent qualification claim.",
+  "uncertainty": "Existing interval implementation:2000 paired cluster resamples,seed0,min20groups/min5days; flag per-class support<5",
+  "checks": "Synthetic selection tie/identity preference and threshold/uncertainty guard tests before execution. Verify exact frozen artifact hashes before model loads. All source and runtime remain fixed during execution.",
+  "budget": "Existing total budget only; finish before2026-11-03T05:45Z; no extra editor calls, new resources or weight candidates",
+  "label": "development, coordinator-executed, not independently qualified; isolation_unverified",
+  "publication": {
+    "projection": "task-neutral; domain wording, labels and operating locations generalized",
+    "original_private_manifest_sha256": "ffc6696354c145902408c79143543c7fbb076a5160f9cc5d3eb4cdb84237edfb",
+    "bounds_unchanged": true,
+    "exact_private_reproduction_requires_original_manifest": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "arms": 10,
+  "groups": 93,
+  "days": 14,
+  "source_commit": "c4c9c0420e73c8cda2323802a85b13c079a01d20",
+  "patch_name": "error-ablation-2",
+  "patch_changed_entries": 243053,
+  "paired_edit_changes": {
+    "wrong_to_correct": 0,
+    "correct_to_wrong": 1,
+    "predictions_changed": 2
+  },
+  "final_failures": 0,
+  "adaptive_calls_without_usage": 5,
+  "scope": "Consistency audit of saved results; no model rerun or independent qualification"
+}

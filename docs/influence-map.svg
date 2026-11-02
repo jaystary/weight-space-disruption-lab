@@ -193,6 +193,6 @@
 <text x="1090" y="1045" class="body" text-anchor="start">Earlier edit sites remain untested.</text>
 <text x="1090" y="1072" class="body" text-anchor="start">Trace where class margin changes.</text>
 <text x="1090" y="1099" class="body" text-anchor="start">Test mechanism before weight edit.</text>
-<text x="48" y="1162" class="small" text-anchor="start">A map of tested interventions, not a full circuit atlas. Final evaluation stays sealed; unrelated capabilities were not tested.</text>
+<text x="48" y="1162" class="small" text-anchor="start">Validation map, not a full circuit atlas. Final evaluation is reported separately; unrelated capabilities were not tested.</text>
 <text x="48" y="1195" class="tiny" text-anchor="start">Sources: aggregate candidate diagnostics + layer traces. Gate/value hypothesis inspired by Goodfire; see research log.</text>
 </svg>

@@ -1,75 +1,66 @@
 # Weight-space programming lab
 
-Can direct neural-network weight edits improve text classification? This standalone lab compares bounded internal edits with unchanged models, prompt controls and supervised classifiers on frozen model features.
+Can bounded internal weight edits improve text classification? This lab compares direct edits, unchanged models and supervised classifiers on frozen model features.
 
-**Development, coordinator-executed, not independently qualified (`isolation_unverified`).** Source categories are weak labels, not independently adjudicated causal truth. Task and deployment details are withheld.
+**Development, coordinator-executed, not independently qualified (`isolation_unverified`).** Labels are source metadata, not independently adjudicated truth. Public content is task-neutral; private conversations, actual requests, raw examples, individual predictions, credentials and operating details are excluded.
 
 ![Experimental setup](docs/experiment-setup.svg)
 
-## Results
+## Final results
 
-**Trial 01 completed; its registered bar was not met.** Three fresh editor sessions, five proposal slots each: twelve evaluated patches, one diagnostic-only proposal and two editor timeouts. All three searches selected the unchanged model. Final evaluation used 182 groups across eight later dates.
+**Direct weight editing did not improve the final test.** The selected 4B edit repaired zero errors and broke one correct answer on 93 held-out groups across 14 dates. All choices were frozen before the final data opened; all ten arms ran once.
 
-| Final arm | Accuracy | Balanced accuracy | Valid category JSON |
-|---|---:|---:|---:|
-| Unchanged 4B | 37.4% | 42.3% | 100.0% |
-| Prompt/decoding control | 42.9% | 41.5% | 96.2% |
-| Each of three selected edits | 37.4% | 42.3% | 100.0% |
-
-[Final report](reports/cause-01/REPORT.md) · [Aggregate results](reports/cause-01/aggregate-report.json) · [Registration](registrations/cause-pilot-01.json)
-
-**Trial 02 is still searching on development data.** The revised harness supplies training activations and logits. A fixed closed-choice decoder selects one of ten category tokens. These scores are not directly comparable with Trial 01's generated-JSON scores. Split: 138 training, 80 validation and 93 previously unused groups reserved for a joint final evaluation. The final set remains closed; it is a group holdout within the earlier period, not a new temporal holdout.
-
-| Validation arm | Accuracy | Balanced accuracy |
+| Final arm | Accuracy | Balanced accuracy |
 |---|---:|---:|
-| Unchanged 4B, closed-choice | 38.8% | 45.2% |
-| Best initial internal 4B edit | 40.0% | 45.7% |
-| 4B frozen features + nearest centroid | 57.5% | 54.3% |
-| 4B frozen features + selected ridge | 66.3% | 61.2% |
-| Unchanged 2B, same decoder | 17.5% | 21.8% |
-| 2B frozen features + nearest centroid | 51.3% | 33.2% |
-| 2B frozen features + selected ridge | 50.0% | 46.4% |
+| 2B base | 18.28% | 24.82% |
+| 2B frozen features + centroid | 47.31% | 36.08% |
+| 2B frozen features + selected ridge | 53.76% | 50.73% |
+| 4B base | 43.01% | 46.21% |
+| 4B selected internal edit | 41.94% | 45.10% |
+| 4B frozen features + centroid | 38.71% | 35.31% |
+| 4B frozen features + selected ridge | 56.99% | 43.76% |
+| 9B base | 55.91% | 53.12% |
+| 9B frozen features + centroid | 51.61% | 53.77% |
+| 9B frozen features + selected ridge | 70.97% | 62.67% |
 
-Ridge settings are selected by balanced accuracy, then accuracy. The best initial internal edit corrected one extra validation example. The larger gain comes from a **supervised classifier**, not weight editing. These are selection-set results, not established unseen-data gains. The six adaptive calls ended with one diagnostic-only response and five timeouts; no adaptive patch was evaluated. The 9B comparison completed: base 50.0% accuracy / 48.8% balanced accuracy; selected ridge 72.5% / 66.6%. Final evaluation remains sealed.
+The 9B comparisons met their registered development bars against corresponding 4B references. Gains come from model size and supervised readout, not successful direct weight editing. Comparisons are exploratory, without family-wise multiplicity correction. Small class supports and weak labels limit interpretation.
 
-[Activation registration](registrations/cause-02.json) · [Model-size registration](registrations/model-size-01.json) · [Research log](RESEARCH-LOG.md)
+[Final report](reports/joint-final-02/REPORT.md) · [All aggregate results and intervals](reports/joint-final-02/aggregate-report.json) · [Closure audit](reports/joint-final-02/closure-check.json)
+
+Trial 01 also completed without an improving edit: three searches selected identity. Its separate 182-group final set gave 37.36% accuracy / 42.26% balanced accuracy for the base and each selected arm. A prompt/decoding control scored 42.86% / 41.45%. [Original report](reports/cause-01/REPORT.md). Its generated-JSON decoder differs from Trial 02's fixed category-token choice; absolute scores are not directly comparable.
+
+## What the diagnostics found
+
+Ten initial direct edits were evaluated on 80 validation groups after training-only analysis on 138 groups. Strong contrast reinforcement changed many predictions but caused more regressions than repairs. The best validation edit corrected one extra case; this gain did not survive final evaluation. Six adaptive editor calls yielded one diagnostic-only response and five 300-second timeouts, with no evaluated adaptive patch. Timeout usage can be unknown.
+
+A separate native gate/value probe used 138 training examples and 190 selected channels. Removing double-negative products repaired one error and broke two correct answers. Sign alone is not a harm label. This was an activation intervention, not a checkpoint edit.
+
+![Measured influence map](docs/influence-map.svg)
+
+[Research log](RESEARCH-LOG.md) records hypotheses, measurements, failures, uncertainty and next tests. The map covers tested final-layer interventions, not a full circuit atlas. A new efficacy experiment requires fresh evaluation data; completed final sets are not available for tuning.
 
 ## Research loop
 
-1. Register input hashes, split, candidate limits, metrics and decision rules before measurement.
-2. Diagnose with training activations; state a hypothesis before editing.
-3. Run generated NumPy code in a restricted remote sandbox. Validate sparse BF16 replacements against immutable base tensors.
-4. Evaluate on the fixed validation set. Keep every proposal, failure and receipt; identity is eligible.
-5. Freeze all choices before opening the final set. Score once; never tune on final outcomes or retry scored final cases.
+1. Register input hashes, split, budgets, metrics and decision rules before measurement.
+2. Diagnose with permitted training activations; state competing, falsifiable explanations.
+3. Test bounded reversible interventions and validate sparse BF16 changes against immutable base tensors.
+4. Select on fixed development data, retaining every proposal and failure.
+5. Freeze all choices before final evaluation; score once and preserve original results.
 
-The internal-edit arm forbids gradients, optimizers, iterative loss fitting, random weight search, output/embedding/norm edits and whole-matrix rescaling. Supervised references are labelled separately. This task-specific pilot does not establish preservation of unrelated capabilities.
+The direct-edit arm forbids gradients, optimizers, iterative loss fitting, random weight search, output/embedding/norm edits and whole-matrix rescaling. Supervised references are labelled separately. Unrelated capabilities were not evaluated.
 
-## Publication scope
+The [mechanistic researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and must be hash-pinned in a fresh registration before use. It requires native gate/value traces when available, causal controls, repairs versus regressions, exact evidence references and explicit unknowns. Historical runs retain their original prompt and budgets.
 
-Task-neutral reference code: task wording, labels and operating locations are generalized. Historical numbers are unchanged. This projection cannot reproduce private results without original artifacts; see [publication boundary](PUBLICATION.md).
+## Code and publication
 
-## Execution and privacy
+Modules in `tools/weight_space_lab/` cover inference and exact BF16 restoration, restricted editor execution, activation diagnostics, model-size references, joint final evaluation and aggregate scoring. `tests/` contains authored synthetic checks. Private data and actual model calls are not distributed.
 
-Target inference, feature fitting, scoring and sandbox execution run on Remote worker. The frontier editor is called through a remote Codex client with built-in tools disabled. Local files hold authored code, the diagram and aggregate metadata.
+This public projection generalizes task wording, category labels and operating locations. Numeric results are unchanged; the projected prompts cannot reproduce historical private results without original authorized artifacts. See [publication boundary](PUBLICATION.md) and [file manifest](PUBLIC-MANIFEST.json).
 
-**Excluded from this repository and its history:** private message corpus, per-record predictions, agent conversations, inbox/outbox, private prompts, credentials, secrets and model caches. Full evidence archives remain under separate private custody. Reproduction requires the authorized corpus matching registered hashes; it is not distributed here. Timed-out editor calls can have unknown usage.
+Every published image uses dark mode, including SVG originals, PNG exports, README embeds and future diagrams.
 
-## Code map
-
-- `inference.py`, `tensors.py`: pinned model inference, exact BF16 patching and restoration.
-- `sandbox.py`, `model_client.py`, `edit_loop.py`: restricted editor execution and first trial.
-- `prepare_second.py`, `activation_trial.py`, `adaptive_activation.py`: revised split and activation-guided search.
-- `model_size_trial.py`: same-data model-size references.
-- `trace_effects.py`: paired repairs/regressions, class margins and layer-level intervention traces.
-- `classification.py`, `final_evaluation.py`: category metrics and first trial's final evaluation.
-- `tests/`: authored synthetic checks, without private data fixtures.
-
-Modules live in `tools/weight_space_lab/`. Commands target `/workspace/weight-space-lab` on the remote experiment machine. Trial output paths are single-use: inspect registrations and receipts before execution. Run applicable tests remotely with `.venv/bin/python -m pytest -q tests`.
-
-Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming/). Its prominent language-model result repaired reasoning loops; that mechanism is not established for this classification task. This lab measures what transfers.
+Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming/) and [Goodfire's interpretability essay](https://already-clean.goodfire.com/). Their proposed mechanisms motivate tests; they do not establish a mechanism or improvement in this checkpoint.
 
 ## Mechanistic investigation
 
-[Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. Both diagrams use a dark palette in SVG and PNG formats. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
-
-![Measured influence map](docs/influence-map.svg)
+[Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.

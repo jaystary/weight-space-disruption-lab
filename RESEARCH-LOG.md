@@ -78,3 +78,14 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - `docs/influence-map.svg` links actual final-layer interventions, measured state changes, class margins and validation outcomes. Ten candidate rows are drawn directly from aggregate files; internal traces use a separate eight-example training population.
 - Earlier layers remain untested intervention sites. A zero upstream change is expected for a final-layer edit, not proof those layers are irrelevant.
 - Next useful measurements: context-specific gate routes, matched success/failure traces and discriminating interventions. No full circuit atlas or universal improvement knob has been established.
+
+### F10 — Joint final evaluation: weight edit failed; larger-model comparisons passed their development bars
+
+- Completed once on 93 previously unused groups across 14 dates. Every model, fitted readout and patch was frozen before final records opened. All ten arms completed; consistency audit found no final execution failures. No scored-case retries.
+- 4B base: 43.01% accuracy / 46.21% balanced accuracy. Selected error-ablation-2: 41.94% / 45.10%. It repaired zero final errors, broke one correct answer, and changed two predictions. Registered weight-edit bar was not met.
+- 9B base: 55.91% / 53.12%; 9B selected ridge: 70.97% / 62.67%. These are model-size and supervised-readout results, not successful weight edits.
+- 9B versus corresponding 4B arms met the registered development bar: baseline +6.90 percentage points balanced accuracy, centroid +18.46, ridge +18.91; accuracy did not decline and both paired group/day lower confidence bounds were positive. These exploratory comparisons are not multiplicity-adjusted independent qualification.
+- 4B ridge's validation gain did not hold uniformly: final 56.99% accuracy but 43.76% balanced accuracy, below its base on the primary metric. This is why selection-set results were not promoted as final claims.
+- Source: `reports/joint-final-02/aggregate-report.json`, `REPORT.md`, `closure-check.json`; registrations `cause-02.json`, `model-size-01.json`, `joint-final-02.json`.
+- Limits: weak labels; lexical group separation rather than demonstrated incident independence; rare classes; earlier-period group holdout rather than a fresh temporal holdout. Existing final data is now spent for future tuning claims. Further efficacy claims require fresh evaluation data and a new registration.
+- Editor accounting: cause-02 had five timed-out calls without usage, in addition to two such calls in cause-01. These are execution failures, not negative mechanistic tests. New prompt remains available for a fresh registered loop.

@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-11-02T23:19:30.310336+00:00",
-  "canonical_source_commit": "be70d2a2ca786a5d663bd15451edbf0747f03146",
+  "created_at": "2026-11-02T23:40:05.097597+00:00",
+  "canonical_source_commit": "d0b50688cfbca07f24186c444288cb803305ae97",
   "projection": "task-neutral reference; original prompts and labels withheld",
   "files": [
     {
@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "5addb981f7029cfe52d24938efeb9e6e5b111041f6987050156a9abbedde1084"
+      "sha256": "c42c5bf9787b13f5969c1fcf01e76cd48837e065e94a4be500f5cb5008037255"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "134fd4360149865cf8f9ff496735b9188384fa97a465dee6cf85cf6d07c90699"
+      "sha256": "b490e4ee69830cae9109cd7165b3b15625dd835a4c6f4c57085eda5c8867e9d9"
     },
     {
       "path": "constraints.txt",
@@ -25,19 +25,19 @@
     },
     {
       "path": "docs/experiment-setup.png",
-      "sha256": "71d155ac85d012875a49f9b2b75290cdf94f7fe841906d1c5f8d75b0307fc0c3"
+      "sha256": "492bc78a812fbae82ea1504c4af1dec9c0c66b37f6db68fa1fd565a98ed238b3"
     },
     {
       "path": "docs/experiment-setup.svg",
-      "sha256": "341200cc8a194584090e8ab2267e8698fef6f949fe1c0278e8b5fd7082832a5e"
+      "sha256": "c27f4c7bd242a4b47f718d390411233930ff72c692eb48ccea12cd5902b6a480"
     },
     {
       "path": "docs/influence-map.png",
-      "sha256": "8e63559291fc3bdd1c689a054f3fb4b081ea86290b76d95d706e9fc532c8e910"
+      "sha256": "0f3ff252e048a87dc04bf37e36b6afff660f126c5b68be8a5856b897bd89dd7d"
     },
     {
       "path": "docs/influence-map.svg",
-      "sha256": "6e5e2091e9fc6f8b0f12d249ea45f00022a266d3e6c6279a681f31d172da7007"
+      "sha256": "6b797fa4d39c0f6c873075cf3eafc376df24b29ef14178d6f2a166624257a216"
     },
     {
       "path": "prompts/mechanistic-researcher-v1.md",
@@ -58,6 +58,10 @@
     {
       "path": "registrations/cause-pilot-01.json",
       "sha256": "85a5c06a48c1501eb47409ae7afa8659ce2a301faac9adbf556a71c7e19fe259"
+    },
+    {
+      "path": "registrations/joint-final-02.json",
+      "sha256": "c3e347a69ed10bd8496524e5fe8b87d1d9db78cf5b191a841bb940cb42572e5b"
     },
     {
       "path": "registrations/model-size-01.json",
@@ -94,6 +98,18 @@
     {
       "path": "reports/cause-02/native-gates-summary.json",
       "sha256": "d1382c2c2aa3ca5b5c281274f12d6f348eeb587703a80bf0dc6bd2db280a5337"
+    },
+    {
+      "path": "reports/joint-final-02/REPORT.md",
+      "sha256": "9926a4ff01859f03340009a52f95f07e400fce01d4a33a10525f37c970295fc7"
+    },
+    {
+      "path": "reports/joint-final-02/aggregate-report.json",
+      "sha256": "d8020e23857d0d5801964ed91839cb43ced151e00bd866b29e5550f35f440005"
+    },
+    {
+      "path": "reports/joint-final-02/closure-check.json",
+      "sha256": "c22e16923dae3dacff5052f2455399f5fd9f552116f2f03ba7a2f87c8a8bec01"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -136,6 +152,10 @@
       "sha256": "a0fd6a769b76889516d26056e3e68365cd0e8bc6abbed47da1c7345f9f61254e"
     },
     {
+      "path": "tests/test_joint_final.py",
+      "sha256": "b5bcc5fcc98679626d7fc6441a68f48846cca7439782891c0c99cb17099c1249"
+    },
+    {
       "path": "tests/test_native_gates.py",
       "sha256": "5162f34ba980f9a912fdef6d000c60355b6fd9e4452646417d946f4f66821ad1"
     },
@@ -149,7 +169,7 @@
     },
     {
       "path": "tools/render_influence_map.py",
-      "sha256": "848bbd77d8832a36d1e87dd69d5aa8403a859990482571b455cec8ebd99c2c2a"
+      "sha256": "8c55ec090a864749cf8290ba072aecc97864f6261e4a3cfc5718c7e78cf4098b"
     },
     {
       "path": "tools/weight_space_lab/__init__.py",
@@ -194,6 +214,10 @@
     {
       "path": "tools/weight_space_lab/inference.py",
       "sha256": "68705b3a438377007c85d620676f8b0b01c0a011a079f54346d1aaf169bab9e0"
+    },
+    {
+      "path": "tools/weight_space_lab/joint_final.py",
+      "sha256": "c4988cca823f34e70c130b1c9a5c2282489c87e335b49f619d10ede1b42f7ae7"
     },
     {
       "path": "tools/weight_space_lab/model_client.py",
@@ -249,8 +273,9 @@
     }
   ],
   "checks": {
-    "synthetic_tests_passed": 21,
+    "synthetic_tests_passed": 23,
     "privacy_static_check": "passed",
-    "influence_map": "10 aggregate candidate rows; no new scores"
+    "influence_map": "10 aggregate candidate rows; no new scores",
+    "all_images": "dark SVG and PNG"
   }
 }

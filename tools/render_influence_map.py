@@ -72,7 +72,7 @@ for x,title,lines in [
     rect(x,972,482,155)
     txt(x+20,1010,title,'h')
     for i,line in enumerate(lines):txt(x+20,1045+i*27,line,'body')
-txt(48,1162,'A map of tested interventions, not a full circuit atlas. Final evaluation stays sealed; unrelated capabilities were not tested.','small')
+txt(48,1162,'Validation map, not a full circuit atlas. Final evaluation is reported separately; unrelated capabilities were not tested.','small')
 txt(48,1195,'Sources: aggregate candidate diagnostics + layer traces. Gate/value hypothesis inspired by Goodfire; see research log.','tiny')
 parts.append('</svg>')
 svg='\n'.join(parts);ET.fromstring(svg)
