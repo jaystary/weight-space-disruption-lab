@@ -1,7 +1,7 @@
 {
   "schema": "WSPPublicProgress/1",
   "experiment": "loop-repair-04",
-  "as_of_utc": "2026-11-03T04:36:26.694879+00:00",
+  "as_of_utc": "2026-11-03T04:41:53.184254+00:00",
   "source_commit": "0dc887a41404202ff1adb8249e2797df33f7c177",
   "planned_pairs": 48,
   "completed_pairs": 8,
@@ -15,6 +15,6 @@
   "base_and_edited_hashes_verified": true,
   "batch_preflight_admitted": true,
   "generated_tokens_scope": "completed paired batches only; in-flight generation excluded",
-  "generation_attempts_started": 24,
-  "saved_outputs": 16
+  "generation_attempts_started": 32,
+  "saved_outputs": 24
 }

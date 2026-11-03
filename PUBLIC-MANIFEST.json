@@ -17,7 +17,7 @@
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "393aefeca278e89370da5c09347aa56f66c9bda1e4d4754b513de3256d009df8"
+      "sha256": "597035522773e393a3b57c185770d472f33bc66d258de4070836a59e0e3248ec"
     },
     {
       "path": "constraints.txt",
@@ -82,6 +82,10 @@
     {
       "path": "registrations/editor-interface-smoke-01.json",
       "sha256": "77262b0df785c12795739b0af337072b5e233ed4e403484b0803e49ef0103154"
+    },
+    {
+      "path": "registrations/entity-key-interface-smoke-01.json",
+      "sha256": "016322cb7b0494a265e7730c02762c46575f9b50096216cd6cc31c16b52965dd"
     },
     {
       "path": "registrations/joint-final-02.json",
@@ -164,6 +168,10 @@
       "sha256": "29ea617619b8b7f6e56ac76eb6aa50a5430fea23d4f90a60e54fbca9386df643"
     },
     {
+      "path": "reports/entity-key-interface-smoke-01/aggregate.json",
+      "sha256": "adef6a99370a23f9504482a48b9815c1ba7def013569c9ecf7d39fc102c7a600"
+    },
+    {
       "path": "reports/joint-final-02/REPORT.md",
       "sha256": "9926a4ff01859f03340009a52f95f07e400fce01d4a33a10525f37c970295fc7"
     },
@@ -205,7 +213,7 @@
     },
     {
       "path": "reports/loop-repair-04/status.json",
-      "sha256": "aa0abe562febe232e93f3f2242d0d1f6b3e274fcfe41e948a57ae51119e33c91"
+      "sha256": "7b960a76764bbf9d71bf3d9adad471f6ac54679d9a6ab6b2134f96a334c53a5c"
     },
     {
       "path": "reports/memory-signal-audit-01/aggregate.json",
@@ -302,6 +310,10 @@
     {
       "path": "tests/test_needle_findings.py",
       "sha256": "9cc6fb610c4916e56946303294603930e4879f92d680958a5289348ca8d56064"
+    },
+    {
+      "path": "tests/test_needle_key_panel.py",
+      "sha256": "6651880b4d614c85614a01347df844a56b749d6d620302126ef796c289af7928"
     },
     {
       "path": "tests/test_needle_worker.py",
@@ -424,8 +436,12 @@
       "sha256": "c4e04850925e7cdbc1fdb5641a2980eba3d483069a563669e39989b29f5a5903"
     },
     {
+      "path": "tools/weight_space_lab/needle_key_panel.py",
+      "sha256": "53b5203e57ef4d1216f35604b2ba5790eaf9d67d3eb45a2c82986857bac92a35"
+    },
+    {
       "path": "tools/weight_space_lab/needle_loop.py",
-      "sha256": "3f11b4f79755d67131849bee7d37cfa07c87cbf89384205f13f812c7aa287bab"
+      "sha256": "732657c01c37d3e27530615f64eba3303e96071b05685688ad2671706cb4f65b"
     },
     {
       "path": "tools/weight_space_lab/needle_runtime_bridge.py",

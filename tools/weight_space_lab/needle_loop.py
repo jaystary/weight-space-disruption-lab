@@ -17,6 +17,7 @@ from .model_client import call
 from .needle_contract import (candidate_rank, choose_difficulty, context_cases,
                               goal_pass, guards, memory_facts, memory_questions)
 from .needle_findings import collect_findings
+from .needle_key_panel import collect_key_panel
 from .needle_worker import NeedleWorker
 from .research_prompt import render
 from .sandbox import build, execute, JAIL
@@ -118,6 +119,11 @@ def install_features(worker, cases, track, out):
         supported = [dict(r, question=f'Known association: {r["entity"]} has designated color {r["answer"]}.\n\n'+r['question'],
                           focus_text=f'{r["entity"]} has designated color {r["answer"]}.') for r in cases]
         inventory.update(worker.traces(supported, 'supported', directory))
+        panel = worker.registration.get('memory_key_panel')
+        if panel == 'matched-suffix-v1':
+            inventory.update(collect_key_panel(worker, cases, directory, inventory))
+        elif panel is not None:
+            raise ValueError('unknown memory key panel')
     ids = [worker.tokenizer.encode(r['answer'], add_special_tokens=False)[0] for r in cases]
     head = worker.model.get_output_embeddings().weight[ids].detach().float().cpu().numpy()
     path = directory/'answer-directions.npy'
@@ -171,6 +177,11 @@ def edit_track(worker, cases, track, out, registration, reference, deadline):
                        'history': compact_history(history), 'numerical_weight_inspection': numerical_notes,
                        'kernel_bindings': prefix,
                        'response': 'Return hypothesis and executable code strings only. Code executes once. Print compact diagnostics; optionally save a sparse internal-weight patch relative to BASE. The controller evaluates each valid patch on this fixed development panel. A diagnostic-only round consumes one call. No direct GPU function exists inside your program.'}
+            if track == 'memory' and registration.get('memory_key_panel') == 'matched-suffix-v1':
+                context['entity_key_contrast'] = json.loads((out/'features/entity-key-contrast.json').read_text())
+                context['entity_key_control'] = ('Each row compares the original question with a different wording '
+                    'for the same entity and a different entity in that wording. Foil and paraphrase share the '
+                    'final entity token and its position. Cosine differences are descriptive, not causal effects.')
             if registration.get('editor_feedback') == 'structured-v1':
                 context['allowed_imports'] = sorted(ALLOWED_IMPORTS)
                 context['diagnostic_feedback'] = (

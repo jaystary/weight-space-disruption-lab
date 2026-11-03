@@ -1,0 +1,10 @@
+{
+  "id": "entity-key-interface-smoke-01",
+  "purpose": "Verify development-only entity controls and the readout on a fixture before a possible future registration. No target-model run or research claim.",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "memory_key_panel": "matched-suffix-v1",
+  "limits": {"development_fixture_entities": 16, "cpu_threads": 1, "wall_seconds": 60, "new_editor_calls": 0, "model_forwards": 0, "gpu_calls": 0},
+  "checks": ["two unsupported questions use different wording for the same entity", "paired distractors are unique, absent from the fact set, and matched on exact final entity token ID and its prompt position in the paraphrase", "activations are aligned through the normal feature collection interface on a fixture; ties do not count as wins"],
+  "future_cost": "Two extra baseline traces per development entity when explicitly registered. No inference is authorized by this software check. The original synthetic registration does not opt in."
+}
