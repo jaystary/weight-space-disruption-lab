@@ -185,7 +185,7 @@
     },
     {
       "path": "reports/loop-repair-04/status.json",
-      "sha256": "28bc46c7c04c2a4460a14445198f86002fadb165037d1f562b92994f471b01ee"
+      "sha256": "ae15813eb70877a7fe6abeccd9e8c75c4cf7537cd6464525e841301935ff5f21"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -438,7 +438,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T04:14:53.062085+00:00",
+  "updated_at": "2026-11-03T04:17:45.095367+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
