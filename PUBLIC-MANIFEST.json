@@ -17,7 +17,7 @@
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "5b9e2486fc205047bdf4f89e8a1ca02d7416a7f2d23b40ced71572dc3c185fb5"
+      "sha256": "a11313fdbf7755b5dead2935cd4de13fb5d0e7616604c79bffe9da345a34b4b4"
     },
     {
       "path": "constraints.txt",
@@ -113,11 +113,15 @@
     },
     {
       "path": "reports/loop-repair-03/README.md",
-      "sha256": "427b5a103d3ec4d58df106433025cdbe8b51e1cf3bbdd6d53e3b21a66a1e667e"
+      "sha256": "36beca8d3b97705d5eb04465afeb407a93ece9b94447986189a0d4cd91d7b2ff"
+    },
+    {
+      "path": "reports/loop-repair-03/patch-geometry.json",
+      "sha256": "58d260668bcaa2e334b15e284dbca7c9b1faabd5a68b88d70b5e432b845f6cfe"
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "3b9d6434109d5c7544008948ad58f974e99ff4341a31ed4e89f7c2c11c5e8cd9"
+      "sha256": "5f4910ebbceb6559f4c6d97d3fdb014fb5d4de0a4c89f04d89b9642ef32fcb45"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -286,7 +290,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T00:16:27.634088+00:00",
+  "updated_at": "2026-11-03T00:31:40.409736+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",

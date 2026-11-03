@@ -4,6 +4,10 @@ Status: running; no efficacy result yet. Four authored preflight tests passed. P
 
 [Live aggregate progress](status.json) records the observation time, completed pairs, phase and generated-token count. It is refreshed every 15 minutes while active, and at material state changes. It contains no raw examples or individual predictions.
 
+## Numerical structure of the fixed patch
+
+A separately registered CPU-only audit found that over99.999% of squared update magnitude lies in one direction in each edited layer. The two dominant directions have absolute cosine0.849005: related, but not identical. Each layer changes64 columns. [Aggregate geometry](patch-geometry.json). This is parameter-space evidence only, with no behavioural or causal claim. No new model forwards or dataset reads were used. Two cache-layout preparation failures were retained; both occurred before decomposition.
+
 Question: does a published internal-weight edit improve fresh arithmetic performance over the identical unmodified model?
 
 - Qwen3.5-0.8B revision `2fc06364715b967f1860aea9cf38778875588b17`.

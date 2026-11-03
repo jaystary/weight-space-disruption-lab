@@ -102,3 +102,11 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - Fresh synthetic arithmetic: development16, final48, exact-string guard16. Same prompts/decoding and per-case sampling seeds. Primary threshold: >=10pp final gain, exact paired one-sided p<=.05, no guard accuracy loss, no execution failures. No gradients or fitted classifier.
 - Outcome pending. This reuses the authors' patch and changes benchmark, inference engine, sample count and token cap (4096 versus32768). It is a bounded replication, not independent edit discovery or reproduction of the published score. Small synthetic cohort limits generality.
 - Runtime note: missing optimized recurrent kernels trigger reference implementations. Monitor budget without changing the running candidate or retrying scored cases.
+
+### F13 — Published patch has one dominant change direction per layer
+
+- Registered CPU-only audit of two fixed published tensor edits, with all base/edited hashes reverified. No data, GPU forwards, model calls or running weight changes.
+- Layer15:64 changed columns;99.99945% of squared update norm lies in the first singular direction; relative update norm10.636%. Layer19:64 columns;99.99915%; relative norm8.106%. Absolute cosine between their dominant directions is0.849005.
+- Interpretation: each update is almost rank one, but the layer-specific directions are not identical. This supports testing layer-specific directions and channel contributions; it does not establish what those directions mean or whether they improve answers.
+- Preparation failures retained:01 failed on missing offline snapshot documentation;01b assumed a monolithic tensor filename. Both failed before tensor decomposition or data access.01c used the observed singleton shard, preserving all hash checks.
+- Source: registrations/loop-patch-geometry-01c.json; source7650163fbba5a0ea4ca81c227afa529fe135a74c; runs/loop-patch-geometry-01c/aggregate-report.json. Main loop-repair-03 measurement remains unchanged at5d07407962668f9bd479e02876cf3f78c9fbaec0.

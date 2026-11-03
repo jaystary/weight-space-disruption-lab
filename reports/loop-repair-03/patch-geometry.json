@@ -1,0 +1,49 @@
+{
+  "absolute_direction_cosine": 0.8490049242973328,
+  "base_and_edited_hashes_verified": true,
+  "data_accessed": false,
+  "gpu_forwards": 0,
+  "id": "loop-patch-geometry-01c",
+  "interpretation": "Parameter-space structure only; no behavioural or causal conclusion.",
+  "tensors": [
+    {
+      "changed_columns": 64,
+      "first_five_singular_values": [
+        1.7488828897476196,
+        0.0009874117095023394,
+        0.0009485556511208415,
+        0.0008693150011822581,
+        0.0008093058713711798
+      ],
+      "leading_direction_energy": 0.9999945163726807,
+      "relative_delta_norm": 0.10635984688997269,
+      "tensor": "model.language_model.layers.15.mlp.down_proj.weight"
+    },
+    {
+      "changed_columns": 64,
+      "first_five_singular_values": [
+        1.3987572193145752,
+        0.0009012575028464198,
+        0.0008135843672789633,
+        0.0007443478680215776,
+        0.000705311365891248
+      ],
+      "leading_direction_energy": 0.9999914765357971,
+      "relative_delta_norm": 0.08106115460395813,
+      "tensor": "model.language_model.layers.19.mlp.down_proj.weight"
+    }
+  ],
+  "weights_mutated": false,
+  "retained_preparation_failures": [
+    {
+      "id": "loop-patch-geometry-01",
+      "error_type": "IncompleteSnapshotError",
+      "before_tensor_decomposition": true
+    },
+    {
+      "id": "loop-patch-geometry-01b",
+      "error_type": "LocalEntryNotFoundError",
+      "before_tensor_decomposition": true
+    }
+  ]
+}
