@@ -17,7 +17,7 @@
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "a11313fdbf7755b5dead2935cd4de13fb5d0e7616604c79bffe9da345a34b4b4"
+      "sha256": "df3a5088a062c69867f331853b397e9d05b103d9c772419d2cd9a8a37e92ebe7"
     },
     {
       "path": "constraints.txt",
@@ -121,7 +121,11 @@
     },
     {
       "path": "reports/loop-repair-03/README.md",
-      "sha256": "c809b480b19a551524b6ef5c658daac5cfcbc9389e56fc732c4d0d77a72d18a8"
+      "sha256": "7362fa48b62db4b12b3d90e0be8a2e4f8037da75dc5e06842fb5b8c19bd28acb"
+    },
+    {
+      "path": "reports/loop-repair-03/development.json",
+      "sha256": "395e968653312d8d6ae7c2b292443af0b83e5cfa34b2abb14054868e94a436e8"
     },
     {
       "path": "reports/loop-repair-03/patch-geometry.json",
@@ -129,7 +133,7 @@
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "c0fa0e9ab13b6694d0856e9bfe76e524a16d359af1d6f58716c8e8a0c0115cb5"
+      "sha256": "a40800d6cba480d0b6109b97f63113aca9809ced91bb0c980525a40736ffb4d4"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -310,7 +314,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T00:47:33.565079+00:00",
+  "updated_at": "2026-11-03T00:57:05.599491+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",

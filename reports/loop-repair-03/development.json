@@ -1,0 +1,42 @@
+{
+  "experiment": "loop-repair-03",
+  "phase": "development",
+  "observed_at": "2026-11-03T00:54:33.360557+00:00",
+  "completed_pairs": 16,
+  "final_inspected": false,
+  "interpretation": "Development only; no final efficacy claim or change to frozen measurement.",
+  "repairs": 3,
+  "regressions": 2,
+  "baseline": {
+    "correct": 0.125,
+    "tokens": 3869.875,
+    "completed": 0.125,
+    "hit_token_cap": 0.875,
+    "repeated_8gram_fraction": 0.2911184555785439
+  },
+  "published-p50c": {
+    "correct": 0.1875,
+    "tokens": 3812.6875,
+    "completed": 0.1875,
+    "hit_token_cap": 0.8125,
+    "repeated_8gram_fraction": 0.20912304324532646
+  },
+  "transition_diagnostic": {
+    "repairs": {
+      "count": 3,
+      "baseline_capped": 3,
+      "edited_completed": 3
+    },
+    "regressions": {
+      "count": 2,
+      "baseline_completed": 2,
+      "edited_capped": 2
+    },
+    "both_wrong": {
+      "count": 11,
+      "both_capped": 11
+    },
+    "wrong_completed_answers": 0,
+    "interpretation": "All observed development errors were missing answers at the token cap; longer decoding may change the balance, but was not tested."
+  }
+}

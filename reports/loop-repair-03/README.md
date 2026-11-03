@@ -4,6 +4,8 @@ Status: running; no efficacy result yet. Four authored preflight tests passed. P
 
 [Live aggregate progress](status.json) records the observation time, completed pairs, phase and generated-token count. It is refreshed every 15 minutes while active, and at material state changes. It contains no raw examples or individual predictions.
 
+Development is complete: baseline 2/16 correct, edit 3/16, with three repairs and two regressions. Every error was an unanswered generation at the token cap. This small net gain is below the target and is not a final result. [Development aggregates](development.json). Held-out evaluation continues with the frozen protocol.
+
 ## Numerical structure of the fixed patch
 
 A separately registered CPU-only audit found that over99.999% of squared update magnitude lies in one direction in each edited layer. The two dominant directions have absolute cosine0.849005: related, but not identical. Each layer changes64 columns. [Aggregate geometry](patch-geometry.json). This is parameter-space evidence only, with no behavioural or causal claim. No new model forwards or dataset reads were used. Two cache-layout preparation failures were retained; both occurred before decomposition.

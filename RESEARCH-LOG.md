@@ -110,3 +110,11 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - Interpretation: each update is almost rank one, but the layer-specific directions are not identical. This supports testing layer-specific directions and channel contributions; it does not establish what those directions mean or whether they improve answers.
 - Preparation failures retained:01 failed on missing offline snapshot documentation;01b assumed a monolithic tensor filename. Both failed before tensor decomposition or data access.01c used the observed singleton shard, preserving all hash checks.
 - Source: registrations/loop-patch-geometry-01c.json; source7650163fbba5a0ea4ca81c227afa529fe135a74c; runs/loop-patch-geometry-01c/aggregate-report.json. Main loop-repair-03 measurement remains unchanged at5d07407962668f9bd479e02876cf3f78c9fbaec0.
+
+### F14 — Short-cap development results show completion tradeoffs
+
+- All 16 development pairs completed: baseline 2/16 correct (12.5%), published patch 3/16 (18.75%). Three repairs and two regressions; net gain 6.25 percentage points. No final or guard outcomes inspected.
+- Every development error had no parsed answer and reached the 4,096-token cap. All three repairs changed capped baseline generations into correct completed answers; both regressions changed correct completed baselines into capped edited generations. Repeated 8-gram fraction fell from 0.2911 to 0.2091, but repetition reduction did not guarantee a completed answer.
+- The authors' [pinned report](https://github.com/RikiyaT/lm_understand-logs/blob/4d09ba6d6a7e891dd8063974dfe81b3d78e3494f/exp8_math/runs/p50c/work_notes/final_report.md) reports median correct-answer lengths of 5,310.5 tokens for baseline and 9,171.5 for their edit on their practice tasks, using a 32,768-token cap. These are external measurements, not our results. Our smaller cap can materially limit comparability.
+- Current measurement remains frozen. A separate longer-cap trial would need a new registration, fresh final data, a multiple-trial policy and remaining budget. Longer generations could also expose new errors; improvement is unproven.
+- Source: reports/loop-repair-03/development.json; frozen source5d07407962668f9bd479e02876cf3f78c9fbaec0. Final evaluation continues.
