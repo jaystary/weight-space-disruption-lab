@@ -2,6 +2,8 @@
 
 Status: running; no efficacy result yet. Four authored preflight tests passed. Published base and edited tensor hashes were verified; a synthetic restoration check reproduced original logits exactly.
 
+[Live aggregate progress](status.json) records the observation time, completed pairs, phase and generated-token count. It is refreshed every 15 minutes while active, and at material state changes. It contains no raw examples or individual predictions.
+
 Question: does a published internal-weight edit improve fresh arithmetic performance over the identical unmodified model?
 
 - Qwen3.5-0.8B revision `2fc06364715b967f1860aea9cf38778875588b17`.
