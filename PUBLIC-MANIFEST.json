@@ -510,7 +510,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T04:31:31.322341+00:00",
+  "updated_at": "2026-11-03T05:37:54.736364+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
@@ -536,11 +536,15 @@
   "prepared_continuation": {
     "id": "loop-repair-04",
     "source_commit": "0dc887a41404202ff1adb8249e2797df33f7c177",
-    "state": "running; unscored preflight admitted",
+    "state": "completed and audited",
     "original_registration_sha256": "237095902940e9f6951187d80232e3611f86ece72ac23d89d30d5364db4f5fc8",
     "remote_focused_tests_passed": 8,
     "new_public_projection_tests_passed": 3,
-    "goal_family_sha256": "1e635084de27fa725efdb89460f267b4dba7d571cc04d2c41c3f62f53a01f3e0"
+    "goal_family_sha256": "1e635084de27fa725efdb89460f267b4dba7d571cc04d2c41c3f62f53a01f3e0",
+    "closure_checks_passed": 507,
+    "paired_final_cases": 24,
+    "four_comparison_adjusted_p": 0.00054931640625,
+    "original_edit_discovered": false
   },
   "synthetic_tracks": {
     "state": "audited; no patch evaluated, finals and guards unopened",
@@ -560,5 +564,12 @@
     "public_projection_checks_passed": 12,
     "fixture_write_restored": true,
     "editor_model_calls": 0
+  },
+  "entity_key_control": {
+    "source_commit": "b9f87bc89aea7a64d405afa611563e0922097d4c",
+    "fixture_triplets": 16,
+    "real_target_forwards": 0,
+    "private_checks_passed": 18,
+    "public_projection_checks_passed": 18
   }
 }
