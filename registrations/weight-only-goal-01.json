@@ -1,0 +1,15 @@
+{
+  "schema": "WSPGoalFamily/1",
+  "id": "weight-only-goal-01",
+  "registered_at": "2026-11-03T01:02:01.293731+00:00",
+  "trials": [
+    "loop-repair-03",
+    "loop-repair-04"
+  ],
+  "final_outcomes_inspected": false,
+  "guard_outcomes_inspected": false,
+  "familywise_alpha": 0.05,
+  "method": "Bonferroni: adjusted_p=min(1,2*raw_p). Require adjusted_p<=.05, final gain>=.10, no registered guard accuracy decline, complete error-free execution and passing closure audit.",
+  "preserve_existing_bounds": "Trial03 keeps its original p<=.05 stage decision. The overall goal claim has the additional two-trial correction; earlier failed and successful stage readings are never rewritten.",
+  "activation": "Prepare trial04 now. Run only if trial03 closes without an audited goal-family success and resource admission passes. No third trial or extra resources."
+}

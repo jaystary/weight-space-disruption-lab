@@ -1,0 +1,145 @@
+{
+  "schema": "WSPLoopRepair/2",
+  "id": "loop-repair-04",
+  "purpose": "Predeclared longer-generation replication of the same exact published internal edit, with batched inference and fresh synthetic inputs; no independent edit discovery.",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "upstream_commit": "4d09ba6d6a7e891dd8063974dfe81b3d78e3494f",
+  "upstream_patch_path": "exp8_math/runs/p50c/edit/edit.npz",
+  "upstream_patch_git_blob_sha1": "f79a64f0be403a092a949f08e2a1c850e995e0e8",
+  "upstream_patch_bytes": 387619,
+  "attribution": "Takehi, Teoh, Zhang and Khattab, Sparks of Weight-Space Programming; published patch CC BY 4.0. https://github.com/RikiyaT/lm_understand-logs/tree/main/exp8_math",
+  "arms": [
+    "baseline",
+    "published-p50c"
+  ],
+  "tensors": [
+    {
+      "name": "model.language_model.layers.15.mlp.down_proj.weight",
+      "shape": [
+        1024,
+        3584
+      ],
+      "base_sha256": "ef60d2c687bab19464dca9c8bfd7777e46ad226df0c9e25643b0bab04b5a1cca",
+      "edited_sha256": "82e2d733ea64feaeb4af93a1e065641d3df98b494a8b7576ef2f52e90fe2ee53",
+      "changed_entries": 65260
+    },
+    {
+      "name": "model.language_model.layers.19.mlp.down_proj.weight",
+      "shape": [
+        1024,
+        3584
+      ],
+      "base_sha256": "638eedeb701b94aa861f4438e615c07ec6c60ee703db1bfee2de577bb6498c3e",
+      "edited_sha256": "8ef3c61bc36af113ad58e89dbb0a4a14dcba5a45cb750c15ab515c82ddd12eb2",
+      "changed_entries": 64928
+    }
+  ],
+  "data": {
+    "kind": "Fresh procedural integer arithmetic, four equally represented families, plus exact-string instruction guardrails",
+    "development_count": 8,
+    "final_count": 24,
+    "guard_count": 16,
+    "seed_policy": "Generate one fresh remote 256-bit seed after choices are frozen. Exclude all arithmetic IDs from loop-repair-03 and previous phases; collision rejection uses IDs only, never outcomes.",
+    "isolation": "Coordinator controlled, not independently qualified. No former classification records reused. Final choices fixed before any final input is generated or evaluated."
+  },
+  "generation": {
+    "enable_thinking": true,
+    "do_sample": true,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "repetition_penalty": 1.0,
+    "max_new_tokens": 16384,
+    "guard_max_new_tokens": 256,
+    "samples_per_case_per_arm": 1,
+    "guard_enable_thinking": false,
+    "batch_size": 8,
+    "padding_side": "left",
+    "eos_token_ids": [
+      248046,
+      248044
+    ],
+    "attention_implementation": "sdpa"
+  },
+  "selection": "None. Same predeclared published patch. Same prompts, decoder settings, batch membership and batch sampling seed in both arms; alternate arm order by batch. No optimizer, fitted classifier, adaptive patch or prompt tuning.",
+  "primary": {
+    "metric": "paired final arithmetic accuracy gain",
+    "absolute_gain_min": 0.1,
+    "one_sided_exact_mcnemar_p_max": 0.025,
+    "guard_accuracy_decline_max": 0.0,
+    "required_execution_failures": 0
+  },
+  "secondary": [
+    "repairs and regressions",
+    "per-family accuracy",
+    "completion rate",
+    "token-cap rate",
+    "repeated 8-gram fraction",
+    "generated tokens",
+    "elapsed time",
+    "peak GPU allocation"
+  ],
+  "uncertainty": "95% paired case-bootstrap interval, 10000 resamples, fixed seed 0; exact paired one-sided binomial test on discordant cases. Small synthetic cohort; no claim about general math ability or unrelated capabilities.",
+  "limits": {
+    "max_generation_attempts": 96,
+    "max_generated_tokens": 1056768,
+    "max_wall_seconds": 7200,
+    "max_editor_calls": 0,
+    "max_model_copies_on_gpu": 1,
+    "max_preflight_generated_tokens": 1024,
+    "max_preflight_seconds": 300
+  },
+  "failure_policy": "Write intent before each generation; retain errors and partial results. Never retry scored cases or overwrite this run. Any runtime/budget failure makes success unavailable. No token-bound changes after readings.",
+  "preflight_checks": {
+    "command": "pytest -q tests/test_loop_contract.py tests/test_loop_batch.py",
+    "required_passed": 7,
+    "failed_skipped_ignored": 0,
+    "runtime_invariants": [
+      "prior closure and resource admission",
+      "published patch bytes and base/edited hashes",
+      "exact unchanged synthetic logits after restoration",
+      "long-context batch timing and memory preflight"
+    ]
+  },
+  "differences_from_original": [
+    "fresh synthetic arithmetic rather than source benchmark",
+    "16384 rather than32768 arithmetic-token cap",
+    "one sample per case",
+    "Transformers SDPA batched inference rather than vLLM",
+    "published patch reused rather than independently discovered",
+    "guard copy tasks use thinking disabled identically in both arms"
+  ],
+  "next_stage": "No third trial under this registration or goal family. A third requires a separately justified plan and valid multiplicity handling, fresh data and remaining authorized budget.",
+  "multiplicity": {
+    "family": "weight-only-goal-01",
+    "method": "Bonferroni over two planned trials, loop-repair-03 and loop-repair-04",
+    "familywise_alpha": 0.05,
+    "adjusted_p": "min(1,2*raw_p)",
+    "prior_trial_note": "Preserve trial03 original p<=.05 stage rule; any overall goal claim from either trial additionally requires adjusted p<=.05. This family is frozen before trial03 final or guard outcomes are inspected."
+  },
+  "admission": {
+    "prior_trial": "loop-repair-03 must be terminal and its closure audit pass; skip this trial if its goal-adjusted result already meets the objective",
+    "hard_stop_utc": "<set your authorized UTC deadline before registering a new trial>",
+    "closure_reserve_seconds": 600,
+    "same_owned_gpu_only": true,
+    "new_resources": false,
+    "total_caps": "Original private total compute and storage caps remain binding. A reproduction needs its own authorized caps before registration.",
+    "preflight": "Eight synthetic 16384-token contexts followed by 128 forced-length, unscored new tokens using SDPA. Record time, memory and restoration. Require conservative estimated remaining generation time plus 300 seconds <=90% of remaining stage wall time and before closure reserve; otherwise stop before new questions are generated."
+  },
+  "differences_from_trial03": [
+    "16384 rather than4096 arithmetic-token cap",
+    "batch8 with fixed paired batch seeds instead of one sequence at a time",
+    "SDPA instead of eager attention",
+    "both native and chat EOS stop tokens",
+    "guard thinking disabled and256-token cap",
+    "fresh8development/24final/16guard cohort",
+    "Bonferroni-adjusted goal claim across two planned trials"
+  ],
+  "publication": {
+    "original_registration_sha256": "7edf46004e81d44ea5da4f52ebb30f761c0900830749f5d33ad8edcde8e92bd2",
+    "original_source_commit": "738b2272d286c0edeefec0c95fb6d8bbce78bc90",
+    "projection": "Package/cache names generalized; private operating deadline and total account caps withheld. Numeric scientific bounds unchanged. Set authorized resource limits and register before any new execution."
+  }
+}

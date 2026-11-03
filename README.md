@@ -12,6 +12,8 @@ The active experiment tests an exact published loop-removal weight patch in a 0.
 
 ## Final results
 
+A [longer-generation continuation](reports/loop-repair-04/README.md) is prepared, with fresh inputs and a predeclared two-trial significance correction. It has not started; GPU admission and remaining budget must pass first.
+
 **Direct weight editing did not improve the final test.** The selected 4B edit repaired zero errors and broke one correct answer on 93 held-out groups across 14 dates. All choices were frozen before the final data opened; all ten arms ran once.
 
 | Final arm | Accuracy | Balanced accuracy |

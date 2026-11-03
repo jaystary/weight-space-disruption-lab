@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "cb7be074aec219053236657b0acfdbf7dabcd51038356aa0327904e5c77a0fbe"
+      "sha256": "f1fa541893eebfdb0d1dfcd7fb4c4c5e1a148245225ff310fe0260f7825de2fc"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "df3a5088a062c69867f331853b397e9d05b103d9c772419d2cd9a8a37e92ebe7"
+      "sha256": "4c07a2d58c79c07c6062a3e381db841521b37c8a1a64c4222c53715d9302f976"
     },
     {
       "path": "constraints.txt",
@@ -42,6 +42,10 @@
     {
       "path": "docs/loop-repair-03.md",
       "sha256": "a98e85cba711c2a33ed58bdc462d7dec97b518a4897eddb33abbe469162d1ff2"
+    },
+    {
+      "path": "docs/loop-repair-04.md",
+      "sha256": "28fca9a2b3f51c1e8d4e92990e7706365102e346930d33191b8409b21fd71897"
     },
     {
       "path": "prompts/mechanistic-researcher-v1.md",
@@ -72,12 +76,20 @@
       "sha256": "3d393a4c7e3b4460eba0cc7596fec6132b306bab5be41255f440ba1bd6fbd47b"
     },
     {
+      "path": "registrations/loop-repair-04.json",
+      "sha256": "2b6e5658f56189997b4b86de42961f827c768a28243ea3a0d1ccb464d129b6aa"
+    },
+    {
       "path": "registrations/model-size-01.json",
       "sha256": "2cce060e15a54d4abdbcc12c8f607a0c89fe4e676f1756d86ad962bf8239b6f6"
     },
     {
       "path": "registrations/native-gates-01.json",
       "sha256": "3a7cde4fe269021a4e0abe17f469c68c5c16375d967e632566729e46e3a2f201"
+    },
+    {
+      "path": "registrations/weight-only-goal-01.json",
+      "sha256": "1e635084de27fa725efdb89460f267b4dba7d571cc04d2c41c3f62f53a01f3e0"
     },
     {
       "path": "reports/cause-01/REPORT.md",
@@ -121,7 +133,7 @@
     },
     {
       "path": "reports/loop-repair-03/README.md",
-      "sha256": "7362fa48b62db4b12b3d90e0be8a2e4f8037da75dc5e06842fb5b8c19bd28acb"
+      "sha256": "219be2b99ab3fcb14c2536a53225362594a127d0f4bc5af026be85240cd6bcbd"
     },
     {
       "path": "reports/loop-repair-03/development.json",
@@ -133,7 +145,11 @@
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "a40800d6cba480d0b6109b97f63113aca9809ced91bb0c980525a40736ffb4d4"
+      "sha256": "2b0ed367c0afe988415802801c01fa8f4800167549ac6d70fc4a821382816bc2"
+    },
+    {
+      "path": "reports/loop-repair-04/README.md",
+      "sha256": "1ef9c00221eb49b3f2da1f8276f579545fff4b9e3ae6f8f476e67c433a22e30f"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -178,6 +194,10 @@
     {
       "path": "tests/test_joint_final.py",
       "sha256": "b5bcc5fcc98679626d7fc6441a68f48846cca7439782891c0c99cb17099c1249"
+    },
+    {
+      "path": "tests/test_loop_batch.py",
+      "sha256": "27114ef422ac57c17169997e64c93c50a4098bb963e6110a6d7bfeba2ca065ea"
     },
     {
       "path": "tests/test_loop_contract.py",
@@ -248,6 +268,10 @@
       "sha256": "c4988cca823f34e70c130b1c9a5c2282489c87e335b49f619d10ede1b42f7ae7"
     },
     {
+      "path": "tools/weight_space_lab/loop_batch_repair.py",
+      "sha256": "161abc80d426113b4cab79566bd80700d9e572db7c12ee0efbf4b3a643bf528a"
+    },
+    {
       "path": "tools/weight_space_lab/loop_contract.py",
       "sha256": "67c5b9cf82326373e76103dcdb0ecc55ba125549723d5824c4cfd08e5b6fd9bb"
     },
@@ -314,7 +338,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T00:57:05.599491+00:00",
+  "updated_at": "2026-11-03T01:10:42.355777+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
@@ -336,5 +360,14 @@
         }
       ]
     }
+  },
+  "prepared_continuation": {
+    "id": "loop-repair-04",
+    "source_commit": "738b2272d286c0edeefec0c95fb6d8bbce78bc90",
+    "state": "prepared, not running; GPU admission untested",
+    "original_registration_sha256": "7edf46004e81d44ea5da4f52ebb30f761c0900830749f5d33ad8edcde8e92bd2",
+    "remote_focused_tests_passed": 7,
+    "new_public_projection_tests_passed": 3,
+    "goal_family_sha256": "1e635084de27fa725efdb89460f267b4dba7d571cc04d2c41c3f62f53a01f3e0"
   }
 }

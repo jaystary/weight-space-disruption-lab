@@ -1,0 +1,15 @@
+# Longer-generation replication, conditional on budget
+
+Trial03 development exposed a completion tradeoff: baseline 2/16 correct, published edit 3/16; three repairs, two regressions. Every error reached the 4,096-token limit without a parsed answer. The authors reported a median of about 9,172 tokens for correct edited answers on different practice tasks. This motivates a separate longer-cap test. It does not prove that extra tokens will rescue our edited outputs.
+
+The current trial03 remains frozen and runs to completion. This registration is prepared before any of its final or guard outcomes are read. A two-trial Bonferroni family now governs the overall goal claim: adjusted p = min(1, 2 × raw p), with adjusted p <= .05. Trial03's original stage decision at raw p <= .05 is preserved and reported separately. No previous failed result is removed.
+
+Trial04 may run only after trial03 is terminal, its closure audit passes, and it has not already met the adjusted goal. It reuses exactly the same published BF16 patch and immutable model revision. No gradients, classifier, editor call or new patch selection. Fresh remote synthetic inputs: eight development, 24 final, 16 exact-copy guards. Arithmetic IDs from trial03 are excluded without looking at outcomes. Every choice is fixed before these questions are generated.
+
+Arithmetic gets a 16,384-token cap. Eight prompts run together using SDPA, left padding, native and chat EOS tokens, and fixed paired batch seeds. Guard copying uses thinking disabled and a 256-token cap. Prompts, decoding, batch membership and seeds are identical between baseline and edited arms within each phase. Batch/EOS/attention/guard changes limit comparisons with trial03, so absolute scores across the trials are not a controlled token-cap comparison.
+
+One unscored full-context batch preflight measures memory and elapsed time before creating any questions. A conservative projection must fit the remaining registered wall time and original total budget, including a closure reserve. An admission failure is retained and ends this attempt before scoring. The scored trial has a 7,200-second cap, at most 96 generation attempts and 1,056,768 token slots. No scored retry or third trial is authorized by this registration.
+
+Validation: seven focused CPU checks cover the existing patch hash, restoration data, scorer and cohort contract, plus batched EOS padding, old-ID exclusion and the family decision. Runtime GPU admission and measurement remain pending. Execute only on the existing authorized remote GPU, under the registered outer timeout; never alongside trial03.
+
+Success requires >=10 percentage points final accuracy gain, adjusted p <= .05, no guard accuracy loss, complete error-free execution and a passing closure audit. Report failures, truncation, repeated n-grams and padded token slots as well as accuracy. This remains a bounded replication of an existing patch, not independent discovery or evidence of general capability preservation.

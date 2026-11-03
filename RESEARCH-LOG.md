@@ -118,3 +118,11 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - The authors' [pinned report](https://github.com/RikiyaT/lm_understand-logs/blob/4d09ba6d6a7e891dd8063974dfe81b3d78e3494f/exp8_math/runs/p50c/work_notes/final_report.md) reports median correct-answer lengths of 5,310.5 tokens for baseline and 9,171.5 for their edit on their practice tasks, using a 32,768-token cap. These are external measurements, not our results. Our smaller cap can materially limit comparability.
 - Current measurement remains frozen. A separate longer-cap trial would need a new registration, fresh final data, a multiple-trial policy and remaining budget. Longer generations could also expose new errors; improvement is unproven.
 - Source: reports/loop-repair-03/development.json; frozen source5d07407962668f9bd479e02876cf3f78c9fbaec0. Final evaluation continues.
+
+### F15 — Conditional longer-generation trial prepared before final readings
+
+- Trial04 and goal family weight-only-goal-01 registered at source738b2272d286c0edeefec0c95fb6d8bbce78bc90 before trial03 final/guard outcomes were inspected. Both use the same published patch. Trial03 continues unchanged.
+- Overall goal claims use Bonferroni correction across the two planned trials: adjusted p=min(1,2*raw p), threshold .05. Original trial03 stage bounds and failed outcomes remain intact. This is an additional goal-level requirement, not a rewrite of its original decision.
+- Conditional trial04: fresh8development/24final/16guard; arithmetic cap16384; batch8 SDPA, paired batch seeds, both native/chat EOS. Guard copying has thinking disabled in both arms. These changes mean cross-trial differences cannot isolate token-cap effects.
+- Seven focused checks passed on remote CPU in2.98s. Three new public-projection checks also passed in0.94s. Installed model class advertises SDPA and supports logits_to_keep; installed generation code sets that to1. No GPU trial04 measurement has run, and throughput/memory admission remains unverified.
+- Start only after trial03 closure if its corrected goal result is insufficient and original remaining budget admits the full bounded run. No new resources; no third trial under this family. Source and registered bounds are retained before measurement.
