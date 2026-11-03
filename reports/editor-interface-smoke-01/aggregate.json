@@ -1,0 +1,14 @@
+{
+  "calls_to_editor_model": 0,
+  "changed_entries": 1,
+  "forward_restoration_exact": true,
+  "gpu_calls": 0,
+  "id": "editor-interface-smoke-01",
+  "observation_received": true,
+  "output_max_abs_delta": 0.775390625,
+  "passed": true,
+  "patch_sha256": "b93ff45f95bc1bb0dcf3d523c4e5027e9ba35770733ac9f8194785716621ce0c",
+  "program_author": "harness fixture",
+  "scored_cases": 0,
+  "weight_restoration_exact": true
+}

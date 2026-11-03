@@ -7,7 +7,7 @@ import subprocess
 from .contracts import canonical, file_sha, write_once
 from .needle_contract import (candidate_rank, context_cases, exact_answer, goal_pass,
                               guards, memory_facts, memory_questions)
-from .needle_loop import PREFIX, comparison, editor_accounting, trace_deltas
+from .needle_loop import editor_interface, comparison, editor_accounting, trace_deltas
 from .tensors import validate_patch
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -42,6 +42,7 @@ def audit():
         regpath = ROOT/'registrations/synthetic-needles-01.json'
         require(file_sha(regpath) == intent['registration_sha256'], 'registration identity')
         reg = read(regpath)
+        prefix, _ = editor_interface(reg)
         seed = read(out/'private-seed.json')['seed']
         require(hashlib.sha256(seed.encode()).hexdigest() == read(out/'seed-commitment.json')['sha256'], 'seed commitment')
         frozen = read(out/'choices-frozen.json')
@@ -127,7 +128,7 @@ def audit():
                 patch = directory/'execution/patch.npz'
                 _, validation = validate_patch(patch.read_bytes(), manifest, ROOT/'snapshots')
                 answer = read(directory/'editor/answer.json')
-                require(hashlib.sha256((PREFIX+answer['code']).encode()).hexdigest() == read(directory/'execution/receipt.json')['executed_code_sha256'], 'executed editor program identity')
+                require(hashlib.sha256((prefix+answer['code']).encode()).hexdigest() == read(directory/'execution/receipt.json')['executed_code_sha256'], 'executed editor program identity')
                 rows, _ = scored_rows(development[track], f'{track}/round-{step}/development', validation['patch_sha256'])
                 require(rows == entry['rows'] and comparison(baseline, rows) == entry['comparison'], 'candidate development score')
                 rank = candidate_rank(rows, validation['changed_entries'])

@@ -166,3 +166,11 @@ Context retrieval: 8/8 on all three pilots and 16/16 on development. Memory writ
 Post hoc, development only. Four numerical programs with a later round printed 186,000 characters in total. The harness forwarded only the first 2,000 per program: 8,000 characters, or 4.3%. Each track's rejected program tried to redirect stdout using imports the sandbox forbids. The remaining output was retained in the private audit, but the next round did not receive it through this feedback field. Other evidence, including hypotheses and available features, also reached the editor. This identifies an interface limitation; it does not establish why no patch was produced.
 
 For a future registered run, give the editor a bounded structured findings field separate from tensor-read logs, include the import allowlist and demonstrate a nonempty reversible write on an unscored fixture. Keep the original security policy and all eight outcomes.
+
+### F22 — Bounded findings and a reversible weight write reached the normal execution path
+
+The opt-in editor interface keeps four structured numerical findings separately from ordinary logs and supplies the import allowlist. A fixture emitted 90,000 characters before its observation. The next rendered prompt received the exact observation. A sandboxed fixture program changed one BF16 value in the internal feed-forward projection of an eight-dimensional transformer. The maximum absolute forward-output change was 0.775390625. Restoring the base restored both weights and output exactly. The identical fixture patch hash and result reproduced on the curated reference code. Each version passed 12 focused checks. This was an unscored CPU software check using a harness-authored program, with zero editor-model calls. [Receipt](reports/editor-interface-smoke-01/aggregate.json)
+
+### F23 — Independent results separate output-format repair, synthetic repair and patch replay
+
+A pretrained Qwen output-row experiment improved 15/32 to 23/32 by fixing JSON fences. Its earlier internal MLP-column edit was flat. A separate agent repaired a synthetic hidden threshold from 35/64 to 64/64. An independent MATH-500 rerun scored the published edited Qwen checkpoint at 51.0%. Scope, commits and controls are recorded in the [source survey](docs/independent-weight-edit-results.md).

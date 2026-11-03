@@ -14,6 +14,8 @@ The [researcher-led synthetic tracks](reports/synthetic-needles-01/REPORT.md) co
 
 The [longer-generation arithmetic comparison](reports/loop-repair-04/README.md) passed its unscored batch preflight and is running. [Live aggregate status](reports/loop-repair-04/status.json). It checks the same published patch on fresh questions. Overall multiplicity covers four planned comparisons.
 
+[Independent GitHub results](docs/independent-weight-edit-results.md) · [Reversible-write fixture and feedback check](reports/editor-interface-smoke-01/README.md)
+
 ## Final results
 
 **Direct weight editing did not improve the final test.** The selected 4B edit repaired zero errors and broke one correct answer on 93 held-out groups across 14 dates. All choices were frozen before the final data opened; all ten arms ran once.

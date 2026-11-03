@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "34706227796ae8bef25b5562c9caabf1502fa4cdbf5037cbcc01ac5b419832f1"
+      "sha256": "9c6033a5d22e78e276a741ad1ac8d2bc0885ec8dbd6ea1b1d759e1896a901d01"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "bd4b7ecdb91d9fc93579cf5588d11835bee27a274c8dbebce8bf00a4fb7c2461"
+      "sha256": "d4138f4edb328e942bce66de28e919e93df71e464f1382f522f5746d158c7409"
     },
     {
       "path": "constraints.txt",
@@ -30,6 +30,10 @@
     {
       "path": "docs/experiment-setup.svg",
       "sha256": "c27f4c7bd242a4b47f718d390411233930ff72c692eb48ccea12cd5902b6a480"
+    },
+    {
+      "path": "docs/independent-weight-edit-results.md",
+      "sha256": "61868de36203f813bf3bda4a96c173648f38a46c0d2e4f5e851067ce9c7819f1"
     },
     {
       "path": "docs/influence-map.png",
@@ -74,6 +78,10 @@
     {
       "path": "registrations/cause-pilot-01.json",
       "sha256": "85a5c06a48c1501eb47409ae7afa8659ce2a301faac9adbf556a71c7e19fe259"
+    },
+    {
+      "path": "registrations/editor-interface-smoke-01.json",
+      "sha256": "77262b0df785c12795739b0af337072b5e233ed4e403484b0803e49ef0103154"
     },
     {
       "path": "registrations/joint-final-02.json",
@@ -144,6 +152,14 @@
       "sha256": "d1382c2c2aa3ca5b5c281274f12d6f348eeb587703a80bf0dc6bd2db280a5337"
     },
     {
+      "path": "reports/editor-interface-smoke-01/README.md",
+      "sha256": "10260a03beb9066aa2a52a4f91fd19b23cc8974e0dd88071c9ffc5b456241e9e"
+    },
+    {
+      "path": "reports/editor-interface-smoke-01/aggregate.json",
+      "sha256": "29ea617619b8b7f6e56ac76eb6aa50a5430fea23d4f90a60e54fbca9386df643"
+    },
+    {
       "path": "reports/joint-final-02/REPORT.md",
       "sha256": "9926a4ff01859f03340009a52f95f07e400fce01d4a33a10525f37c970295fc7"
     },
@@ -185,7 +201,7 @@
     },
     {
       "path": "reports/loop-repair-04/status.json",
-      "sha256": "ae15813eb70877a7fe6abeccd9e8c75c4cf7537cd6464525e841301935ff5f21"
+      "sha256": "28a9441c62a70dab31a46329237680bbe88ec2c9108c2ffecd0af2a21fe56b65"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -270,6 +286,10 @@
     {
       "path": "tests/test_needle_diagnostic.py",
       "sha256": "d107f9632a05e60bf15ff74885397f0d6d12f979c15a87b7928bde6ed9216eae"
+    },
+    {
+      "path": "tests/test_needle_findings.py",
+      "sha256": "9cc6fb610c4916e56946303294603930e4879f92d680958a5289348ca8d56064"
     },
     {
       "path": "tests/test_needle_worker.py",
@@ -365,7 +385,7 @@
     },
     {
       "path": "tools/weight_space_lab/needle_closure.py",
-      "sha256": "4618c2b6d3b29b4ea1412a172764adacebbbd512c281573418884972b59c018d"
+      "sha256": "1314c7832d5a681d5851a3ced2f7f36fbfae6da7cb5ff5df608f9b95b19f18d2"
     },
     {
       "path": "tools/weight_space_lab/needle_contract.py",
@@ -380,8 +400,16 @@
       "sha256": "daf57e6e4a6c3efc0295e5020db05d2d74e0a72292a53950540d95ee5cef3b7d"
     },
     {
+      "path": "tools/weight_space_lab/needle_findings.py",
+      "sha256": "77bfcd894914d1689ab6c3b8172e4cad13358fe32e739df4cd57eb9618d28d7a"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_fixture_smoke.py",
+      "sha256": "c4e04850925e7cdbc1fdb5641a2980eba3d483069a563669e39989b29f5a5903"
+    },
+    {
       "path": "tools/weight_space_lab/needle_loop.py",
-      "sha256": "9eedf3bc8b45cbe3be0f81761b9000d3e57d5c934b0060f73965bb839bca8a19"
+      "sha256": "3f11b4f79755d67131849bee7d37cfa07c87cbf89384205f13f812c7aa287bab"
     },
     {
       "path": "tools/weight_space_lab/needle_runtime_bridge.py",
@@ -389,7 +417,7 @@
     },
     {
       "path": "tools/weight_space_lab/needle_worker.py",
-      "sha256": "a2e1292daea94ad4edf3c0f6dfdafff076150ccc7a797365a427cb4490a6b288"
+      "sha256": "673f8f72104b767a8d0b90e0399e03b9d9ef49a8539d73e3cc98a51352cfbcbf"
     },
     {
       "path": "tools/weight_space_lab/prepare_classification.py",
@@ -438,7 +466,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T04:17:45.095367+00:00",
+  "updated_at": "2026-11-03T04:31:31.322341+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
@@ -481,5 +509,12 @@
     "passed": 19,
     "seconds": 9.68,
     "target_gpu_stage": "completed; 527 closure checks passed"
+  },
+  "editor_interface_smoke": {
+    "source_commit": "ca9a1a0e84e3385575b034a69e9e41aa5df394ab",
+    "private_checks_passed": 12,
+    "public_projection_checks_passed": 12,
+    "fixture_write_restored": true,
+    "editor_model_calls": 0
   }
 }

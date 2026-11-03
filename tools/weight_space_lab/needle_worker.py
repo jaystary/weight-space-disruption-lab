@@ -105,10 +105,11 @@ class NeedleWorker:
         self.active = [name for name, _, _ in updates]
         try:
             for name, indices, values in updates:
-                self.parameters[name].view(-1)[torch.from_numpy(indices).to('cuda')] = torch.from_numpy(values).view(torch.bfloat16).to('cuda')
+                target = self.parameters[name]
+                target.view(-1)[torch.from_numpy(indices).to(target.device)] = torch.from_numpy(values).view(torch.bfloat16).to(target.device)
                 actual = self.parameters[name].detach().cpu().contiguous().view(torch.uint16).numpy()
                 if not np.array_equal(actual.reshape(-1)[indices], values):
-                    raise RuntimeError('GPU BF16 replacement differs from validated patch')
+                    raise RuntimeError('BF16 replacement differs from validated patch')
             receipt['edited_tensor_sha256'] = {name: hashlib.sha256(
                 self.parameters[name].detach().cpu().contiguous().view(torch.uint16).numpy().tobytes()).hexdigest()
                 for name in self.active}

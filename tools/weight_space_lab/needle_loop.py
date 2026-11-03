@@ -11,17 +11,31 @@ import time
 import numpy as np
 
 from .contracts import canonical, file_sha, write_once
-from .edit_loop import audit, SCHEMA
+from .edit_loop import ALLOWED_IMPORTS, audit, SCHEMA
 from .loop_contract import paired
 from .model_client import call
 from .needle_contract import (candidate_rank, choose_difficulty, context_cases,
                               goal_pass, guards, memory_facts, memory_questions)
+from .needle_findings import collect_findings
 from .needle_worker import NeedleWorker
 from .research_prompt import render
 from .sandbox import build, execute, JAIL
 
 ROOT = Path(__file__).resolve().parents[2]
 PREFIX = 'import numpy as np\nimport json, math, statistics, collections, hashlib\nfrom edit_api import SPECS, load, save, feature\n'
+
+
+def editor_interface(registration):
+    modules = ['edit_api.py', 'needle_feature_api.py']
+    prefix = PREFIX
+    mode = registration.get('editor_feedback')
+    if mode == 'structured-v1':
+        modules.append('needle_findings.py')
+        prefix += 'from edit_api import record_finding\n'
+    elif mode is not None:
+        raise ValueError('unknown editor feedback protocol')
+    api = '\n'.join((ROOT/'tools/weight_space_lab'/name).read_text() for name in modules)
+    return prefix, api
 
 
 class RestorationError(RuntimeError):
@@ -66,6 +80,8 @@ def compact_history(history):
         for key, cap in [('stdout', 2000), ('stderr', 800), ('hypothesis', 2000)]:
             if key in row:
                 row[key] = row[key][:cap]
+        if row.get('feedback', {}).get('observations'):
+            row.pop('stdout', None)
         result.append(row)
     return result
 
@@ -130,7 +146,7 @@ def edit_track(worker, cases, track, out, registration, reference, deadline):
     worker.patch(None)
     baseline = worker.generate(cases, out/'development-baseline')
     features = install_features(worker, cases, track, out)
-    api = (ROOT/'tools/weight_space_lab/edit_api.py').read_text()+'\n'+(ROOT/'tools/weight_space_lab/needle_feature_api.py').read_text()
+    prefix, api = editor_interface(registration)
     target = JAIL/'work/edit_api.py'
     if target.exists():
         target.chmod(0o644)
@@ -153,21 +169,30 @@ def edit_track(worker, cases, track, out, registration, reference, deadline):
                        'features': {name: {'shape': spec['shape']} for name, spec in features.items()},
                        'development': compact_development(cases), 'baseline': baseline, 'best': best['rows'],
                        'history': compact_history(history), 'numerical_weight_inspection': numerical_notes,
-                       'kernel_bindings': PREFIX,
+                       'kernel_bindings': prefix,
                        'response': 'Return hypothesis and executable code strings only. Code executes once. Print compact diagnostics; optionally save a sparse internal-weight patch relative to BASE. The controller evaluates each valid patch on this fixed development panel. A diagnostic-only round consumes one call. No direct GPU function exists inside your program.'}
+            if registration.get('editor_feedback') == 'structured-v1':
+                context['allowed_imports'] = sorted(ALLOWED_IMPORTS)
+                context['diagnostic_feedback'] = (
+                    'Use bound record_finding(name, float(value), interpretation). The last four '
+                    'valid observations reach the next round separately from printed logs. '
+                    'Use bound save(changes) for writes. The controller verifies and hashes the patch.')
             prompt = render(api, context, registration)
             if len(prompt) > registration['limits']['editor_prompt_characters']:
                 raise ValueError('editor prompt budget exceeded')
             answer, receipt = call(prompt, SCHEMA, directory/'editor', model=registration['editor_model'],
                                    effort=registration['editor_effort'], timeout=480,
                                    executable='/workspace/tools/codex')
-            code = PREFIX+answer['code']
+            code = prefix+answer['code']
             write_once(directory/'code-audit.json', audit(code))
             rc = execute(code, directory/'execution')
             entry.update(hypothesis=answer['hypothesis'], code=answer['code'],
-                         stdout=(directory/'execution/stdout.log').read_text()[:6000],
-                         stderr=(directory/'execution/stderr.log').read_text()[:1500],
+                         stdout=(directory/'execution/stdout.log').read_text(errors='replace')[:6000],
+                         stderr=(directory/'execution/stderr.log').read_text(errors='replace')[:1500],
                          program_returncode=rc, usage_known=receipt['usage_known'])
+            if registration.get('editor_feedback') == 'structured-v1':
+                with (directory/'execution/stdout.log').open(encoding='utf-8', errors='replace') as stream:
+                    entry['feedback'] = collect_findings(stream)
             if rc:
                 raise RuntimeError('generated program failed')
             patch = directory/'execution/patch.npz'

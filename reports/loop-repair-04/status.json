@@ -1,18 +1,20 @@
 {
   "schema": "WSPPublicProgress/1",
   "experiment": "loop-repair-04",
-  "as_of_utc": "2026-11-03T04:17:45.095367+00:00",
+  "as_of_utc": "2026-11-03T04:30:37.029091+00:00",
   "source_commit": "0dc887a41404202ff1adb8249e2797df33f7c177",
   "planned_pairs": 48,
-  "completed_pairs": 0,
-  "pairs_by_phase": {},
-  "generated_tokens": 0,
+  "completed_pairs": 8,
+  "pairs_by_phase": {
+    "development": 8
+  },
+  "generated_tokens": 183370,
   "state": "running",
-  "phase": "development",
+  "phase": "final",
   "efficacy_result": "pending",
   "base_and_edited_hashes_verified": true,
   "batch_preflight_admitted": true,
   "generated_tokens_scope": "completed paired batches only; in-flight generation excluded",
-  "generation_attempts_started": 8,
-  "saved_outputs": 0
+  "generation_attempts_started": 24,
+  "saved_outputs": 16
 }
