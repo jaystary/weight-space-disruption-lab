@@ -8,6 +8,7 @@ SPECS={r['name']:r for r in MANIFEST['tensors']}
 
 def load(name):
     bits=np.load('/snapshots/'+SPECS[name]['file'],allow_pickle=False,mmap_mode='r')
+    print(json.dumps({'tensor_read':name,'base_sha256':SPECS[name]['sha256']}))
     return (bits.astype(np.uint32)<<16).view(np.float32)
 
 def save(changes):

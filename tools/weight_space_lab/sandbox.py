@@ -2,6 +2,7 @@
 from __future__ import annotations
 import ctypes
 import errno
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -101,7 +102,8 @@ def execute(code: str, directory: Path):
         if patch.is_symlink() or not patch.is_file() or patch.stat().st_size>16*1024**2:
             raise ValueError('unsafe patch output')
         shutil.copyfile(patch,directory/'patch.npz')
-    (directory/'receipt.json').write_text(json.dumps({'returncode':rc,'patch':(directory/'patch.npz').exists()})+'\n')
+    (directory/'receipt.json').write_text(json.dumps({'returncode':rc,'patch':(directory/'patch.npz').exists(),
+        'executed_code_sha256':hashlib.sha256(code.encode()).hexdigest()})+'\n')
     return rc
 
 if __name__=='__main__':

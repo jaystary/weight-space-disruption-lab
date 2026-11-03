@@ -8,14 +8,18 @@ import numpy as np
 
 from .contracts import file_sha, write_once
 from .needle_contract import exact_answer
+from .needle_attention import attention_summary, focus_indices
 from .tensors import metadata, validate_patch
 
 
 class NeedleWorker:
     def __init__(self, root, out, registration, deadline):
+        import inspect
+        from importlib.metadata import version
         import torch
         from huggingface_hub import snapshot_download
         from transformers import AutoTokenizer, Qwen3_5ForConditionalGeneration
+        from transformers.models.qwen3_5.modeling_qwen3_5 import Qwen3_5Attention
 
         self.torch, self.root, self.out = torch, root, out
         self.registration, self.deadline = registration, deadline
@@ -58,6 +62,8 @@ class NeedleWorker:
         metadata(self.manifest)
         write_once(snapshots/'manifest.json', self.manifest)
         write_once(out/'worker-ready.json', {'gpu': torch.cuda.get_device_name(0), 'torch': torch.__version__,
+                    'transformers': version('transformers'),
+                    'attention_forward_source_sha256': hashlib.sha256(inspect.getsource(Qwen3_5Attention.forward).encode()).hexdigest(),
                     'manifest_sha256': file_sha(snapshots/'manifest.json'), 'editable_tensors': len(specs),
                     'gpu_allocated_bytes': torch.cuda.memory_allocated(), 'device': str(next(self.model.parameters()).device)})
 
@@ -155,6 +161,9 @@ class NeedleWorker:
         for case in cases:
             request = self.reserve('trace', {'case': case['id'], 'prefix': prefix})
             inputs = self.inputs(case['question'])
+            rendered = self.tokenizer.apply_chat_template([{'role': 'user', 'content': case['question']}],
+                       tokenize=False, add_generation_prompt=True, enable_thinking=False)
+            focus = focus_indices(self.tokenizer, rendered, case['focus_text'], inputs.input_ids[0].cpu().tolist())
             captured, handles = {}, []
             for name in self.base:
                 module_name = name.removesuffix('.weight')
@@ -162,8 +171,39 @@ class NeedleWorker:
                 def capture(module, args, output, key=module_name):
                     captured[key+'/input'] = args[0][0, -1].detach().float().cpu().numpy()
                     captured[key+'/output'] = output[0, -1].detach().float().cpu().numpy()
+                    captured[key+'/focus_input'] = args[0][0, focus[-1]].detach().float().cpu().numpy()
+                    captured[key+'/focus_output'] = output[0, focus[-1]].detach().float().cpu().numpy()
 
                 handles.append(self.modules[module_name].register_forward_hook(capture))
+            for layer in self.registration['layers']:
+                name = f'model.language_model.layers.{layer}.self_attn'
+                module = self.modules[name]
+                cache = {}
+
+                def pre(module, args, kwargs, state=cache):
+                    state['position'] = kwargs.get('position_embeddings', args[1] if len(args) > 1 else None)
+                    state['mask'] = kwargs.get('attention_mask', args[2] if len(args) > 2 else None)
+
+                def query(module, args, value, state=cache):
+                    state['query'] = value[:, -1:].transpose(1, 2)
+
+                def key(module, args, value, state=cache):
+                    state['key'] = value.transpose(1, 2)
+
+                def gate(module, args, value, state=cache, dim=module.head_dim):
+                    state['gate'] = value[0, -1].reshape(-1, dim*2).chunk(2, dim=-1)[1]
+
+                def post(module, args, value, state=cache, key_name=name):
+                    cos, sin = state['position']
+                    values = attention_summary(state['query'], state['key'], cos, sin, state['mask'],
+                                               module.num_key_value_groups, module.scaling, focus, state['gate'])
+                    for metric, tensor in values.items():
+                        captured[key_name+'/attention/'+metric] = tensor.detach().cpu().numpy()
+                    state.clear()
+
+                handles += [module.register_forward_pre_hook(pre, with_kwargs=True),
+                            module.q_norm.register_forward_hook(query), module.k_norm.register_forward_hook(key),
+                            module.q_proj.register_forward_hook(gate), module.register_forward_hook(post)]
             norm = self.modules['model.language_model.norm']
 
             def capture_norm(module, args, output):
@@ -179,7 +219,9 @@ class NeedleWorker:
                     handle.remove()
             for name, value in captured.items():
                 arrays.setdefault(prefix+'/'+name, []).append(value)
-            write_once(request/'trace-receipt.json', {'features': len(captured), 'input_tokens': inputs.input_ids.shape[1]})
+            write_once(request/'trace-receipt.json', {'features': len(captured), 'input_tokens': inputs.input_ids.shape[1],
+                'input_token_sha256': hashlib.sha256(inputs.input_ids.cpu().numpy().tobytes()).hexdigest(),
+                'active_patch_sha256': self.active_patch_sha256, 'focus_tokens': focus})
         inventory = {}
         for name, values in arrays.items():
             path = destination/(hashlib.sha256(name.encode()).hexdigest()+'.npy')

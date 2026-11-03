@@ -17,12 +17,15 @@ def context_cases(seed, count, records):
     rows = []
     for i in range(count):
         names = [entity(f'{seed}:{i}', j) for j in range(records)]
+        if len(set(names)) != records:
+            raise ValueError('synthetic entity collision')
         colors = [rng.choice(COLORS) for _ in names]
         position = (0, records//3, 2*records//3, records-1)[i % 4]
         table = '\n'.join(f'{name} has designated color {color}.' for name, color in zip(names, colors))
         question = f'Use the following records.\n{table}\n\nWhat is the designated color of {names[position]}? Answer with the color only.'
         rows.append({'id': entity(seed+'case', i), 'family': f'position-{i%4}',
-                     'question': question, 'answer': colors[position], 'records': records})
+                     'question': question, 'answer': colors[position], 'records': records,
+                     'focus_text': f'{names[position]} has designated color {colors[position]}.'})
     return rows
 
 
@@ -46,7 +49,7 @@ def memory_questions(facts, held_out=False):
             question = forms[i % len(forms)]
         else:
             question = f'What is the designated color of {name}? Answer with the color only.'
-        rows.append(dict(fact, family='written-fact', question=question))
+        rows.append(dict(fact, family='written-fact', question=question, focus_text=name))
     return rows
 
 

@@ -141,3 +141,18 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - One authenticated CLI request pinned gpt-6-astra succeeded: 12,304 input tokens, 4,699 output tokens; no separate returned backend identity. The generated program failed before numerical analysis because API names were not imported. A separately registered binding correction reached tensor loading, then stopped on missing hashlib. No patch or GPU call occurred. Failed attempts remain; partial output is not a completed mechanistic finding.
 - Two synthetic tracks now have generators, development-only traces, bounded weight-edit execution, paired scoring, restoration checks and a joint final freeze. All target-model computation remains pending. Thirteen focused checks are covered by the tested preparation: eleven initial checks passed, then updated restoration/accounting tests passed in their focused runs. GPU execution has not been validated.
 - New goal-level multiplicity uses four planned comparisons; earlier two-trial decisions are preserved. This tightens the overall claim rule before any current final score has been inspected. No significance claim or synthetic efficacy result exists yet.
+
+
+### F18 — Tracing and experiment controls checked before target execution
+
+- Native tiny-transformer tracing captured fact-position and attention-head features without changing model output. Authored 512-record fixtures used 9,939–9,986 input tokens under the 16,384 bound. These are instrumentation checks, not a positive target-model result.
+- Nineteen focused checks passed in 10.03 seconds. They cover synthetic construction, strict scoring, paired inputs, restoration failure, model-client accounting, prompt selection, bounded researcher context and diagnostic deltas. Long haystacks remain complete in evaluation; only researcher display uses explicitly marked excerpts.
+- Both selected patches freeze before final data and before the fixed four-case development intervention map. The map will compare whole-patch activation effects; it cannot identify individual-head causality. Target GPU execution remains queued behind the prior evaluation and its audit.
+
+
+### F19 — Held-out published-patch replication shows a gain but misses significance
+
+- Fresh final48: baseline9/48=18.75%, published patch16/48=33.33%; gain14.58 percentage points,11repairs/4regressions. Exact one-sided pairedp=.0592346; paired95%bootstrap gain interval[0,.291667]. Original stage bar not met. Earlier two-trial adjustedp=.118469; current four-comparison goalp=.236938.
+- Guards7/16 to8/16,4repairs/3regressions. No aggregate accuracy loss in this limited guard task; no broader preservation claim. All160generation attempts completed,495869outputtokens,11023.55seconds; closure passed without inference retries.
+- This remains a published-patch replication. It motivates further direct-edit research but does not complete the own-researcher goal. No individual final case was used for subsequent tuning.
+- New synthetic loop started after closure. Context pilots scored100% at64/256/512records and therefore expose a ceiling, not evidence that weight editing is ineffective. The memory-writing track and final decisions remain pending.

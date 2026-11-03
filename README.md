@@ -8,9 +8,9 @@ Can bounded internal weight edits improve model behaviour? This lab records dire
 
 ## Active weight-only replication
 
-The active experiment tests an exact published loop-removal weight patch in a 0.8B model on fresh synthetic arithmetic, with unchanged prompts and decoding. Success requires at least ten percentage points held-out accuracy gain, paired p <= 0.05, and no guardrail accuracy loss. No gradients or replacement classifier. Patch hashes and exact restoration checks passed; measurement is in progress, with no outcome claimed yet. [Live progress, refreshed every 15 minutes](reports/loop-repair-03/status.json) · [Protocol, code and reproduction instructions](reports/loop-repair-03/README.md).
+Published-patch replication completed: held-out accuracy **18.75% → 33.33%**, with 11 repairs and 4 regressions. Exact paired **p = .05923**, so the predeclared success bar was not met. Closure auditing passed. [Result and limits](reports/loop-repair-03/REPORT.md) · [Aggregate evidence](reports/loop-repair-03/aggregate-report.json).
 
-A [longer-generation continuation](reports/loop-repair-04/README.md) is prepared, with fresh inputs and a predeclared two-trial significance correction. It has not started; GPU admission and remaining budget must pass first.
+A [longer-generation continuation](reports/loop-repair-04/README.md) remains prepared and unexecuted. The current priority is the actual researcher-led synthetic loop. Current goal-level multiplicity covers four planned comparisons; original stage registrations and decisions remain preserved.
 
 Two [synthetic needle tracks](docs/synthetic-needle-research.md) are also requested: context retrieval and factual memory written into weights. Their researcher must produce its own internal patch. [Direct-weight instructions](prompts/direct-weight-researcher-v2.md) are prepared and hash-selectable; these tracks have not run. Current arithmetic evaluation remains a published-patch replication.
 
@@ -74,4 +74,4 @@ Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/
 [Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
 
 
-Synthetic context-retrieval and memory-write harnesses are prepared; neither has run on GPU. See [protocol and current limits](docs/synthetic-needle-research.md) and [direct weight researcher instructions](prompts/direct-weight-researcher-v2.md). A real pinned editor request returned code, but its numerical diagnostic remained incomplete after API-binding failures. No new efficacy result.
+The Astra-requested synthetic context-retrieval and memory-write loop is running with direct tensor access, bounded patch execution and joint candidate freezing. Context pilots already reached 100% baseline, leaving little room for accuracy improvement in that branch. Memory writing and final outcomes remain pending. [Live progress](reports/synthetic-needles-01/status.json) · [Protocol](docs/synthetic-needle-research.md) · [Researcher instructions](prompts/direct-weight-researcher-v2.md). Earlier API-binding failures remain logged.

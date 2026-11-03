@@ -97,3 +97,40 @@ def test_missing_editor_usage_is_not_counted_as_zero(tmp_path):
     result = editor_accounting(tmp_path)
     assert result['unknown_usage_calls'] == 0
     assert result['receipts'][0]['usage'] == [{'input_tokens': 10}]
+
+
+def test_final_audit_rejects_missing_or_changed_paired_inputs():
+    from tools.weight_space_lab.needle_closure import identical_pair_inputs
+    a = {'input_token_sha256': 'base'}
+    identical_pair_inputs([a, dict(a)])
+    with pytest.raises(ValueError): identical_pair_inputs([a])
+    with pytest.raises(ValueError): identical_pair_inputs([a, {'input_token_sha256': 'changed'}])
+
+
+def test_long_haystacks_do_not_exhaust_editor_prompt_before_first_call():
+    import json
+    from tools.weight_space_lab.needle_contract import context_cases
+    from tools.weight_space_lab.needle_loop import compact_development, compact_history
+    cases = context_cases('authored-prompt-size-test', 16, 512)
+    summaries = compact_development(cases)
+    assert len(json.dumps(summaries)) < 20000
+    assert all(not row['question_complete'] for row in summaries)
+    assert all(summary['focus_text'] == case['focus_text'] for summary, case in zip(summaries, cases))
+    entries = [{'code': 'x'*23000, 'stdout': 'y'*6000} for _ in range(3)]
+    history = compact_history(entries)
+    assert sum(len(row.get('code', '')) for row in history) == 23000
+    assert len(entries[0]['stdout']) == 6000
+
+
+def test_trace_delta_pairs_same_development_rows_and_omits_large_vectors(tmp_path):
+    import json
+    import numpy as np
+    from tools.weight_space_lab.needle_loop import trace_deltas
+    before, after = tmp_path/'base', tmp_path/'selected'
+    before.mkdir(); after.mkdir()
+    np.save(before/'x.npy', np.ones((16, 64), dtype=np.float32))
+    np.save(after/'x.npy', np.full((4, 64), 2, dtype=np.float32))
+    (before/'manifest.json').write_text(json.dumps({'query/x': {'file': 'x.npy'}}))
+    result = trace_deltas(before, after, {'selected/x': {'file': 'x.npy'}})['query/x']
+    assert result['cases'] == 4 and result['mean_delta_l2'] == 8
+    assert result['max_abs_delta'] == 1 and 'mean_before' not in result

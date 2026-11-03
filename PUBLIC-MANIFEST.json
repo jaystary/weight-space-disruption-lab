@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "facc564c9680f0baa3caea829140083dfb9d2344b5093646cdc4c1efad9105a9"
+      "sha256": "052ec2ee611bb0aa8dae52ee2f4d13433d548eeae34101dd3438de04575b1590"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "384b1bb862c19e97d7bb2f3486f554a76e497c27db7175bb3d6feafdb2ec9687"
+      "sha256": "7c9bf7e0437a2e41e6ad68f02186870b2613deeeacbe4cb34581a616a2529bfb"
     },
     {
       "path": "constraints.txt",
@@ -49,7 +49,7 @@
     },
     {
       "path": "docs/synthetic-needle-research.md",
-      "sha256": "c3e5c6e1ef473bfe5336f5fec53de254fd1259f263583845897a844d28f3dc5c"
+      "sha256": "b66b2d22beb61dad54b3e0161901b99b52304d6015dbd107068e9229eeb8cc06"
     },
     {
       "path": "prompts/direct-weight-researcher-v2.md",
@@ -109,7 +109,7 @@
     },
     {
       "path": "registrations/synthetic-needles-01.json",
-      "sha256": "77832ce89cdcfc8768cb2f88c9e6fc48bc099790aeb5042100a50c9318d299e9"
+      "sha256": "bce0aed11f070f0b0a936ff0d23b68cd004ba0949bc98f0a4f44a220164b325d"
     },
     {
       "path": "registrations/weight-only-goal-01.json",
@@ -160,6 +160,14 @@
       "sha256": "219be2b99ab3fcb14c2536a53225362594a127d0f4bc5af026be85240cd6bcbd"
     },
     {
+      "path": "reports/loop-repair-03/REPORT.md",
+      "sha256": "29f2e710df00762a5fc2ae170fb246044e581dfdd4f269e62735a6d29633853e"
+    },
+    {
+      "path": "reports/loop-repair-03/aggregate-report.json",
+      "sha256": "073f7725d6b98b8d0dc1ca5f3790e6704be561cabb6f6abcac47d44c01d04e60"
+    },
+    {
       "path": "reports/loop-repair-03/development.json",
       "sha256": "395e968653312d8d6ae7c2b292443af0b83e5cfa34b2abb14054868e94a436e8"
     },
@@ -169,7 +177,7 @@
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "ae01d6413e0056c103babf7f751102f1b606603f822584c94ffb161ba98da576"
+      "sha256": "efb4c6f117fcab2b30885268a7df86fe8d2fa2f06e3cf3d2cfe0ab957735f639"
     },
     {
       "path": "reports/loop-repair-04/README.md",
@@ -182,6 +190,10 @@
     {
       "path": "reports/model-size-01/9B.json",
       "sha256": "11049f48c4a98381ba32b421fa0d71c2f3b732b5f835128273d9d1d7ffc606a8"
+    },
+    {
+      "path": "reports/synthetic-needles-01/status.json",
+      "sha256": "dcf32397fcaca69fc7c2914b61e0bce95b5a750e0f168df6389514a283a2f199"
     },
     {
       "path": "requirements.txt",
@@ -236,6 +248,10 @@
       "sha256": "5162f34ba980f9a912fdef6d000c60355b6fd9e4452646417d946f4f66821ad1"
     },
     {
+      "path": "tests/test_needle_attention.py",
+      "sha256": "7dac81245af50ef47985e87845d4e903b3366b538f465c4c13d717dffc297568"
+    },
+    {
       "path": "tests/test_needle_contract.py",
       "sha256": "8c886ec290fce481a33ad27c62de04df4c16d43b84d7634026efb81b1312f0ae"
     },
@@ -245,7 +261,7 @@
     },
     {
       "path": "tests/test_needle_worker.py",
-      "sha256": "f00e13c1592b711c750f4b241f09d3d1de127ca8c2b792d48acf8b9a63bc194e"
+      "sha256": "bcbb3254bf8578ab6e820c04fd45736a792dee6bf356e33f53d9f97f933407f5"
     },
     {
       "path": "tests/test_research_prompt.py",
@@ -289,7 +305,7 @@
     },
     {
       "path": "tools/weight_space_lab/edit_api.py",
-      "sha256": "537d8cad4a4573ed47d108e00affac51e72eb3eda8208940c473a3c9f6755a7e"
+      "sha256": "494f02a779349866f28d7e95eb15e345b1cc62685e2c41d48749cbf9c9c4af5d"
     },
     {
       "path": "tools/weight_space_lab/edit_loop.py",
@@ -332,8 +348,16 @@
       "sha256": "873e0ffaee2517eeb2505de89d5ec3d8980d049ad821667180aa4f25ec32985c"
     },
     {
+      "path": "tools/weight_space_lab/needle_attention.py",
+      "sha256": "6a16485c049952e0c6f681216e682ebe88f4940acaf1c85babdd2182bcfa468e"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_closure.py",
+      "sha256": "4618c2b6d3b29b4ea1412a172764adacebbbd512c281573418884972b59c018d"
+    },
+    {
       "path": "tools/weight_space_lab/needle_contract.py",
-      "sha256": "1a79c65e5dc1c1513464f692ae52f42071418c3366d883a447ecd903419b3cd7"
+      "sha256": "384cf603505511b35c040946774d9e784d24a7da5c4a12d804e485072c7ff4b7"
     },
     {
       "path": "tools/weight_space_lab/needle_diagnostic.py",
@@ -345,7 +369,7 @@
     },
     {
       "path": "tools/weight_space_lab/needle_loop.py",
-      "sha256": "49baac143296a3d6ad49c3262b703158b2674402ff81ceb9caffee3c825f817f"
+      "sha256": "9eedf3bc8b45cbe3be0f81761b9000d3e57d5c934b0060f73965bb839bca8a19"
     },
     {
       "path": "tools/weight_space_lab/needle_runtime_bridge.py",
@@ -353,7 +377,7 @@
     },
     {
       "path": "tools/weight_space_lab/needle_worker.py",
-      "sha256": "c2ff3694daeb6088e773f174d6d49be7e7516c107c723250a7559abfd2fbfc51"
+      "sha256": "a2e1292daea94ad4edf3c0f6dfdafff076150ccc7a797365a427cb4490a6b288"
     },
     {
       "path": "tools/weight_space_lab/prepare_classification.py",
@@ -381,7 +405,7 @@
     },
     {
       "path": "tools/weight_space_lab/sandbox.py",
-      "sha256": "c9fd05c20f3af975a689e71e3fd336370096acc62249d4fcd44cfdce6ed5004a"
+      "sha256": "87a2f4678470498f227a13d4d0e964470d3cbdbac8936009255b5c891c86ae36"
     },
     {
       "path": "tools/weight_space_lab/scoring.py",
@@ -402,7 +426,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T02:26:12.834150+00:00",
+  "updated_at": "2026-11-03T03:47:01.067680+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
@@ -440,10 +464,10 @@
     "remote_prompt_tests_passed": 2,
     "combined_focused_public_tests_passed": 6
   },
-  "synthetic_preparation_source": "d7b1fe8823e6bfa08afef9fe4669bf7f453fc46e",
+  "synthetic_preparation_source": "ac787b37f2f406b0c5034c938299873ff63500c0",
   "synthetic_projection_checks": {
-    "passed": 13,
-    "seconds": 2.74,
-    "gpu_stage": "unexecuted"
+    "passed": 19,
+    "seconds": 9.68,
+    "target_gpu_stage": "running; final outcomes pending"
   }
 }

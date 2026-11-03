@@ -44,6 +44,50 @@ def editor_accounting(out):
             'receipts': receipts}
 
 
+def compact_development(cases):
+    result = []
+    for case in cases:
+        row = dict(case)
+        question = case['question']
+        row['full_question_sha256'] = hashlib.sha256(question.encode()).hexdigest()
+        row['question_complete'] = len(question) <= 1200
+        if not row['question_complete']:
+            row['question'] = question[:200]+'\n[Middle of synthetic table omitted here; evaluator uses the complete input.]\n'+question[-300:]
+        result.append(row)
+    return result
+
+
+def compact_history(history):
+    result = []
+    for i, entry in enumerate(history):
+        row = dict(entry)
+        if i != len(history)-1:
+            row.pop('code', None)
+        for key, cap in [('stdout', 2000), ('stderr', 800), ('hypothesis', 2000)]:
+            if key in row:
+                row[key] = row[key][:cap]
+        result.append(row)
+    return result
+
+
+def trace_deltas(baseline_directory, selected_directory, inventory):
+    baseline = json.loads((baseline_directory/'manifest.json').read_text())
+    result = {}
+    for name, spec in inventory.items():
+        original_name = name.replace('selected/', 'query/', 1)
+        after = np.load(selected_directory/spec['file'], allow_pickle=False)
+        before = np.load(baseline_directory/baseline[original_name]['file'], allow_pickle=False)[:len(after)]
+        if after.ndim != 2 or len(after) != 4 or after.shape != before.shape or not np.isfinite(after).all() or not np.isfinite(before).all():
+            raise ValueError('invalid paired development trace')
+        delta = after-before
+        measured = {'cases': len(after), 'mean_delta_l2': float(np.linalg.norm(delta, axis=-1).mean()),
+                    'max_abs_delta': float(np.max(np.abs(delta)))}
+        if after.shape[-1] <= 32:
+            measured.update(mean_before=before.mean(axis=0).tolist(), mean_after=after.mean(axis=0).tolist())
+        result[original_name] = measured
+    return result
+
+
 def comparison(base, edited):
     if [r['id'] for r in base] != [r['id'] for r in edited]:
         raise ValueError('unaligned comparisons')
@@ -55,7 +99,8 @@ def install_features(worker, cases, track, out):
     directory.mkdir()
     inventory = worker.traces(cases, 'query', directory)
     if track == 'memory':
-        supported = [dict(r, question=f'Known association: {r["entity"]} has designated color {r["answer"]}.\n\n'+r['question']) for r in cases]
+        supported = [dict(r, question=f'Known association: {r["entity"]} has designated color {r["answer"]}.\n\n'+r['question'],
+                          focus_text=f'{r["entity"]} has designated color {r["answer"]}.') for r in cases]
         inventory.update(worker.traces(supported, 'supported', directory))
     ids = [worker.tokenizer.encode(r['answer'], add_special_tokens=False)[0] for r in cases]
     head = worker.model.get_output_embeddings().weight[ids].detach().float().cpu().numpy()
@@ -104,9 +149,10 @@ def edit_track(worker, cases, track, out, registration, reference, deadline):
             if time.time()+registration['limits']['editor_timeout_seconds']+120 >= deadline:
                 raise RuntimeError('insufficient reserved time for another editor round')
             context = {'track': track, 'round': step, 'remaining_calls_including_this': 5-step,
-                       'immutable_tensors': worker.manifest, 'features': features,
-                       'development': cases, 'baseline': baseline, 'best': best['rows'],
-                       'history': history, 'numerical_weight_inspection': numerical_notes,
+                       'immutable_tensors': worker.manifest,
+                       'features': {name: {'shape': spec['shape']} for name, spec in features.items()},
+                       'development': compact_development(cases), 'baseline': baseline, 'best': best['rows'],
+                       'history': compact_history(history), 'numerical_weight_inspection': numerical_notes,
                        'kernel_bindings': PREFIX,
                        'response': 'Return hypothesis and executable code strings only. Code executes once. Print compact diagnostics; optionally save a sparse internal-weight patch relative to BASE. The controller evaluates each valid patch on this fixed development panel. A diagnostic-only round consumes one call. No direct GPU function exists inside your program.'}
             prompt = render(api, context, registration)
@@ -118,8 +164,7 @@ def edit_track(worker, cases, track, out, registration, reference, deadline):
             code = PREFIX+answer['code']
             write_once(directory/'code-audit.json', audit(code))
             rc = execute(code, directory/'execution')
-            entry.update(hypothesis=answer['hypothesis'], code=answer['code'][:8000],
-                         code_truncated=len(answer['code']) > 8000,
+            entry.update(hypothesis=answer['hypothesis'], code=answer['code'],
                          stdout=(directory/'execution/stdout.log').read_text()[:6000],
                          stderr=(directory/'execution/stderr.log').read_text()[:1500],
                          program_returncode=rc, usage_known=receipt['usage_known'])
@@ -133,7 +178,10 @@ def edit_track(worker, cases, track, out, registration, reference, deadline):
                 write_once(directory/'patch-validation.json', validation)
                 rows = worker.generate(cases, directory/'development')
                 worker.patch(None)
-                restored = worker.restoration_probe({'track': track, 'round': step})
+                try:
+                    restored = worker.restoration_probe({'track': track, 'round': step})
+                except Exception as error:
+                    raise RestorationError('restoration probe failed; editing stopped') from error
                 if not worker.torch.equal(reference, restored):
                     raise RestorationError('base restoration logits differ; editing stopped')
                 entry.update(status='evaluated', comparison=comparison(baseline, rows),
@@ -207,6 +255,11 @@ def run():
         worker = NeedleWorker(ROOT, out, registration, deadline)
         build()
         reference = worker.restoration_probe('initial immutable base')
+        preflight = out/'trace-preflight'
+        preflight.mkdir()
+        worker.traces(context_cases('authored-unscored-trace-smoke', 1, 2), 'preflight', preflight)
+        if not worker.torch.equal(reference, worker.restoration_probe('after unscored trace smoke')):
+            raise RestorationError('trace instrumentation changed model output')
         observations = []
         for records in registration['data']['context_difficulty_records']:
             cases = context_cases(seed+f'pilot-{records}', 8, records)
@@ -223,6 +276,21 @@ def run():
         write_once(out/'choices-frozen.json', {'source_commit': source, 'registration_sha256': file_sha(regpath),
                    'seed_commitment': hashlib.sha256(seed.encode()).hexdigest(), 'chosen': chosen,
                    'selected_context_records': records, 'epoch': time.time()})
+        for track, selected in chosen.items():
+            if selected['patch'] is None:
+                continue
+            worker.patch(Path(selected['patch']))
+            directory = out/track/'selected-development-traces'
+            directory.mkdir()
+            inventory = worker.traces(development[track][:4], 'selected', directory)
+            write_once(directory/'manifest.json', inventory)
+            write_once(directory/'aggregate-deltas.json', {
+                'scope': 'First four development cases, fixed before readings; selected whole-patch effects, not individual-head causal attribution.',
+                'patch_sha256': selected['patch_sha256'],
+                'features': trace_deltas(out/track/'features', directory, inventory)})
+            worker.patch(None)
+            if not worker.torch.equal(reference, worker.restoration_probe({'track': track, 'phase': 'selected diagnostic'})):
+                raise RestorationError('post-selection diagnostic restoration failed')
         for track in ('context', 'memory'):
             selected = chosen[track]
             if selected['patch'] is None:
