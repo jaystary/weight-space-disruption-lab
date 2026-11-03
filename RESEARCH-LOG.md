@@ -160,3 +160,9 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 ### F20 — Eight researcher calls inspected weights; neither synthetic track produced a patch
 
 Context retrieval: 8/8 on all three pilots and 16/16 on development. Memory writing: unsupported baseline 0/16. Six programs completed numerical diagnostics (126 logged tensor reads); two were rejected before execution for unapproved imports. No nonempty patch reached evaluation. Both finals and guards stayed sealed. No causal activation map or held-out effect exists for these tracks. All 527 closure checks passed. The eight pinned-model requests returned usage but no independent backend identity. Future diagnostic: verify a nonempty reversible write end to end before studying efficacy; use fresh facts and a shuffled-assignment control.
+
+### F21 — Most printed diagnostic feedback did not reach the next editor round
+
+Post hoc, development only. Four numerical programs with a later round printed 186,000 characters in total. The harness forwarded only the first 2,000 per program: 8,000 characters, or 4.3%. Each track's rejected program tried to redirect stdout using imports the sandbox forbids. The remaining output was retained in the private audit, but the next round did not receive it through this feedback field. Other evidence, including hypotheses and available features, also reached the editor. This identifies an interface limitation; it does not establish why no patch was produced.
+
+For a future registered run, give the editor a bounded structured findings field separate from tensor-read logs, include the import allowlist and demonstrate a nonempty reversible write on an unscored fixture. Keep the original security policy and all eight outcomes.

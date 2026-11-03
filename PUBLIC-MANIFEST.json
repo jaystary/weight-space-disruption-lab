@@ -17,7 +17,7 @@
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "46e5b5ae71269351f99b7d664f18082e9bd05b6bf687c25307d28447bd7d8968"
+      "sha256": "bd4b7ecdb91d9fc93579cf5588d11835bee27a274c8dbebce8bf00a4fb7c2461"
     },
     {
       "path": "constraints.txt",
@@ -197,7 +197,7 @@
     },
     {
       "path": "reports/synthetic-needles-01/REPORT.md",
-      "sha256": "3ad8d0c32073abb2e109e920396dcea42d86d37e66e32e28600b89d72cd34b84"
+      "sha256": "27abc67fe7fe16cabc0814ac61effc0bd4384de9c45ad58337c9687ee3610524"
     },
     {
       "path": "reports/synthetic-needles-01/aggregate-report.json",
@@ -438,11 +438,11 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T04:08:25.751634+00:00",
+  "updated_at": "2026-11-03T04:14:08.014623+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
-    "status": "running; no efficacy result yet",
+    "status": "audited; apparent gain missed registered significance",
     "scope": "Published loop-repair runner, generator, scorer, registration and focused tests; names generalized from executed source, numeric bounds unchanged. Historical reports retain their own executed source identities.",
     "remote_preflight_tests_passed": 4,
     "public_projection_tests": {

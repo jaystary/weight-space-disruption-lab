@@ -11,6 +11,8 @@ The retrieval pilots scored 8/8 at each of 64, 256 and 512 records. Chosen devel
 
 The researcher requests used the pinned GPT-6 Astra model identifier. All eight returned token usage; the responses did not include independent backend identity. The target ran on GPU. All 527 offline closure checks passed; 108 model requests, including 56 generations, produced 226 generated tokens. An audit pass verifies the recorded procedure, not efficacy.
 
-A useful next experiment would first demonstrate one nonempty reversible tensor write in an unscored smoke test, then test fact recall against a shuffled-assignment control. Use new data and register the design before evaluation. These are proposals, not results.
+**Harness finding (post hoc).** Four diagnostic programs had a later editor round. They printed 186,000 characters combined; the feedback field passed along only the first 2,000 from each (8,000 total, 4.3%). Both rejected programs tried to redirect printed output with disallowed imports. The full output stayed in the private record. This identifies a feedback bottleneck; it does not show what the missing output would have changed.
+
+Before another scored trial, test one nonempty reversible write on an unscored fixture. Return bounded structured findings separately from tensor-read logs so the next round sees them. Then test fresh fact recall against a shuffled-assignment control. These are proposals, not results.
 
 [Numeric evidence](aggregate-report.json) · [Registered protocol](../../registrations/synthetic-needles-01.json) · [Research design](../../docs/synthetic-needle-research.md)
