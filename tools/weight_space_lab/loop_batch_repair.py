@@ -39,6 +39,12 @@ def meets_goal(result, guards, complete, errors):
                 and min(1.0, 2*result['one_sided_exact_p']) <= .05 and guards['gain'] >= 0)
 
 
+def projected_seconds(total_steps, decode_seconds, observed_steps):
+    if total_steps <= 0 or observed_steps <= 0 or not math.isfinite(decode_seconds) or decode_seconds <= 0:
+        raise ValueError('positive finite decoding measurement required')
+    return total_steps*decode_seconds/observed_steps+300
+
+
 def run():
     if not str(ROOT).startswith('/workspace/'):
         raise RuntimeError('remote workspace required')
@@ -115,6 +121,22 @@ def run():
             raise RuntimeError('identity restoration logits differ')
         write_once(out/'restoration-check.json', {'exact_logits_equal': True, 'synthetic_forwards': 2})
 
+        class PresencePenalty(LogitsProcessor):
+            def __init__(self, prompt_length):
+                self.prompt_length = prompt_length
+            def __call__(self, input_ids, scores):
+                for i in range(input_ids.shape[0]):
+                    scores[i, input_ids[i, self.prompt_length:].unique()] -= cfg['presence_penalty']
+                return scores
+
+        class DecodeClock(LogitsProcessor):
+            started = None
+            def __call__(self, input_ids, scores):
+                if self.started is None:
+                    torch.cuda.synchronize()
+                    self.started = time.monotonic()
+                return scores
+
         # Full-context, unscored throughput avoids admission based on short prompts.
         def preflight_timeout(signum, frame):
             raise TimeoutError('registered preflight wall limit reached')
@@ -127,22 +149,31 @@ def run():
         probe_ids = torch.tensor([ids]*cfg['batch_size'], device='cuda')
         torch.cuda.reset_peak_memory_stats()
         torch.manual_seed(0)
+        decode_clock = DecodeClock()
         with torch.inference_mode():
             timed = model.generate(input_ids=probe_ids, attention_mask=torch.ones_like(probe_ids),
-                max_new_tokens=128, min_new_tokens=128, do_sample=False, use_cache=True,
-                pad_token_id=eos[0], eos_token_id=eos)
+                max_new_tokens=128, min_new_tokens=128, do_sample=cfg['do_sample'], use_cache=True,
+                temperature=cfg['temperature'], top_p=cfg['top_p'], top_k=cfg['top_k'],
+                repetition_penalty=cfg['repetition_penalty'], pad_token_id=eos[0], eos_token_id=eos,
+                logits_processor=LogitsProcessorList([PresencePenalty(0), decode_clock]))
         torch.cuda.synchronize()
         signal.alarm(0)
         seconds = time.monotonic()-preflight_start
+        if decode_clock.started is None:
+            raise RuntimeError('decoding boundary was not observed')
+        decode_seconds = time.monotonic()-decode_clock.started
         expected = 128*cfg['batch_size']
         if timed.shape[1]-probe_ids.shape[1] != 128 or expected > reg['limits']['max_preflight_generated_tokens']:
             raise RuntimeError('preflight output bound mismatch')
         batches = math.ceil(reg['data']['development_count']/8)+math.ceil(reg['data']['final_count']/8)
         steps = 2*batches*cfg['max_new_tokens']+2*math.ceil(reg['data']['guard_count']/8)*cfg['guard_max_new_tokens']
-        estimate = steps/(128/seconds)+300
+        # First token uses the long prefill; only 127 subsequent forwards decode.
+        estimate = projected_seconds(steps, decode_seconds, 127)
         remaining = reg['limits']['max_wall_seconds']-(time.monotonic()-start)
         admitted = seconds <= reg['limits']['max_preflight_seconds'] and estimate <= .9*remaining and time.time()+estimate < hard_stop-reg['admission']['closure_reserve_seconds']
         write_once(out/'batch-preflight.json', {'seconds': seconds, 'generated_tokens': expected,
+            'decode_seconds': decode_seconds, 'observed_decode_steps': 127,
+            'prefill_and_setup_seconds': seconds-decode_seconds,
             'peak_gpu_bytes': torch.cuda.max_memory_allocated(), 'estimated_remaining_seconds': estimate,
             'admitted': admitted, 'efficacy_scored': False})
         del timed, probe_ids, probe, reference, restored
@@ -163,14 +194,6 @@ def run():
             'answer': hashlib.sha256((seed+f'guard-{i}').encode()).hexdigest()[:8]} for i in range(reg['data']['guard_count'])]
         write_once(out/'private-cohorts.json', phases)
         write_once(out/'cohort-commitments.json', {k: {'count': len(v), 'sha256': hashlib.sha256(canonical(v)).hexdigest()} for k,v in phases.items()})
-
-        class PresencePenalty(LogitsProcessor):
-            def __init__(self, prompt_length):
-                self.prompt_length = prompt_length
-            def __call__(self, input_ids, scores):
-                for i in range(input_ids.shape[0]):
-                    scores[i, input_ids[i, self.prompt_length:].unique()] -= cfg['presence_penalty']
-                return scores
 
         for phase, cohort in phases.items():
             for batch_number, offset in enumerate(range(0, len(cohort), cfg['batch_size'])):

@@ -1,4 +1,5 @@
-from tools.weight_space_lab.loop_batch_repair import trim_generated, fresh_arithmetic, meets_goal
+import pytest
+from tools.weight_space_lab.loop_batch_repair import trim_generated, fresh_arithmetic, meets_goal, projected_seconds
 from tools.weight_space_lab.loop_contract import arithmetic
 
 
@@ -25,3 +26,13 @@ def test_family_rule_preserves_gain_guard_and_completeness_requirements():
     assert not meets_goal(result,{'gain':-.01},True,[])
     assert not meets_goal({}, {},False,[])
     assert not meets_goal(result,{'gain':0.0},True,['failure'])
+
+
+def test_budget_projection_rejects_invalid_measurements_and_keeps_reserve():
+    for seconds in (0, -1, float('nan'), float('inf')):
+        with pytest.raises(ValueError):
+            projected_seconds(1000, seconds, 127)
+    with pytest.raises(ValueError):
+        projected_seconds(1000, 1.0, 0)
+    assert projected_seconds(127, 5.0, 127) == 305.0
+    assert projected_seconds(254, 5.0, 127) == 310.0

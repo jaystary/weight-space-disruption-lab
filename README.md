@@ -10,9 +10,11 @@ Can bounded internal weight edits improve model behaviour? This lab records dire
 
 The active experiment tests an exact published loop-removal weight patch in a 0.8B model on fresh synthetic arithmetic, with unchanged prompts and decoding. Success requires at least ten percentage points held-out accuracy gain, paired p <= 0.05, and no guardrail accuracy loss. No gradients or replacement classifier. Patch hashes and exact restoration checks passed; measurement is in progress, with no outcome claimed yet. [Live progress, refreshed every 15 minutes](reports/loop-repair-03/status.json) · [Protocol, code and reproduction instructions](reports/loop-repair-03/README.md).
 
-## Final results
-
 A [longer-generation continuation](reports/loop-repair-04/README.md) is prepared, with fresh inputs and a predeclared two-trial significance correction. It has not started; GPU admission and remaining budget must pass first.
+
+Two [synthetic needle tracks](docs/synthetic-needle-research.md) are also requested: context retrieval and factual memory written into weights. Their researcher must produce its own internal patch. [Direct-weight instructions](prompts/direct-weight-researcher-v2.md) are prepared and hash-selectable; these tracks have not run. Current arithmetic evaluation remains a published-patch replication.
+
+## Final results
 
 **Direct weight editing did not improve the final test.** The selected 4B edit repaired zero errors and broke one correct answer on 93 held-out groups across 14 dates. All choices were frozen before the final data opened; all ten arms ran once.
 

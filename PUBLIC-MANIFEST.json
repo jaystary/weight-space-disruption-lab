@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "f1fa541893eebfdb0d1dfcd7fb4c4c5e1a148245225ff310fe0260f7825de2fc"
+      "sha256": "3cda0846ef265a0c1aefd2db3561b9527d43119123cf9fe5641e3cacd8575cb1"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "4c07a2d58c79c07c6062a3e381db841521b37c8a1a64c4222c53715d9302f976"
+      "sha256": "e134c91b2465e6045bf2867b0472575a35e5d866c47cd36e5790d87884927059"
     },
     {
       "path": "constraints.txt",
@@ -45,7 +45,15 @@
     },
     {
       "path": "docs/loop-repair-04.md",
-      "sha256": "28fca9a2b3f51c1e8d4e92990e7706365102e346930d33191b8409b21fd71897"
+      "sha256": "906ad6044ad5be0da85017411092db11b298bb55aeaccbd68cc392e8eac770d1"
+    },
+    {
+      "path": "docs/synthetic-needle-research.md",
+      "sha256": "98c6611b2fd9a65e6a6562471c431fc5d8b14f84279ab5b49052165533a5cdef"
+    },
+    {
+      "path": "prompts/direct-weight-researcher-v2.md",
+      "sha256": "46c94e90caf1bc04ef2dc2d54d7f3d0a540376859f6f582dc9f65c65b2305628"
     },
     {
       "path": "prompts/mechanistic-researcher-v1.md",
@@ -77,7 +85,7 @@
     },
     {
       "path": "registrations/loop-repair-04.json",
-      "sha256": "2b6e5658f56189997b4b86de42961f827c768a28243ea3a0d1ccb464d129b6aa"
+      "sha256": "00331947fa03968a28a2c07e3d00c8d43da3b1566b1ee3e8486766f834125c61"
     },
     {
       "path": "registrations/model-size-01.json",
@@ -145,11 +153,11 @@
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "2b0ed367c0afe988415802801c01fa8f4800167549ac6d70fc4a821382816bc2"
+      "sha256": "a0a980d13e3caf896894f55b4eb34d546925f18c00b4bbad0d41b0e3aa30ee47"
     },
     {
       "path": "reports/loop-repair-04/README.md",
-      "sha256": "1ef9c00221eb49b3f2da1f8276f579545fff4b9e3ae6f8f476e67c433a22e30f"
+      "sha256": "ce9f3e4e3c5d2be5ca445c167bce32ee4924125f2f97826da4df401e220e0c53"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -197,7 +205,7 @@
     },
     {
       "path": "tests/test_loop_batch.py",
-      "sha256": "27114ef422ac57c17169997e64c93c50a4098bb963e6110a6d7bfeba2ca065ea"
+      "sha256": "4468d3bc65e88ba8cf1a7cd2292080b3911236cf3ac6c6f3dd5a73862e050945"
     },
     {
       "path": "tests/test_loop_contract.py",
@@ -209,7 +217,7 @@
     },
     {
       "path": "tests/test_research_prompt.py",
-      "sha256": "c3244f232d7e63c0a100ac1815d66868ddc9c619202967a44a95df8e2c6e22bf"
+      "sha256": "406bd2d8e6ca817318c5a34af2120fcbb3125908a7d7243bd490a1c97649d91b"
     },
     {
       "path": "tests/test_trace_effects.py",
@@ -269,7 +277,7 @@
     },
     {
       "path": "tools/weight_space_lab/loop_batch_repair.py",
-      "sha256": "161abc80d426113b4cab79566bd80700d9e572db7c12ee0efbf4b3a643bf528a"
+      "sha256": "700625f97cfe294ec389e7ad32b84add78c14db9922bcf89bff87e9a1275659e"
     },
     {
       "path": "tools/weight_space_lab/loop_contract.py",
@@ -309,7 +317,7 @@
     },
     {
       "path": "tools/weight_space_lab/research_prompt.py",
-      "sha256": "4de63054251867ab436c1c3e0a8e02f33e4fbc9cf251fee271a55d1dff47e0bc"
+      "sha256": "1356f6420f73bcce1d3200866eb58ffbf9c722aa3dcd8d51f79ca12529c4370f"
     },
     {
       "path": "tools/weight_space_lab/runtime.example.json",
@@ -338,7 +346,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T01:10:42.355777+00:00",
+  "updated_at": "2026-11-03T01:38:19.466923+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
@@ -363,11 +371,17 @@
   },
   "prepared_continuation": {
     "id": "loop-repair-04",
-    "source_commit": "738b2272d286c0edeefec0c95fb6d8bbce78bc90",
+    "source_commit": "0dc887a41404202ff1adb8249e2797df33f7c177",
     "state": "prepared, not running; GPU admission untested",
-    "original_registration_sha256": "7edf46004e81d44ea5da4f52ebb30f761c0900830749f5d33ad8edcde8e92bd2",
-    "remote_focused_tests_passed": 7,
+    "original_registration_sha256": "237095902940e9f6951187d80232e3611f86ece72ac23d89d30d5364db4f5fc8",
+    "remote_focused_tests_passed": 8,
     "new_public_projection_tests_passed": 3,
     "goal_family_sha256": "1e635084de27fa725efdb89460f267b4dba7d571cc04d2c41c3f62f53a01f3e0"
+  },
+  "synthetic_tracks": {
+    "state": "design and researcher prompt prepared; neither experiment executed",
+    "prompt_sha256": "46c94e90caf1bc04ef2dc2d54d7f3d0a540376859f6f582dc9f65c65b2305628",
+    "remote_prompt_tests_passed": 2,
+    "combined_focused_public_tests_passed": 6
   }
 }

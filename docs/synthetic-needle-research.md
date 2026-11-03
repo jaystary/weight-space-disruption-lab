@@ -1,0 +1,24 @@
+# Two synthetic tests of direct weight programming
+
+Owner extension: investigate both context retrieval and factual memory using synthetic data, with an actual researcher editing internal weights. Preserve the goal: at least ten percentage points above an unchanged baseline on fresh held-out questions, paired significance at p <= .05 and no accuracy loss on registered guards. Prompts and decoding match between arms. No gradients or replacement classifier. Track source, prompts, patches, outcomes and every failure.
+
+Current arithmetic runs apply the authors' published patch. They are replication experiments, not new Astra-discovered edits. These new tracks require a verified GPT-6 Astra editor, real tensor access, a bounded Python analysis environment and a registered forward-pass interface. A prompt alone does not establish those capabilities.
+
+| Track | Synthetic construction | What would count as evidence |
+|---|---|---|
+| Context needle | Generate fictitious entities with independently randomized values. Insert one requested fact among unrelated records, varying its position, distractors and context length. | An internal weight patch improves retrieval of fresh facts in unseen haystacks under the same prompt and decoder. |
+| Weight memory | Give the editor a new fictitious fact as the write request. Save an internal tensor patch, then remove the fact and all supporting context before querying the model. | The edited checkpoint recalls the fact on unseen question wordings while the unchanged model and unrelated-fact guards establish specificity. |
+
+For context retrieval, first establish a useful development difficulty range: neither a perfect baseline nor a universal failure reveals much about repair. Freeze that range before final generation. Trace candidate attention/MLP paths on development examples, use bounded reversible interventions for diagnosis, then ask Astra to derive and write its own justified weight change. Attention patterns alone are not causal evidence. A known retrieval-head ablation can validate an instrument, but improvement over an artificially damaged model cannot satisfy the goal.
+
+For memory writing, distinguish the edit request from evaluation leakage. The writer necessarily sees the fact to insert. It must not see the held-out question wording or evaluation feedback. Generalization across paraphrases of an inserted fact is not generalization to facts that were never inserted. Use independent facts as statistical units; do not count many paraphrases as independent discoveries. Measure interference with unedited entities and preservation of unrelated tasks. No answer-bearing system prompt, retrieval cache, lookup table, output-head replacement or inference-time activation patch may supply the remembered answer.
+
+The researcher must inspect actual numerical tensors and save its own patch artifact. Immutable baseline hashes, exact BF16 differences, allowed tensor names, changed-entry limits and restoration checks must bracket every candidate. Final prompts, decoder, cohort seed commitment, candidate selection, forward-pass/editor budgets and success rules must be registered before evaluation. Keep raw records, real editor exchanges and operating details private; publish generic templates, source and aggregate evidence.
+
+The current two-trial arithmetic family does not authorize promoting an additional synthetic result as another uncorrected final success. Before a synthetic confirmatory run, register its statistical family and available resource allocation while its final data remains unopened. Development-only probes must be labelled as such. Current frozen arithmetic evaluation continues; no new GPU run or extra resource has started for these tracks.
+
+A promising gradient-free memory hypothesis is to derive a local rewrite from the difference between supported and unsupported internal representations, then test whether that changes recall selectively. This is untested, not established ROME compatibility. Standard ROME's official target-vector routine uses Adam and backpropagation, so it cannot be adopted unchanged under the present no-gradient contract.
+
+Sources: [weight-space programming experiment8](https://rikiyat.github.io/blog/weight-space-programming/), [retrieval-head causal ablations](https://arxiv.org/abs/2404.15574), [factual association editing](https://rome.baulab.info/), [ROME target-vector implementation](https://github.com/kmeng01/rome/blob/main/rome/compute_v.py). These motivate separate tests; they do not establish improvement in this checkpoint.
+
+Status: design and researcher instructions prepared; data generator, diagnostic API, editor execution and independent final evaluations are pending. Neither synthetic track has run. The original success bar remains unmet until measured evidence proves it.

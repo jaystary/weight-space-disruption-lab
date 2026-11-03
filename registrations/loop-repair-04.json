@@ -94,7 +94,7 @@
   "failure_policy": "Write intent before each generation; retain errors and partial results. Never retry scored cases or overwrite this run. Any runtime/budget failure makes success unavailable. No token-bound changes after readings.",
   "preflight_checks": {
     "command": "pytest -q tests/test_loop_contract.py tests/test_loop_batch.py",
-    "required_passed": 7,
+    "required_passed": 8,
     "failed_skipped_ignored": 0,
     "runtime_invariants": [
       "prior closure and resource admission",
@@ -126,7 +126,7 @@
     "same_owned_gpu_only": true,
     "new_resources": false,
     "total_caps": "Original private total compute and storage caps remain binding. A reproduction needs its own authorized caps before registration.",
-    "preflight": "Eight synthetic 16384-token contexts followed by 128 forced-length, unscored new tokens using SDPA. Record time, memory and restoration. Require conservative estimated remaining generation time plus 300 seconds <=90% of remaining stage wall time and before closure reserve; otherwise stop before new questions are generated."
+    "preflight": "Eight synthetic 16384-token contexts followed by 128 forced-length, unscored new tokens using SDPA. Record time, memory and restoration. Require conservative estimated remaining generation time plus 300 seconds <=90% of remaining stage wall time and before closure reserve; otherwise stop before new questions are generated. Measure the 127 autoregressive forwards after first-token prefill separately, with a CUDA synchronization at that boundary. Projection = planned maximum decoding steps * decode_seconds / 127 + 300 seconds; original 90% remaining-time gate stays. Preflight uses registered sampling and presence penalty over the full synthetic history. Record total, decode and prefill time."
   },
   "differences_from_trial03": [
     "16384 rather than4096 arithmetic-token cap",
@@ -137,9 +137,16 @@
     "fresh8development/24final/16guard cohort",
     "Bonferroni-adjusted goal claim across two planned trials"
   ],
+  "preflight_revision": 2,
+  "preflight_revision_note": {
+    "at": "2026-11-03T01:17:45.671732+00:00",
+    "supersedes_prepare_only_source": "738b2272d286c0edeefec0c95fb6d8bbce78bc90",
+    "no_trial04_gpu_or_case_readings": true,
+    "reason": "Separate prompt prefill from decoding when projecting runtime; otherwise one long prefill is multiplied into every future decode step. Use registered sampling and full synthetic history presence penalty for a comparable workload. Scientific bounds, data counts, patch, scored decoder and total resource caps unchanged."
+  },
   "publication": {
-    "original_registration_sha256": "7edf46004e81d44ea5da4f52ebb30f761c0900830749f5d33ad8edcde8e92bd2",
-    "original_source_commit": "738b2272d286c0edeefec0c95fb6d8bbce78bc90",
-    "projection": "Package/cache names generalized; private operating deadline and total account caps withheld. Numeric scientific bounds unchanged. Set authorized resource limits and register before any new execution."
+    "original_registration_sha256": "237095902940e9f6951187d80232e3611f86ece72ac23d89d30d5364db4f5fc8",
+    "original_source_commit": "0dc887a41404202ff1adb8249e2797df33f7c177",
+    "projection": "Package/cache names generalized; private operating deadline and total account caps withheld. Scientific bounds unchanged."
   }
 }

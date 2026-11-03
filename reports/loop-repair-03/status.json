@@ -1,17 +1,17 @@
 {
   "schema": "WSPPublicProgress/1",
   "experiment": "loop-repair-03",
-  "as_of_utc": "2026-11-03T01:08:55.535763+00:00",
+  "as_of_utc": "2026-11-03T01:26:10.984354+00:00",
   "state": "running",
   "phase": "final",
-  "completed_pairs": 21,
+  "completed_pairs": 28,
   "pairs_by_phase": {
     "development": 16,
-    "final": 5
+    "final": 12
   },
   "planned_pairs": 80,
-  "generated_tokens": 159821,
-  "elapsed_seconds": 3522.8857005608734,
+  "generated_tokens": 209869,
+  "elapsed_seconds": 4638.654841701966,
   "preflight_checks_passed": 4,
   "base_and_edited_hashes_verified": true,
   "restoration_verified": true,

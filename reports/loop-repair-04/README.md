@@ -1,6 +1,6 @@
 # Prepared longer-generation trial
 
-Status: prepared, not running. Seven focused checks passed on the remote CPU (2.98 seconds). GPU batch admission and efficacy are untested. Current trial03 continues unchanged.
+Status: prepared, not running. Eight focused checks passed on the remote CPU (2.65 seconds) after separating prefill and decoding timing in the unexecuted preflight. GPU batch admission and efficacy are untested. Current trial03 continues unchanged.
 
 [Protocol](../../docs/loop-repair-04.md) · [Scientific registration](../../registrations/loop-repair-04.json) · [Two-trial goal family](../../registrations/weight-only-goal-01.json) · [Reference runner](../../tools/weight_space_lab/loop_batch_repair.py)
 
