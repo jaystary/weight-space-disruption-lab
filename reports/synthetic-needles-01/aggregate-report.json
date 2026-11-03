@@ -1,0 +1,70 @@
+{
+  "source_commit": "ac787b37f2f406b0c5034c938299873ff63500c0",
+  "id": "synthetic-needles-01",
+  "complete": true,
+  "generations": 56,
+  "generated_tokens": 226,
+  "model_requests": 108,
+  "seconds": 1428.9887251853943,
+  "audit_checks_passed": 527,
+  "tracks": {
+    "context": {
+      "development_cases": 16,
+      "baseline_accuracy": 1.0,
+      "rounds": [
+        "diagnostic_only",
+        "failed",
+        "diagnostic_only",
+        "diagnostic_only"
+      ],
+      "logged_tensor_reads": 51,
+      "rejected_unapproved_imports": 1,
+      "patches_evaluated": 0,
+      "final_opened": false,
+      "guards_opened": false,
+      "goal_met": false
+    },
+    "memory": {
+      "development_cases": 16,
+      "baseline_accuracy": 0.0,
+      "rounds": [
+        "diagnostic_only",
+        "failed",
+        "diagnostic_only",
+        "diagnostic_only"
+      ],
+      "logged_tensor_reads": 75,
+      "rejected_unapproved_imports": 1,
+      "patches_evaluated": 0,
+      "final_opened": false,
+      "guards_opened": false,
+      "goal_met": false
+    }
+  },
+  "context_pilot": [
+    {
+      "records": 64,
+      "accuracy": 1.0
+    },
+    {
+      "records": 256,
+      "accuracy": 1.0
+    },
+    {
+      "records": 512,
+      "accuracy": 1.0
+    }
+  ],
+  "editor": {
+    "calls": 8,
+    "unknown_usage_calls": 0,
+    "usage": {
+      "input_tokens": 238899,
+      "output_tokens": 47585,
+      "reasoning_output_tokens": 14759,
+      "cached_input_tokens": 8192
+    },
+    "requested_model": "gpt-6-astra",
+    "independent_backend_identity_returned": false
+  }
+}

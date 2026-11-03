@@ -1,17 +1,26 @@
 {
   "schema": "WSPPublicProgress/1",
   "experiment": "synthetic-needles-01",
-  "as_of_utc": "2026-11-03T03:29:14.469514+00:00",
-  "state": "running",
-  "phase": "memory/editor-3",
-  "model_requests_started": 107,
-  "editor_calls_started": 7,
-  "editor_calls_completed": 6,
+  "as_of_utc": "2026-11-03T04:04:48.364902+00:00",
+  "state": "completed",
+  "phase": "closed",
+  "model_requests_started": 108,
+  "editor_calls_started": 8,
+  "editor_calls_completed": 8,
   "editor_calls_failed": 0,
   "unknown_editor_usage_calls": 0,
   "checks_passed": 19,
-  "efficacy_result": "pending",
+  "efficacy_result": "no_patch_evaluated",
   "source_commit": "ac787b37f2f406b0c5034c938299873ff63500c0",
   "model_loaded_on_cuda": true,
-  "choices_frozen": false
+  "choices_frozen": true,
+  "closure_passed": true,
+  "goal_met_by_track": {
+    "context": false,
+    "memory": false
+  },
+  "final_opened_by_track": {
+    "context": false,
+    "memory": false
+  }
 }

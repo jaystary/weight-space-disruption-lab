@@ -156,3 +156,7 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - Guards7/16 to8/16,4repairs/3regressions. No aggregate accuracy loss in this limited guard task; no broader preservation claim. All160generation attempts completed,495869outputtokens,11023.55seconds; closure passed without inference retries.
 - This remains a published-patch replication. It motivates further direct-edit research but does not complete the own-researcher goal. No individual final case was used for subsequent tuning.
 - New synthetic loop started after closure. Context pilots scored100% at64/256/512records and therefore expose a ceiling, not evidence that weight editing is ineffective. The memory-writing track and final decisions remain pending.
+
+### F20 — Eight researcher calls inspected weights; neither synthetic track produced a patch
+
+Context retrieval: 8/8 on all three pilots and 16/16 on development. Memory writing: unsupported baseline 0/16. Six programs completed numerical diagnostics (126 logged tensor reads); two were rejected before execution for unapproved imports. No nonempty patch reached evaluation. Both finals and guards stayed sealed. No causal activation map or held-out effect exists for these tracks. All 527 closure checks passed. The eight pinned-model requests returned usage but no independent backend identity. Future diagnostic: verify a nonempty reversible write end to end before studying efficacy; use fresh facts and a shuffled-assignment control.

@@ -10,9 +10,9 @@ Can bounded internal weight edits improve model behaviour? This lab records dire
 
 Published-patch replication completed: held-out accuracy **18.75% → 33.33%**, with 11 repairs and 4 regressions. Exact paired **p = .05923**, so the predeclared success bar was not met. Closure auditing passed. [Result and limits](reports/loop-repair-03/REPORT.md) · [Aggregate evidence](reports/loop-repair-03/aggregate-report.json).
 
-A [longer-generation continuation](reports/loop-repair-04/README.md) remains prepared and unexecuted. The current priority is the actual researcher-led synthetic loop. Current goal-level multiplicity covers four planned comparisons; original stage registrations and decisions remain preserved.
+The [researcher-led synthetic tracks](reports/synthetic-needles-01/REPORT.md) completed. Baseline retrieved 16/16 facts in context and recalled 0/16 unsupported facts on development. Eight editor calls yielded six numerical diagnostics and two rejected programs. No patch reached evaluation; both finals stayed sealed.
 
-Two [synthetic needle tracks](docs/synthetic-needle-research.md) are also requested: context retrieval and factual memory written into weights. Their researcher must produce its own internal patch. [Direct-weight instructions](prompts/direct-weight-researcher-v2.md) are prepared and hash-selectable; these tracks have not run. Current arithmetic evaluation remains a published-patch replication.
+The [longer-generation arithmetic comparison](reports/loop-repair-04/README.md) passed its unscored batch preflight and is running. [Live aggregate status](reports/loop-repair-04/status.json). It checks the same published patch on fresh questions. Overall multiplicity covers four planned comparisons.
 
 ## Final results
 
