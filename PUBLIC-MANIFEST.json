@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "9c6033a5d22e78e276a741ad1ac8d2bc0885ec8dbd6ea1b1d759e1896a901d01"
+      "sha256": "06c7dbbd66700a77ea962c5bed7245a38586db469cda2df30620eadc78ad5bb9"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "597035522773e393a3b57c185770d472f33bc66d258de4070836a59e0e3248ec"
+      "sha256": "6e450b2f3192048d5115ddb6848eebe6e4be6301cd69b4ef40ce66cb6c530273"
     },
     {
       "path": "constraints.txt",
@@ -209,11 +209,23 @@
     },
     {
       "path": "reports/loop-repair-04/README.md",
-      "sha256": "218d718e4b819b17437f2571a60bf52a7f4cb4abe489074bfd64b6259821b0df"
+      "sha256": "47d705cc75747b3d6dd7f8818185d9c396253710b197dc60a2958f56e69ce857"
+    },
+    {
+      "path": "reports/loop-repair-04/REPORT.md",
+      "sha256": "a0a0d6f25bb02d029cb9542993da6432057fe19e21d0b10ba903f29d809efca5"
+    },
+    {
+      "path": "reports/loop-repair-04/aggregate-report.json",
+      "sha256": "e76aae0f9249ad6ec8489179373d5baf45cad33441340b257301297d6625cc11"
+    },
+    {
+      "path": "reports/loop-repair-04/closure-check.json",
+      "sha256": "809fa248b117a92d07ec4143bd3fe33a231cf02bbc22aa542dab0f95143c0ac5"
     },
     {
       "path": "reports/loop-repair-04/status.json",
-      "sha256": "468ecfaf921c3f54ad50eea9d400a6a6d0dd24f53a0cf9b0377d5a2767edd532"
+      "sha256": "6355341457a18d8be5daa993f8dc4acdd3e9aa18413bc1c4cb503e870cb05608"
     },
     {
       "path": "reports/memory-signal-audit-01/aggregate.json",

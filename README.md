@@ -6,13 +6,13 @@ Can bounded internal weight edits improve model behaviour? This lab records dire
 
 ![Experimental setup](docs/experiment-setup.svg)
 
-## Active weight-only replication
+## Direct weight-edit results
 
-Published-patch replication completed: held-out accuracy **18.75% → 33.33%**, with 11 repairs and 4 regressions. Exact paired **p = .05923**, so the predeclared success bar was not met. Closure auditing passed. [Result and limits](reports/loop-repair-03/REPORT.md) · [Aggregate evidence](reports/loop-repair-03/aggregate-report.json).
+The published internal edit raised held-out arithmetic accuracy from **7/24 to 22/24** (+62.5 percentage points). It repaired 16 answers and regressed one. Both arms passed all 16 exact-copy guards. The exact one-sided paired p-value was **0.00013733** and remained significant across all four planned comparisons (**adjusted p = 0.00054932**). All 507 audit checks passed. [Long-generation report](reports/loop-repair-04/REPORT.md) · [Aggregate evidence](reports/loop-repair-04/aggregate-report.json)
 
-The [researcher-led synthetic tracks](reports/synthetic-needles-01/REPORT.md) completed. Baseline retrieved 16/16 facts in context and recalled 0/16 unsupported facts on development. Eight editor calls yielded six numerical diagnostics and two rejected programs. No patch reached evaluation; both finals stayed sealed.
+An earlier, shorter-generation replication improved **9/48 to 16/48** and missed its significance threshold (raw paired p = 0.05923). The longer replication used different fresh questions. [Short-generation report](reports/loop-repair-03/REPORT.md)
 
-The [longer-generation arithmetic comparison](reports/loop-repair-04/README.md) passed its unscored batch preflight and is running. [Live aggregate status](reports/loop-repair-04/status.json). It checks the same published patch on fresh questions. Overall multiplicity covers four planned comparisons.
+The researcher-led synthetic tracks also closed. Baseline retrieved 16/16 facts in context and recalled 0/16 unsupported facts on development. Eight editor calls produced six numerical diagnostics and two rejected programs. No patch reached evaluation. Both finals stayed sealed. Discovery of an effective new internal edit remains open. [Synthetic report](reports/synthetic-needles-01/REPORT.md)
 
 [Independent GitHub results](docs/independent-weight-edit-results.md) · [Reversible-write fixture and feedback check](reports/editor-interface-smoke-01/README.md)
 
@@ -76,4 +76,4 @@ Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/
 [Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
 
 
-The Astra-requested synthetic context-retrieval and memory-write loop is running with direct tensor access, bounded patch execution and joint candidate freezing. Context pilots already reached 100% baseline, leaving little room for accuracy improvement in that branch. Memory writing and final outcomes remain pending. [Live progress](reports/synthetic-needles-01/status.json) · [Protocol](docs/synthetic-needle-research.md) · [Researcher instructions](prompts/direct-weight-researcher-v2.md). Earlier API-binding failures remain logged.
+The saved memory traces distinguish supplied from unsupported facts. A matched-token development control is available to measure entity specificity across wordings in a future registration. [Trace findings](RESEARCH-LOG.md#f24--supplied-facts-changed-the-first-token-ranking-on-every-memory-development-question) · [Tokenizer fixture](reports/entity-key-interface-smoke-01/aggregate.json)
