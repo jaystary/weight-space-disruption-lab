@@ -1,6 +1,6 @@
 {
   "created_at": "2026-11-02T23:40:05.097597+00:00",
-  "canonical_source_commit": "d0b50688cfbca07f24186c444288cb803305ae97",
+  "canonical_source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
   "projection": "task-neutral reference; original prompts and labels withheld",
   "files": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "853d578cb9b0147e11f77c948ee3db2598957c23d6da5ee4dd354c9a25929e35"
+      "sha256": "cb7be074aec219053236657b0acfdbf7dabcd51038356aa0327904e5c77a0fbe"
     },
     {
       "path": "RESEARCH-LOG.md",
@@ -40,6 +40,10 @@
       "sha256": "6b797fa4d39c0f6c873075cf3eafc376df24b29ef14178d6f2a166624257a216"
     },
     {
+      "path": "docs/loop-repair-03.md",
+      "sha256": "a98e85cba711c2a33ed58bdc462d7dec97b518a4897eddb33abbe469162d1ff2"
+    },
+    {
       "path": "prompts/mechanistic-researcher-v1.md",
       "sha256": "8753fd3e078c284fedce6e96cf1feddc86dd11be1cab9df4f96ada904fac1029"
     },
@@ -62,6 +66,10 @@
     {
       "path": "registrations/joint-final-02.json",
       "sha256": "c3e347a69ed10bd8496524e5fe8b87d1d9db78cf5b191a841bb940cb42572e5b"
+    },
+    {
+      "path": "registrations/loop-repair-03.json",
+      "sha256": "3d393a4c7e3b4460eba0cc7596fec6132b306bab5be41255f440ba1bd6fbd47b"
     },
     {
       "path": "registrations/model-size-01.json",
@@ -113,7 +121,7 @@
     },
     {
       "path": "reports/loop-repair-03/README.md",
-      "sha256": "36beca8d3b97705d5eb04465afeb407a93ece9b94447986189a0d4cd91d7b2ff"
+      "sha256": "c809b480b19a551524b6ef5c658daac5cfcbc9389e56fc732c4d0d77a72d18a8"
     },
     {
       "path": "reports/loop-repair-03/patch-geometry.json",
@@ -121,7 +129,7 @@
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "5f4910ebbceb6559f4c6d97d3fdb014fb5d4de0a4c89f04d89b9642ef32fcb45"
+      "sha256": "c0fa0e9ab13b6694d0856e9bfe76e524a16d359af1d6f58716c8e8a0c0115cb5"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -166,6 +174,10 @@
     {
       "path": "tests/test_joint_final.py",
       "sha256": "b5bcc5fcc98679626d7fc6441a68f48846cca7439782891c0c99cb17099c1249"
+    },
+    {
+      "path": "tests/test_loop_contract.py",
+      "sha256": "530eeb297d8ba020b46069ac00ee562133407b16fb3c57b2a9fb5bbc7c8b05ac"
     },
     {
       "path": "tests/test_native_gates.py",
@@ -232,6 +244,14 @@
       "sha256": "c4988cca823f34e70c130b1c9a5c2282489c87e335b49f619d10ede1b42f7ae7"
     },
     {
+      "path": "tools/weight_space_lab/loop_contract.py",
+      "sha256": "67c5b9cf82326373e76103dcdb0ecc55ba125549723d5824c4cfd08e5b6fd9bb"
+    },
+    {
+      "path": "tools/weight_space_lab/loop_repair.py",
+      "sha256": "4f3e83014c54ec52752f4f8d7fe2aae5b0a8e8011cf0b16310f12c0cbaa10d78"
+    },
+    {
       "path": "tools/weight_space_lab/model_client.py",
       "sha256": "043961c66592901568c411250276c3f41cd0911a5e4656e1c6987ddcf8139e9f"
     },
@@ -290,12 +310,27 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T00:31:40.409736+00:00",
+  "updated_at": "2026-11-03T00:47:33.565079+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
     "status": "running; no efficacy result yet",
-    "scope": "documentation-only progress update; historical public reference source unchanged",
-    "remote_preflight_tests_passed": 4
+    "scope": "Published loop-repair runner, generator, scorer, registration and focused tests; names generalized from executed source, numeric bounds unchanged. Historical reports retain their own executed source identities.",
+    "remote_preflight_tests_passed": 4,
+    "public_projection_tests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 2.57,
+      "execution": "remote CPU; no model inference",
+      "preparation_failures": [
+        {
+          "stage": "source transfer",
+          "reason": "archive ownership metadata rejected",
+          "tests_started": false,
+          "resolution": "metadata excluded and receiving ownership preserved"
+        }
+      ]
+    }
   }
 }

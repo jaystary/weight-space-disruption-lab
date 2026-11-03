@@ -1,0 +1,107 @@
+{
+  "schema": "WSPLoopRepair/1",
+  "id": "loop-repair-03",
+  "purpose": "Test an exact published internal-weight edit on fresh synthetic arithmetic; bounded mechanism replication, not independent edit discovery or replication of the published benchmark score.",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "upstream_commit": "4d09ba6d6a7e891dd8063974dfe81b3d78e3494f",
+  "upstream_patch_path": "exp8_math/runs/p50c/edit/edit.npz",
+  "upstream_patch_git_blob_sha1": "f79a64f0be403a092a949f08e2a1c850e995e0e8",
+  "upstream_patch_bytes": 387619,
+  "attribution": "Takehi, Teoh, Zhang and Khattab, Sparks of Weight-Space Programming; published patch CC BY 4.0. https://github.com/RikiyaT/lm_understand-logs/tree/main/exp8_math",
+  "arms": [
+    "baseline",
+    "published-p50c"
+  ],
+  "tensors": [
+    {
+      "name": "model.language_model.layers.15.mlp.down_proj.weight",
+      "shape": [
+        1024,
+        3584
+      ],
+      "base_sha256": "ef60d2c687bab19464dca9c8bfd7777e46ad226df0c9e25643b0bab04b5a1cca",
+      "edited_sha256": "82e2d733ea64feaeb4af93a1e065641d3df98b494a8b7576ef2f52e90fe2ee53",
+      "changed_entries": 65260
+    },
+    {
+      "name": "model.language_model.layers.19.mlp.down_proj.weight",
+      "shape": [
+        1024,
+        3584
+      ],
+      "base_sha256": "638eedeb701b94aa861f4438e615c07ec6c60ee703db1bfee2de577bb6498c3e",
+      "edited_sha256": "8ef3c61bc36af113ad58e89dbb0a4a14dcba5a45cb750c15ab515c82ddd12eb2",
+      "changed_entries": 64928
+    }
+  ],
+  "data": {
+    "kind": "Fresh procedural integer arithmetic, four equally represented families, plus exact-string instruction guardrails",
+    "development_count": 16,
+    "final_count": 48,
+    "guard_count": 16,
+    "seed_policy": "Generate a new 256-bit seed remotely, retain it privately, commit its hash and generated cohort hashes before first inference. Never select seeds by model performance.",
+    "isolation": "Coordinator controlled, not independently qualified. No former classification records reused. Final choices fixed before any final input is generated or evaluated."
+  },
+  "generation": {
+    "enable_thinking": true,
+    "do_sample": true,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "repetition_penalty": 1.0,
+    "max_new_tokens": 4096,
+    "guard_max_new_tokens": 512,
+    "samples_per_case_per_arm": 1
+  },
+  "selection": "None: both arms fixed in this registration. Same per-case sampling seed in both arms; alternate arm order by case index. No prompt/decoder tuning, fitted classifier, gradient update or extra candidate.",
+  "primary": {
+    "metric": "paired final arithmetic accuracy gain",
+    "absolute_gain_min": 0.1,
+    "one_sided_exact_mcnemar_p_max": 0.05,
+    "guard_accuracy_decline_max": 0.0,
+    "required_execution_failures": 0
+  },
+  "secondary": [
+    "repairs and regressions",
+    "per-family accuracy",
+    "completion rate",
+    "token-cap rate",
+    "repeated 8-gram fraction",
+    "generated tokens",
+    "elapsed time",
+    "peak GPU allocation"
+  ],
+  "uncertainty": "95% paired case-bootstrap interval, 10000 resamples, fixed seed 0; exact paired one-sided binomial test on discordant cases. Small synthetic cohort; no claim about general math ability or unrelated capabilities.",
+  "limits": {
+    "max_generation_attempts": 160,
+    "max_generated_tokens": 540672,
+    "max_wall_seconds": 18000,
+    "max_editor_calls": 0,
+    "max_model_copies_on_gpu": 1
+  },
+  "failure_policy": "Write intent before each generation; retain errors and partial results. Never retry scored cases or overwrite this run. Any runtime/budget failure makes success unavailable. No token-bound changes after readings.",
+  "preflight_checks": {
+    "command": "pytest -q tests/test_loop_contract.py",
+    "required_passed": 4,
+    "failed_skipped_ignored": 0,
+    "runtime_invariants": [
+      "published patch Git object hash and exact bytes",
+      "all base and edited tensor SHA256 values",
+      "exact unchanged logits after edit restoration"
+    ]
+  },
+  "differences_from_original": [
+    "fresh synthetic questions instead of published benchmark sets",
+    "4096 rather than 32768 generated-token cap",
+    "one sample per case",
+    "Transformers inference rather than vLLM",
+    "reuse of published patch rather than independent discovery"
+  ],
+  "next_stage": "A new editor loop requires its own registration, fresh evaluation cohort and pinned researcher prompt. It may use only this stage's development examples for diagnosis; final and guard results are spent.",
+  "publication": {
+    "original_registration_sha256": "7da7d9527cd16b6427eadd19ab4ec3fd3d2f2d0ea1f75efede9183c054e943fa",
+    "projection": "package name and cache path generalized; bounds, model and patch identities unchanged"
+  }
+}

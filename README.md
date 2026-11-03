@@ -8,7 +8,7 @@ Can bounded internal weight edits improve model behaviour? This lab records dire
 
 ## Active weight-only replication
 
-The next experiment tests an exact published loop-removal weight patch in a 0.8B model on fresh synthetic arithmetic, with unchanged prompts and decoding. Success requires at least ten percentage points held-out accuracy gain, paired p <= 0.05, and no guardrail accuracy loss. No gradients or replacement classifier. Patch hashes and exact restoration checks passed; measurement is in progress, with no outcome claimed yet. [Protocol and limits](reports/loop-repair-03/README.md).
+The active experiment tests an exact published loop-removal weight patch in a 0.8B model on fresh synthetic arithmetic, with unchanged prompts and decoding. Success requires at least ten percentage points held-out accuracy gain, paired p <= 0.05, and no guardrail accuracy loss. No gradients or replacement classifier. Patch hashes and exact restoration checks passed; measurement is in progress, with no outcome claimed yet. [Live progress, refreshed every 15 minutes](reports/loop-repair-03/status.json) · [Protocol, code and reproduction instructions](reports/loop-repair-03/README.md).
 
 ## Final results
 

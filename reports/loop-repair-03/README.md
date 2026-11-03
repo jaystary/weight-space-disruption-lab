@@ -20,3 +20,18 @@ Question: does a published internal-weight edit improve fresh arithmetic perform
 Registration SHA256: `7da7d9527cd16b6427eadd19ab4ec3fd3d2f2d0ea1f75efede9183c054e943fa`. Executed source: `5d07407962668f9bd479e02876cf3f78c9fbaec0`. Source and private run artifacts are retained; the public snapshot excludes raw questions, sampled answers and operating details.
 
 This is a bounded replication of an existing patch, not independent discovery or replication of the paper's benchmark score. The synthetic dataset, Transformers engine, one sample per case and4096-token cap differ from that study. Small task-specific results cannot establish general model improvement. Coordinator-executed; not independently qualified. A future independent edit loop needs a fresh registration and final cohort, with a declared policy for multiple trials.
+
+## Reproduction harness
+
+[Runner](../../tools/weight_space_lab/loop_repair.py), [data generator and scorer](../../tools/weight_space_lab/loop_contract.py), [registration](../../registrations/loop-repair-03.json), and [four synthetic checks](../../tests/test_loop_contract.py) are published. Package and cache names are generalized from the executed source; model, patch, prompts, decoding and decision rules are preserved. The published registration includes projection metadata, so its file hash differs from the original hash above.
+
+Use a CUDA environment under `/workspace/` with Python 3.12, PyTorch 2.8.0+cu128 and the versions in the root `requirements.txt` and `constraints.txt`. From a clean committed checkout, run:
+
+```sh
+PYTHONPATH=. python -m pytest -q tests/test_loop_contract.py
+python -m tools.weight_space_lab.loop_repair
+```
+
+The runner downloads the pinned public model and patch, verifies tensor hashes, freezes choices and writes a new private synthetic cohort before inference. It refuses to overwrite an existing run. A new invocation is a new independent trial, not an exact replay of the private seed or a retry of the reported cases. A fresh registration and multiple-trial policy are required before using further trials as evidence.
+
+All four checks also passed against this public projection on the remote CPU (2.57 seconds; no model inference). An initial source transfer failed on archive ownership metadata before tests began; the corrected transfer excluded that metadata. The live measurement remained unchanged.
