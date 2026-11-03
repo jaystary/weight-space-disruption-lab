@@ -22,3 +22,10 @@ A promising gradient-free memory hypothesis is to derive a local rewrite from th
 Sources: [weight-space programming experiment8](https://rikiyat.github.io/blog/weight-space-programming/), [retrieval-head causal ablations](https://arxiv.org/abs/2404.15574), [factual association editing](https://rome.baulab.info/), [ROME target-vector implementation](https://github.com/kmeng01/rome/blob/main/rome/compute_v.py). These motivate separate tests; they do not establish improvement in this checkpoint.
 
 Status: design and researcher instructions prepared; data generator, diagnostic API, editor execution and independent final evaluations are pending. Neither synthetic track has run. The original success bar remains unmet until measured evidence proves it.
+
+
+Prepared implementation now includes deterministic synthetic generators, strict exact-answer scoring, immutable BF16 snapshots, per-request input hashes, development activation features, four bounded editor rounds per track and joint candidate freezing before either final cohort opens. Context tests choose among 64/256/512 records using development-only pilots. Memory tests use 16 independently sampled fictitious associations and one unseen question wording per association. Neither synthetic GPU track has run.
+
+The goal-level statistical family now conservatively covers four planned claims, including the two arithmetic replications: adjusted p=min(1,4*raw p). Existing stage decisions remain preserved. Success still requires at least ten percentage points gain and no accuracy decline in any registered guard family. No new result follows from preparation.
+
+One authenticated editor call pinned to gpt-6-astra returned a numerical-analysis program. CLI events included usage but no independent backend-model identity. Original execution failed on a missing API import. A separately registered controller binding correction reached tensor loading, then failed on another missing import; both failures and partial output remain. No patch was applied. Future kernel bindings are explicit. Generic source is public; actual requests, returned programs and conversations remain private.

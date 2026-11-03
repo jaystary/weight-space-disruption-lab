@@ -1,0 +1,9 @@
+{
+  "id": "needle-runtime-bridge-01",
+  "purpose": "One non-scored execution of the retained Astra-authored numerical analysis with explicit kernel bindings. Preserve the original NameError failure; this is a controller API correction, not another model answer or an efficacy retry.",
+  "prior_source": "c89fccd8b1f52ea9eb68ea62f4b1b25b313dd58f",
+  "program_sha256": "c33638165fc8d5751e7bed58558000e221b7cef79aa07b2e5804d0b30e72759b",
+  "prefix": "import numpy as np\nimport json, math, statistics, collections\nfrom edit_api import SPECS, load, save\n",
+  "limits": {"editor_calls": 0, "gpu_calls": 0, "program_executions": 1, "cpu_seconds": 60, "ram_gib": 4},
+  "decision": "Retain return code, exact original/prefix/program hashes, stdout and stderr. No emitted patch is applied. No automated retry."
+}

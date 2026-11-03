@@ -14,7 +14,7 @@ from .tensors import floats,validate_patch
 
 SCHEMA={'type':'object','additionalProperties':False,'required':['hypothesis','code'],
         'properties':{'hypothesis':{'type':'string'},'code':{'type':'string'}}}
-ALLOWED_IMPORTS={'numpy','json','math','statistics','collections','edit_api'}
+ALLOWED_IMPORTS={'numpy','json','math','statistics','collections','hashlib','edit_api'}
 FORBIDDEN_NAMES={'eval','exec','compile','open','__import__','getattr','setattr','delattr','globals','locals','breakpoint','input'}
 
 def audit(code):
@@ -25,7 +25,7 @@ def audit(code):
             names=[x.name for x in node.names] if isinstance(node,ast.Import) else [node.module or '']
             if any(name.split('.')[0] not in ALLOWED_IMPORTS for name in names):raise ValueError('unapproved import')
         if isinstance(node,ast.Name) and node.id in FORBIDDEN_NAMES:raise ValueError('unapproved builtin')
-        if isinstance(node,ast.Attribute) and (node.attr.startswith('__') or node.attr in ('random','gradient','backward','lstsq','save','savez','load','fromfile','tofile','ctypes')):
+        if isinstance(node,ast.Attribute) and (node.attr.startswith('__') or node.attr in ('random','gradient','backward','lstsq','pinv','solve','save','savez','load','fromfile','tofile','ctypes')):
             # Explicit API imports are permitted; arbitrary NumPy filesystem APIs are not.
             if not (isinstance(node.value,ast.Name) and node.value.id=='edit_api' and node.attr in ('save','load')):
                 raise ValueError('unapproved attribute: '+node.attr)

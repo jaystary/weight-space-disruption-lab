@@ -22,13 +22,16 @@ def audit_item(item):
         return 'message'
     return 'forbidden'
 
-def call(prompt: str, schema: dict, directory: Path, *, model='gpt-6-astra', timeout=300):
+def call(prompt: str, schema: dict, directory: Path, *, model='gpt-6-astra', timeout=300,
+         executable='codex', effort='max'):
     directory.mkdir(parents=True,exist_ok=False)
     write_once(directory/'schema.json',schema)
     (directory/'prompt.txt').write_text(prompt)
-    command=['codex','exec','--ignore-user-config','--ephemeral','--skip-git-repo-check',
-             '-C','/workspace/weight-space-lab/editor-client','-s','read-only','-m',model,
-             '-c','model_reasoning_effort="max"','-c','web_search="disabled"',
+    client_root=Path(__file__).resolve().parents[2]/'editor-client'
+    client_root.mkdir(exist_ok=True)
+    command=[executable,'exec','--ignore-user-config','--ephemeral','--skip-git-repo-check',
+             '-C',str(client_root),'-s','read-only','-m',model,
+             '-c','model_reasoning_effort='+json.dumps(effort),'-c','web_search="disabled"',
              '--json','--output-schema',str((directory/'schema.json').resolve()),
              '-o',str((directory/'answer.json').resolve())]
     for feature in DISABLED: command+=['--disable',feature]
@@ -47,7 +50,7 @@ def call(prompt: str, schema: dict, directory: Path, *, model='gpt-6-astra', tim
             except subprocess.TimeoutExpired:
                 os.killpg(p.pid,signal.SIGKILL);p.communicate()
             rc=None;error='timeout; attempt retained and not automatically retried'
-    usage=[];forbidden=[];warnings=[]
+    usage=[];forbidden=[];warnings=[];reported_models=set()
     for line in (directory/'events.jsonl').read_text().splitlines():
         try: event=json.loads(line)
         except ValueError: continue
@@ -57,8 +60,13 @@ def call(prompt: str, schema: dict, directory: Path, *, model='gpt-6-astra', tim
         elif item and audit_item(item)=='forbidden':
             forbidden.append(item.get('type'))
         if event.get('usage'): usage.append(event['usage'])
+        if isinstance(event.get('model'),str): reported_models.add(event['model'])
+        if isinstance(item.get('model'),str): reported_models.add(item['model'])
     receipt={'returncode':rc,'error':error,'seconds':time.monotonic()-started,
-             'usage':usage,'forbidden_event_types':forbidden,'expected_disabled_warnings':warnings,'model':model,'effort':'max'}
+             'usage':usage,'usage_known':bool(usage),'forbidden_event_types':forbidden,
+             'expected_disabled_warnings':warnings,'model':model,'effort':effort,
+             'reported_models':sorted(reported_models),
+             'identity_limit':'CLI request is pinned; backend identity is independently reported only when present in events'}
     write_once(directory/'receipt.json',receipt)
     if rc!=0 or forbidden: raise RuntimeError(f'model call failed; see private receipt at {directory}')
     answer=json.loads((directory/'answer.json').read_text())

@@ -1,0 +1,17 @@
+{
+  "id": "needle-weight-diagnostic-01",
+  "purpose": "One real Astra numerical-weight inspection before either synthetic GPU study. Development preparation only; no efficacy claim or scored case.",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "editor_model": "gpt-6-astra",
+  "editor_effort": "high",
+  "researcher_prompt_id": "direct-weight-v2",
+  "researcher_prompt_sha256": "46c94e90caf1bc04ef2dc2d54d7f3d0a540376859f6f582dc9f65c65b2305628",
+  "layers": [7, 11, 15, 19, 23],
+  "modules": ["mlp.down_proj.weight"],
+  "limits": {"editor_calls": 1, "editor_timeout_seconds": 480, "generated_program_cpu_seconds": 60, "generated_program_ram_gib": 4, "gpu_calls": 0, "scored_cases": 0, "wall_seconds": 900},
+  "permission": "Read immutable numerical snapshots and print bounded diagnostics. No patch application, gradients, optimizer, training, data access, external tools or network. save() exists in the copied API but any emitted patch is retained as untested and never applied by this stage.",
+  "success": "Authenticated pinned-model call returns valid audited Python, executes successfully against actual tensor snapshots, and prints numerical diagnostics. A configured model name is not independent backend attestation; preserve reported identity or its absence.",
+  "failure_policy": "One attempt including timeout or failure. Preserve failure and unknown usage. No automatic retry or model substitution.",
+  "public": "Authored source and sanitized aggregate receipts only; prompt, returned code, tensor values and conversations private."
+}

@@ -72,3 +72,6 @@ Inspired by [Sparks of Weight-Space Programming](https://rikiyat.github.io/blog/
 ## Mechanistic investigation
 
 [Measured influence map](docs/influence-map.svg) traces tested edits to internal state changes and repairs/regressions. [Researcher prompt](prompts/mechanistic-researcher-v1.md) is versioned and hash-pinned for future registrations; existing calls retain their original prompt and budget. Gate/value instrumentation is a training-only diagnostic, not a weight edit.
+
+
+Synthetic context-retrieval and memory-write harnesses are prepared; neither has run on GPU. See [protocol and current limits](docs/synthetic-needle-research.md) and [direct weight researcher instructions](prompts/direct-weight-researcher-v2.md). A real pinned editor request returned code, but its numerical diagnostic remained incomplete after API-binding failures. No new efficacy result.

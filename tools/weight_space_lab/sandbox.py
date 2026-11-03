@@ -13,7 +13,7 @@ import subprocess
 import sys
 import sysconfig
 
-ROOT=Path('/workspace/weight-space-lab')
+ROOT=Path(__file__).resolve().parents[2]
 JAIL=ROOT/'editor-jail'
 
 def build():

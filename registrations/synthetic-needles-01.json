@@ -1,0 +1,89 @@
+{
+  "id": "synthetic-needles-01",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "researcher_prompt_id": "direct-weight-v2",
+  "researcher_prompt_sha256": "46c94e90caf1bc04ef2dc2d54d7f3d0a540376859f6f582dc9f65c65b2305628",
+  "editor_model": "gpt-6-astra",
+  "editor_effort": "high",
+  "layers": [
+    7,
+    11,
+    15,
+    19,
+    23
+  ],
+  "modules": [
+    "mlp.down_proj",
+    "self_attn.q_proj",
+    "self_attn.k_proj",
+    "self_attn.v_proj",
+    "self_attn.o_proj"
+  ],
+  "generation": {
+    "thinking": false,
+    "do_sample": false,
+    "max_new_tokens": 16,
+    "max_input_tokens": 16384,
+    "attention": "sdpa",
+    "eos_token_ids": [
+      248044,
+      248046
+    ]
+  },
+  "data": {
+    "context_difficulty_records": [
+      64,
+      256,
+      512
+    ],
+    "difficulty_cases_per_level": 8,
+    "context_development": 16,
+    "context_final": 48,
+    "memory_facts": 16,
+    "context_guards": 16,
+    "memory_guards": 24
+  },
+  "selection": "Pick context record count with development pilot accuracy closest to .5, ties shorter. Each track gets four editor rounds including diagnostics/failures. Rank candidates by development exact accuracy, then mean target-first-token margin, then fewer changed BF16 entries. Baseline participates. Freeze both selected patches before any final or guard cohort is generated. If no patch beats baseline rank, preserve no-candidate result and do not open that track's final cohort.",
+  "memory_interpretation": "Sixteen independent random fictitious entity/color assignments, sampled with replacement. Writer sees facts and one development question per fact. Final uses one withheld paraphrase per fact, with all supporting fact text removed. Fact is statistical unit. This tests paraphrase recall of inserted facts, not generalization to unwritten facts.",
+  "allowed_algebra": "Reasoned tensor inspection, norms, SVD, projections and one-off sparse outer-product internal rewrites. No gradient optimization, optimizer, iterative loss fitting, multi-example regression, replacement classifier, random weight search, whole-matrix rescaling, embedding/head/norm edits or inference-time activation injection.",
+  "traces": "Development only: last prompt position input/output of each editable linear module, final residual/normalized hidden vector, supported versus unsupported memory prompts, and read-only output directions for development answer first tokens. No full attention map, attention-head causal tracer or arbitrary interactive GPU tool is implemented. One candidate automatically triggers the fixed development generation panel. No additional caller-defined forwards.",
+  "limits": {
+    "editor_calls_per_track": 4,
+    "editor_calls_total": 8,
+    "editor_timeout_seconds": 480,
+    "editor_prompt_characters": 120000,
+    "program_cpu_seconds": 60,
+    "program_ram_gib": 4,
+    "max_changed_entries": 262144,
+    "max_patch_bytes": 16777216,
+    "max_generations": 392,
+    "max_generated_tokens": 6272,
+    "max_model_requests": 470,
+    "max_wall_seconds": 7200
+  },
+  "goal_statistics": {
+    "statistic": "exact one-sided paired McNemar",
+    "unit": "independent context case or written fact",
+    "minimum_gain": 0.1,
+    "family_size": 4,
+    "family_members": [
+      "loop-repair-03",
+      "loop-repair-04",
+      "context-needle-01",
+      "weight-memory-01"
+    ],
+    "adjusted_p_max": 0.05,
+    "guard_rule": "No accuracy decline in any registered guard family: copy, arithmetic, plus unwritten-entity for memory. Every final case completes without error. No final retries.",
+    "note": "Goal-level correction applies across four planned claims, including an unrun member. Earlier stage/family decisions stay in their original receipts; they cannot alone satisfy this broader owner request. Both synthetic choices are frozen before either final opens."
+  },
+  "admission": {
+    "prior_closed_report": "/workspace/weight-space-loop-repair-03/runs/loop-repair-03/closure-check.json",
+    "latest_launch_utc": "<REGISTERED_LATEST_START_UTC>",
+    "compute_stop_utc": "<REGISTERED_COMPUTE_STOP_UTC>",
+    "closure_reserve_seconds": 600,
+    "extra_resources": false
+  },
+  "failure_policy": "Every editor/program/evaluation failure remains. A new development candidate is a new attempt; never retry the same scored final case. Unknown editor usage stays unknown. This exploratory coordinator-run experiment is not independently qualified. Stop within original total compute/storage caps.",
+  "public_projection": "Private operating dates/locations generalized. Register local resource limits before executing; historical source identity remains in private custody."
+}

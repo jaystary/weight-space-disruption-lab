@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "3cda0846ef265a0c1aefd2db3561b9527d43119123cf9fe5641e3cacd8575cb1"
+      "sha256": "facc564c9680f0baa3caea829140083dfb9d2344b5093646cdc4c1efad9105a9"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "e134c91b2465e6045bf2867b0472575a35e5d866c47cd36e5790d87884927059"
+      "sha256": "384b1bb862c19e97d7bb2f3486f554a76e497c27db7175bb3d6feafdb2ec9687"
     },
     {
       "path": "constraints.txt",
@@ -49,7 +49,7 @@
     },
     {
       "path": "docs/synthetic-needle-research.md",
-      "sha256": "98c6611b2fd9a65e6a6562471c431fc5d8b14f84279ab5b49052165533a5cdef"
+      "sha256": "c3e5c6e1ef473bfe5336f5fec53de254fd1259f263583845897a844d28f3dc5c"
     },
     {
       "path": "prompts/direct-weight-researcher-v2.md",
@@ -94,6 +94,22 @@
     {
       "path": "registrations/native-gates-01.json",
       "sha256": "3a7cde4fe269021a4e0abe17f469c68c5c16375d967e632566729e46e3a2f201"
+    },
+    {
+      "path": "registrations/needle-runtime-bridge-01.json",
+      "sha256": "0182387030eca162133d00c016be8fc7639a6a667ebd8c8275c291150bad7c13"
+    },
+    {
+      "path": "registrations/needle-weight-diagnostic-01.json",
+      "sha256": "3f73f40a5ce5baa8a8c62e3a4e934fc35d3b2ba2350d850389dc2db1078af7ef"
+    },
+    {
+      "path": "registrations/needle-weight-diagnostic-01b.json",
+      "sha256": "0d0747a313200bb70a394228f492d045292f6e3c317ae5195336c1e1e8e8e6da"
+    },
+    {
+      "path": "registrations/synthetic-needles-01.json",
+      "sha256": "77832ce89cdcfc8768cb2f88c9e6fc48bc099790aeb5042100a50c9318d299e9"
     },
     {
       "path": "registrations/weight-only-goal-01.json",
@@ -153,7 +169,7 @@
     },
     {
       "path": "reports/loop-repair-03/status.json",
-      "sha256": "be6f40d7b9622b4addbe48d6325f54bc81ed32b812c2b379111d3420909eae3a"
+      "sha256": "ae01d6413e0056c103babf7f751102f1b606603f822584c94ffb161ba98da576"
     },
     {
       "path": "reports/loop-repair-04/README.md",
@@ -185,7 +201,7 @@
     },
     {
       "path": "tests/test_edit_loop.py",
-      "sha256": "8bff3bd819500f2fe0358943ade80acdcb1ab72dffcefd9eb295efb0682636f2"
+      "sha256": "6c7ab59aaa2b08bf35ceae0f36beda59d6cb56ec613a40244bf8b57c373259aa"
     },
     {
       "path": "tests/test_final_evaluation.py",
@@ -212,8 +228,24 @@
       "sha256": "530eeb297d8ba020b46069ac00ee562133407b16fb3c57b2a9fb5bbc7c8b05ac"
     },
     {
+      "path": "tests/test_model_client_identity.py",
+      "sha256": "3b9db5e921e7f28a6893a5c993b1427a12a29ee2441d151dc510d9795fa3ccea"
+    },
+    {
       "path": "tests/test_native_gates.py",
       "sha256": "5162f34ba980f9a912fdef6d000c60355b6fd9e4452646417d946f4f66821ad1"
+    },
+    {
+      "path": "tests/test_needle_contract.py",
+      "sha256": "8c886ec290fce481a33ad27c62de04df4c16d43b84d7634026efb81b1312f0ae"
+    },
+    {
+      "path": "tests/test_needle_diagnostic.py",
+      "sha256": "d107f9632a05e60bf15ff74885397f0d6d12f979c15a87b7928bde6ed9216eae"
+    },
+    {
+      "path": "tests/test_needle_worker.py",
+      "sha256": "f00e13c1592b711c750f4b241f09d3d1de127ca8c2b792d48acf8b9a63bc194e"
     },
     {
       "path": "tests/test_research_prompt.py",
@@ -261,7 +293,7 @@
     },
     {
       "path": "tools/weight_space_lab/edit_loop.py",
-      "sha256": "989504cbde4d80d169e3e175bb3a1568fc8441e54adaf1e40ec7b0037e59bab5"
+      "sha256": "a9f3a6b8a54f03b11c1b6ae47f3a78d7c9ea96eb417ffa526bac08a41da21076"
     },
     {
       "path": "tools/weight_space_lab/final_evaluation.py",
@@ -289,7 +321,7 @@
     },
     {
       "path": "tools/weight_space_lab/model_client.py",
-      "sha256": "043961c66592901568c411250276c3f41cd0911a5e4656e1c6987ddcf8139e9f"
+      "sha256": "4d0ab7e0c2a2a67c8b8b5ced9e349610f969a80f00da60d3b4c31a2fe1389abd"
     },
     {
       "path": "tools/weight_space_lab/model_size_trial.py",
@@ -298,6 +330,30 @@
     {
       "path": "tools/weight_space_lab/native_gates.py",
       "sha256": "873e0ffaee2517eeb2505de89d5ec3d8980d049ad821667180aa4f25ec32985c"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_contract.py",
+      "sha256": "1a79c65e5dc1c1513464f692ae52f42071418c3366d883a447ecd903419b3cd7"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_diagnostic.py",
+      "sha256": "5cf58d74dc7ddb93513897b567fa645d929664c7fcea61740dd181252134d13a"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_feature_api.py",
+      "sha256": "daf57e6e4a6c3efc0295e5020db05d2d74e0a72292a53950540d95ee5cef3b7d"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_loop.py",
+      "sha256": "49baac143296a3d6ad49c3262b703158b2674402ff81ceb9caffee3c825f817f"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_runtime_bridge.py",
+      "sha256": "3061f22b3511a37784448175bd8c156143ecc784941626608d13ae0dd8bb1f3c"
+    },
+    {
+      "path": "tools/weight_space_lab/needle_worker.py",
+      "sha256": "c2ff3694daeb6088e773f174d6d49be7e7516c107c723250a7559abfd2fbfc51"
     },
     {
       "path": "tools/weight_space_lab/prepare_classification.py",
@@ -325,7 +381,7 @@
     },
     {
       "path": "tools/weight_space_lab/sandbox.py",
-      "sha256": "293654f6e8d5d13b095d2f6357e6bb557dd65dc17d8f3d4f16f28208aeef6036"
+      "sha256": "c9fd05c20f3af975a689e71e3fd336370096acc62249d4fcd44cfdce6ed5004a"
     },
     {
       "path": "tools/weight_space_lab/scoring.py",
@@ -346,7 +402,7 @@
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
   },
-  "updated_at": "2026-11-03T02:09:48.942899+00:00",
+  "updated_at": "2026-11-03T02:26:12.834150+00:00",
   "research_update": {
     "id": "loop-repair-03",
     "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
@@ -383,5 +439,11 @@
     "prompt_sha256": "46c94e90caf1bc04ef2dc2d54d7f3d0a540376859f6f582dc9f65c65b2305628",
     "remote_prompt_tests_passed": 2,
     "combined_focused_public_tests_passed": 6
+  },
+  "synthetic_preparation_source": "d7b1fe8823e6bfa08afef9fe4669bf7f453fc46e",
+  "synthetic_projection_checks": {
+    "passed": 13,
+    "seconds": 2.74,
+    "gpu_stage": "unexecuted"
   }
 }
