@@ -13,11 +13,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "c42c5bf9787b13f5969c1fcf01e76cd48837e065e94a4be500f5cb5008037255"
+      "sha256": "853d578cb9b0147e11f77c948ee3db2598957c23d6da5ee4dd354c9a25929e35"
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "b490e4ee69830cae9109cd7165b3b15625dd835a4c6f4c57085eda5c8867e9d9"
+      "sha256": "5b9e2486fc205047bdf4f89e8a1ca02d7416a7f2d23b40ced71572dc3c185fb5"
     },
     {
       "path": "constraints.txt",
@@ -110,6 +110,10 @@
     {
       "path": "reports/joint-final-02/closure-check.json",
       "sha256": "c22e16923dae3dacff5052f2455399f5fd9f552116f2f03ba7a2f87c8a8bec01"
+    },
+    {
+      "path": "reports/loop-repair-03/README.md",
+      "sha256": "b5c27130382b726ef682b7cd1278616582d71103d9ce170f16d1429063893532"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -277,5 +281,13 @@
     "privacy_static_check": "passed",
     "influence_map": "10 aggregate candidate rows; no new scores",
     "all_images": "dark SVG and PNG"
+  },
+  "updated_at": "2026-11-03T00:13:48.605080+00:00",
+  "research_update": {
+    "id": "loop-repair-03",
+    "source_commit": "5d07407962668f9bd479e02876cf3f78c9fbaec0",
+    "status": "running; no efficacy result yet",
+    "scope": "documentation-only progress update; historical public reference source unchanged",
+    "remote_preflight_tests_passed": 4
   }
 }

@@ -89,3 +89,16 @@ Read this log first, then the cited aggregate files and registrations. Append fi
 - Source: `reports/joint-final-02/aggregate-report.json`, `REPORT.md`, `closure-check.json`; registrations `cause-02.json`, `model-size-01.json`, `joint-final-02.json`.
 - Limits: weak labels; lexical group separation rather than demonstrated incident independence; rare classes; earlier-period group holdout rather than a fresh temporal holdout. Existing final data is now spent for future tuning claims. Further efficacy claims require fresh evaluation data and a new registration.
 - Editor accounting: cause-02 had five timed-out calls without usage, in addition to two such calls in cause-01. These are execution failures, not negative mechanistic tests. New prompt remains available for a fresh registered loop.
+### F11 — Original successful mechanism differs from the first task
+
+- Literature finding: the original small-language-model result repaired repeated reasoning by changing MLP output columns in layers 15 and 19. Its non-looping model follow-up did not establish an improvement. Source: https://github.com/RikiyaT/lm_understand-logs/tree/4d09ba6d6a7e891dd8063974dfe81b3d78e3494f/exp8_math.
+- Our original fixed next-category-token classification did not expose a long-generation loop. Its narrow final-layer feature API and five timed-out adaptive calls also left important mechanisms untested. This explains a design difference; it does not prove why our edits failed.
+- Next hypothesis: reproduce a supported loop-removal intervention before attempting a new causal edit. Keep reproduction and independent discovery distinct.
+
+### F12 — Weight-only replication registered and launched; outcome pending
+
+- Registration: loop-repair-03, SHA256 7da7d9527cd16b6427eadd19ab4ec3fd3d2f2d0ea1f75efede9183c054e943fa; source 5d07407962668f9bd479e02876cf3f78c9fbaec0. Four remote authored checks passed.
+- Qwen3.5-0.8B baseline versus exact published p50c patch; 130,188 BF16 entries differ in two internal MLP matrices. All base/edited tensor hashes verified; restoring original weights reproduced original logits exactly on the synthetic check.
+- Fresh synthetic arithmetic: development16, final48, exact-string guard16. Same prompts/decoding and per-case sampling seeds. Primary threshold: >=10pp final gain, exact paired one-sided p<=.05, no guard accuracy loss, no execution failures. No gradients or fitted classifier.
+- Outcome pending. This reuses the authors' patch and changes benchmark, inference engine, sample count and token cap (4096 versus32768). It is a bounded replication, not independent edit discovery or reproduction of the published score. Small synthetic cohort limits generality.
+- Runtime note: missing optimized recurrent kernels trigger reference implementations. Monitor budget without changing the running candidate or retrying scored cases.

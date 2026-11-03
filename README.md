@@ -1,10 +1,14 @@
 # Weight-space programming lab
 
-Can bounded internal weight edits improve text classification? This lab compares direct edits, unchanged models and supervised classifiers on frozen model features.
+Can bounded internal weight edits improve model behaviour? This lab records direct-edit experiments, unchanged baselines, diagnostics and clearly separated comparison methods.
 
-**Development, coordinator-executed, not independently qualified (`isolation_unverified`).** Labels are source metadata, not independently adjudicated truth. Public content is task-neutral; private conversations, actual requests, raw examples, individual predictions, credentials and operating details are excluded.
+**Development, coordinator-executed, not independently qualified (`isolation_unverified`).** Earlier classification labels are source metadata, not independently adjudicated truth; the new arithmetic trial uses computed answers. Public content is task-neutral; private conversations, actual requests, raw examples, individual predictions, credentials and operating details are excluded.
 
 ![Experimental setup](docs/experiment-setup.svg)
+
+## Active weight-only replication
+
+The next experiment tests an exact published loop-removal weight patch in a 0.8B model on fresh synthetic arithmetic, with unchanged prompts and decoding. Success requires at least ten percentage points held-out accuracy gain, paired p <= 0.05, and no guardrail accuracy loss. No gradients or replacement classifier. Patch hashes and exact restoration checks passed; measurement is in progress, with no outcome claimed yet. [Protocol and limits](reports/loop-repair-03/README.md).
 
 ## Final results
 
