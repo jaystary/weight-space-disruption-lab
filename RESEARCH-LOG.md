@@ -174,3 +174,9 @@ The opt-in editor interface keeps four structured numerical findings separately 
 ### F23 — Independent results separate output-format repair, synthetic repair and patch replay
 
 A pretrained Qwen output-row experiment improved 15/32 to 23/32 by fixing JSON fences. Its earlier internal MLP-column edit was flat. A separate agent repaired a synthetic hidden threshold from 35/64 to 64/64. An independent MATH-500 rerun scored the published edited Qwen checkpoint at 51.0%. Scope, commits and controls are recorded in the [source survey](docs/independent-weight-edit-results.md).
+
+### F24 — Supplied facts changed the first-token ranking on every memory development question
+
+Across all 16 questions without supporting context, the frozen model gave one distinct answer after normalization. The target word appeared in none of the responses. None reached the generation cap. With the correct fact supplied, the saved final activation ranked the correct first token first among 11 distinct answer tokens on 16/16 questions. Without the fact it ranked first on 0/16. Cyclically reassigning targets averaged 0.8 correct with support, across 16 questions. This comparison used cached activations. The supported condition had no generated-answer score. [Aggregate](reports/memory-signal-audit-01/aggregate.json)
+
+The MLP inputs at the last prompt token looked alike across different entities at every inspected layer (median pairwise cosine 0.980–0.997). At the entity token the medians ranged from 0.632 to 0.912. A future experiment could check whether the same entity produces a stable direction across paraphrases before trying to use that direction to write a fact. Cosine alone cannot tell us where a fact is stored or whether a write will work. No weights changed in this diagnostic.

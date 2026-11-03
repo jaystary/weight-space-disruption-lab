@@ -1,0 +1,9 @@
+{
+  "id":"memory-signal-audit-01",
+  "parent_source":"ac787b37f2f406b0c5034c938299873ff63500c0",
+  "parent_registration_sha256":"3711dc5d9ebd94ae3653e80e4a81c5aa2c5d78e37ab660a93171a18bbf5930cf",
+  "scope":"Retrospective diagnosis of all 16 original memory development facts, using only cached base features and recorded unsupported development generations. No new target or editor calls, scored data or weight edits.",
+  "diagnostics":["Compare exact answers to target-word presence in recorded responses, count unique answers and generation cap hits.","Using saved final normalized hidden states and the distinct saved target-token head rows, compare forced-choice top-1 accuracy with and without support. Ties are incorrect. Use all 15 cyclic relabelings as a descriptive assignment control.","In every registered editable MLP down-projection, report median and maximum pairwise cosine among 16 entity-span input vectors and among 16 final-position input vectors. These describe possible cross-talk for an uncentered outer-product write."],
+  "limits":{"cases":16,"layers":[7,11,15,19,23],"wall_seconds":60,"cpu_threads":1,"gpu_calls":0,"editor_calls":0,"new_model_forwards":0},
+  "claim":"Descriptive numerical diagnosis for a future prospective edit. Restricted-token ranks are not generated answers. Stored traces cannot demonstrate a successful weight write, cross-phrase stability, or held-out transfer."
+}

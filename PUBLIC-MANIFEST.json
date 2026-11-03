@@ -17,7 +17,7 @@
     },
     {
       "path": "RESEARCH-LOG.md",
-      "sha256": "d4138f4edb328e942bce66de28e919e93df71e464f1382f522f5746d158c7409"
+      "sha256": "393aefeca278e89370da5c09347aa56f66c9bda1e4d4754b513de3256d009df8"
     },
     {
       "path": "constraints.txt",
@@ -33,7 +33,7 @@
     },
     {
       "path": "docs/independent-weight-edit-results.md",
-      "sha256": "61868de36203f813bf3bda4a96c173648f38a46c0d2e4f5e851067ce9c7819f1"
+      "sha256": "7b3bdc0a65bb9220e5a5cf1c2d5659ab16b01601972c774213c6343e8d30a810"
     },
     {
       "path": "docs/influence-map.png",
@@ -94,6 +94,10 @@
     {
       "path": "registrations/loop-repair-04.json",
       "sha256": "00331947fa03968a28a2c07e3d00c8d43da3b1566b1ee3e8486766f834125c61"
+    },
+    {
+      "path": "registrations/memory-signal-audit-01.json",
+      "sha256": "ed93262908f3e3ca58a215797a7435011186adfb58b755580933f5b874111aa2"
     },
     {
       "path": "registrations/model-size-01.json",
@@ -201,7 +205,11 @@
     },
     {
       "path": "reports/loop-repair-04/status.json",
-      "sha256": "28a9441c62a70dab31a46329237680bbe88ec2c9108c2ffecd0af2a21fe56b65"
+      "sha256": "aa0abe562febe232e93f3f2242d0d1f6b3e274fcfe41e948a57ae51119e33c91"
+    },
+    {
+      "path": "reports/memory-signal-audit-01/aggregate.json",
+      "sha256": "9c20b6781276b72c38a5965f0c516c5b0981dfb43b433b22dd3e08d71c9c6e31"
     },
     {
       "path": "reports/model-size-01/2B.json",
@@ -266,6 +274,10 @@
     {
       "path": "tests/test_loop_contract.py",
       "sha256": "530eeb297d8ba020b46069ac00ee562133407b16fb3c57b2a9fb5bbc7c8b05ac"
+    },
+    {
+      "path": "tests/test_memory_signal_audit.py",
+      "sha256": "8a97dcee3ddfba1c746c9f8e43b39a88cf148da69e81a968a840fb26104b4650"
     },
     {
       "path": "tests/test_model_client_identity.py",
@@ -366,6 +378,10 @@
     {
       "path": "tools/weight_space_lab/loop_repair.py",
       "sha256": "4f3e83014c54ec52752f4f8d7fe2aae5b0a8e8011cf0b16310f12c0cbaa10d78"
+    },
+    {
+      "path": "tools/weight_space_lab/memory_signal_audit.py",
+      "sha256": "536eff18227c3e17dfba64ccaa117d6b073ced180f85b87278dedfcf01545c7a"
     },
     {
       "path": "tools/weight_space_lab/model_client.py",
